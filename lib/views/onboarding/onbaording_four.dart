@@ -1,11 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class OnboardingFourScreen extends StatelessWidget {
+import '../../components/create_account_dialog.dart';
+import '../../components/login_dialog.dart';
+
+class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
+
+  @override
+  State<OnboardingFourScreen> createState() => _OnboardingFourScreenState();
+}
+
+class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
+
+  Future<dynamic> showLoginDialog() {
+    return showDialog(
+      context: context,
+      builder: (ctx) => const LoginDialog()
+    );
+  }
+  
+  Future<dynamic> showCreateAccountDialog() {
+    return showDialog(
+      context: context,
+      builder: (ctx) => const CreateAccountDialog(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +56,9 @@ class OnboardingFourScreen extends StatelessWidget {
             Row(
               children: [
                 GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showCreateAccountDialog();
+                    },
                     child: Text(
                       "Create an account",
                       style: kMontserratMedium.copyWith(
@@ -44,7 +71,9 @@ class OnboardingFourScreen extends StatelessWidget {
                   style: kMontserratMedium,
                 ),
                 GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showLoginDialog();
+                    },
                     child: Text(
                       "log in",
                       style: kMontserratMedium.copyWith(

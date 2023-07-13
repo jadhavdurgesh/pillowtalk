@@ -43,7 +43,7 @@ class SplashScreen extends StatelessWidget {
 
           Expanded(child: Container()),
           Text("V1.2.1", style: kMontserratMedium.copyWith(
-            color: lightcolor
+            color: lightColor
           ),),
 
           48.heightBox
