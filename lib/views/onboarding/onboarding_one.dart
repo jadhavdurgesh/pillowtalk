@@ -28,7 +28,7 @@ class OnboardingOneScreen extends StatelessWidget {
             width: 22,
             widthbox: 4.0,
             onPress: () {
-              Get.to(() => OnboardingTwoScreen(), transition: Transition.rightToLeftWithFade);
+              Get.to(() => const OnboardingTwoScreen(), transition: Transition.noTransition);
               },
           ),
           Expanded(flex: 2, child: Container()),

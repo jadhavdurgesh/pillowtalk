@@ -1,11 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import '../components/progress_indicator.dart';
 import '../constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class SplashScreen extends StatelessWidget {
+import 'onboarding/onboarding_one.dart';
+
+class SplashScreen extends StatefulWidget {
+
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(
+      const Duration(seconds: 2),
+      (){
+        Get.off(() => const OnboardingOneScreen(), transition: Transition.noTransition);
+      }
+    );
+
+  }
+
 
   @override
   Widget build(BuildContext context) {

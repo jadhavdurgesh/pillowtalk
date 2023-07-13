@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import '../../constants/colors.dart';
 import 'onboarding_three.dart';
 
 class OnboardingTwoScreen extends StatelessWidget {
@@ -30,7 +27,7 @@ class OnboardingTwoScreen extends StatelessWidget {
             height: 22,
             width: 22,
             widthbox: 4.0,
-            onPress: () {Get.to(() => OnboardingThreeScreen(), transition: Transition.rightToLeftWithFade);},
+            onPress: () {Get.to(() => const OnboardingThreeScreen(), transition: Transition.noTransition);},
           ),
           Expanded(flex: 2, child: Container()),
         ],

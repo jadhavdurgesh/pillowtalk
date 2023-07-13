@@ -91,7 +91,7 @@ class _LoginDialogState extends State<LoginDialog> {
                         widthbox: 4.0,
                         onPress: () {
                           Get.back();
-                          Get.to(()=> OnboardingFiveScreen());
+                          Get.to(()=> const OnboardingFiveScreen(), transition: Transition.noTransition);
                         },
                       ),
                     ],

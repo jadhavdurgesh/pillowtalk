@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import 'onbaording_four.dart';
-import 'onboarding_two.dart';
 
 class OnboardingThreeScreen extends StatelessWidget {
   const OnboardingThreeScreen({super.key});
@@ -29,7 +27,7 @@ class OnboardingThreeScreen extends StatelessWidget {
             height: 22,
             width: 22,
             widthbox: 4.0,
-            onPress: () {Get.to(() => OnboardingFourScreen(), transition: Transition.rightToLeftWithFade);},
+            onPress: () {Get.to(() => const OnboardingFourScreen(), transition: Transition.noTransition);},
           ),
           Expanded(flex: 2, child: Container()),
         ],
