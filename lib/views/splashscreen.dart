@@ -24,7 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       const Duration(seconds: 2),
       (){
-        Get.off(() => const OnboardingOneScreen(), transition: Transition.noTransition);
+        Get.back();
+        Get.to(()=> const OnboardingOneScreen(), transition: Transition.noTransition);
       }
     );
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pillowtalk/components/outline_button.dart';
-import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 

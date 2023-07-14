@@ -27,7 +27,9 @@ class OnboardingTwoScreen extends StatelessWidget {
             height: 22,
             width: 22,
             widthbox: 4.0,
-            onPress: () {Get.to(() => const OnboardingThreeScreen(), transition: Transition.noTransition);},
+            onPress: () {
+              Get.to(()=> const OnboardingThreeScreen(), transition: Transition.noTransition );
+              },
           ),
           Expanded(flex: 2, child: Container()),
         ],
