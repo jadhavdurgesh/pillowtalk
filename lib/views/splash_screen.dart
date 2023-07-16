@@ -17,6 +17,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  late Image image1;
+  late Image image2;
+  late Image image3;
+
+
   @override
   void initState() {
     super.initState();
@@ -24,11 +29,12 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       const Duration(seconds: 2),
       (){
-        Get.back();
-        Get.to(()=> const OnboardingOneScreen(), transition: Transition.noTransition);
+        image1 = Image.asset("assets/banner1.png");
+        image2 = Image.asset("assets/banner2.png");
+        image3 = Image.asset("assets/banner3.png");
+        Get.off(()=> OnboardingOneScreen(image1: image1,image2: image2,image3: image3,), transition: Transition.noTransition);
       }
     );
-
   }
 
 

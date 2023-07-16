@@ -3,8 +3,24 @@ import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class OnboardingFiveScreen extends StatelessWidget {
+import '../../components/enter_code_dialog.dart';
+
+class OnboardingFiveScreen extends StatefulWidget {
   const OnboardingFiveScreen({super.key});
+
+  @override
+  State<OnboardingFiveScreen> createState() => _OnboardingFiveScreenState();
+}
+
+class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
+
+
+  Future<dynamic> showEnterCodeDialog() {
+    return showDialog(
+      context: context,
+      builder: (ctx) => const EnterCodeDialog()
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +54,7 @@ class OnboardingFiveScreen extends StatelessWidget {
               height: 22,
               width: 22,
               widthbox: 12,
+              
             ),
             8.heightBox,
             customOutlineButton(
@@ -46,6 +63,9 @@ class OnboardingFiveScreen extends StatelessWidget {
               height: 22,
               width: 22,
               widthbox: 12,
+              onPress: () {
+                showEnterCodeDialog();
+              },
             ),
             Expanded(child: Container()),
           ],
