@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:pillowtalk/constants/colors.dart';
-import '../components/progress_indicator.dart';
+import 'dart:math' as math;
+import '../constants/colors.dart';
 import '../constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -15,7 +16,9 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+
+  late final AnimationController _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2))..repeat();
 
   late Image image1;
   late Image image2;
@@ -69,9 +72,19 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
 
           32.heightBox,
-
-          customCircularProgressIndicator(),
-
+          AnimatedBuilder(
+              animation: _controller,
+              builder: (_, child) {
+                return Transform.rotate(
+                  angle: _controller.value * 2 * math.pi,
+                  child: child,
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.all(20.0),
+                child: Image.asset("assets/indicator.png", width: 40, height: 40, fit: BoxFit.fitWidth,)
+                ),
+              ),
           Expanded(child: Container()),
           Text("V1.2.1", style: kMontserratMedium.copyWith(
             color: lightColor

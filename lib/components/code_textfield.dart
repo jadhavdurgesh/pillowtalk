@@ -7,7 +7,7 @@ import '../constants/colors.dart';
 Widget codeTextField({context}){
   return SizedBox(
     height: 68,
-    width: 64,
+    width: MediaQuery.of(context).size.width*0.14,
     child: TextField(
       cursorColor: secondaryColor,
       onChanged: (value) {

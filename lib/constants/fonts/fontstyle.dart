@@ -4,22 +4,22 @@ import 'package:pillowtalk/constants/colors.dart';
 
 // montserrat fontstyle
 final kMontserratRegular = GoogleFonts.montserrat(
-  color: darkfontColor,
+  color: darkFontColor,
   fontWeight: FontWeight.w400
 );
 
 final kMontserratMedium = GoogleFonts.montserrat(
-  color: darkfontColor,
+  color: darkFontColor,
   fontWeight: FontWeight.w500
 );
 
 final kMontserratSemibold = GoogleFonts.montserrat(
-  color: darkfontColor,
+  color: darkFontColor,
   fontWeight: FontWeight.w600
 );
 
 final kMontserratBold = GoogleFonts.montserrat(
-  color: darkfontColor,
+  color: darkFontColor,
   fontWeight: FontWeight.w700
 );
 
