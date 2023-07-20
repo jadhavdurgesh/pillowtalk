@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
@@ -7,8 +6,10 @@ import 'package:velocity_x/velocity_x.dart';
 import 'onbaording_four.dart';
 
 class OnboardingThreeScreen extends StatefulWidget {
-  final Image image3;
-  const OnboardingThreeScreen({super.key, required this.image3});
+  // final Image image3;
+  const OnboardingThreeScreen({super.key, 
+  // required this.image3
+  });
 
   @override
   State<OnboardingThreeScreen> createState() => _OnboardingThreeScreenState();
@@ -35,7 +36,7 @@ class _OnboardingThreeScreenState extends State<OnboardingThreeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          widget.image3,
+          // widget.image3,
           // SvgPicture.asset("assets/banner3.svg", fit: BoxFit.cover, color: Colors.black,),
           // Image.asset("assets/banner3.png"),
           // CachedNetworkImage(imageUrl: 'https://couplegames.s3.amazonaws.com/Onboarding+Screens/Screen3.png'),

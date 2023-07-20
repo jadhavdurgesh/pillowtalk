@@ -1,3 +1,4 @@
+import 'package:pillowtalk/components/onboard_content.dart';
 import 'package:pillowtalk/constants/strings.dart';
 
 final urlImages = [
@@ -25,4 +26,10 @@ const descCardLlist = [
   descCard2,
   descCard3,
   descCard4,
+];
+
+final List<OnBoard> onboardDataList = [
+  OnBoard(image: "assets/banner1.png", text: "Connecting with\nyour partner"),
+  OnBoard(image: "assets/banner2.png", text: "Deepen\ncommunication"),
+  OnBoard(image: "assets/banner3.png", text: "Strengthening\nintimacy"),
 ];

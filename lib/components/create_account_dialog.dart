@@ -17,6 +17,8 @@ class CreateAccountDialog extends StatefulWidget {
 class _CreateAccountDialogState extends State<CreateAccountDialog> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  TextEditingController firstnameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                     SizedBox(
                       height: 36,
                       child: TextField(
-                        controller: emailController,
+                        controller: firstnameController,
                       ),
                     )
                   ],
@@ -70,7 +72,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                     SizedBox(
                       height: 36,
                       child: TextField(
-                        controller: emailController,
+                        controller: lastnameController,
                       ),
                     )
                   ],

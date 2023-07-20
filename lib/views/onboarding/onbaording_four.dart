@@ -30,6 +30,9 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
     );
   }
 
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

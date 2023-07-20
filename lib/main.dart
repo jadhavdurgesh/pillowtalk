@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/views/splash_screen.dart';
+
+import 'views/onboarding/onboarding_one.dart';
+import 'views/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
@@ -7,17 +6,19 @@ import 'package:velocity_x/velocity_x.dart';
 import 'onboarding_three.dart';
 
 class OnboardingTwoScreen extends StatefulWidget {
-  final Image image2;
-  final Image image3;
+  // final Image image2;
+  // final Image image3;
 
-  const OnboardingTwoScreen({super.key, required this.image2, required this.image3});
+  const OnboardingTwoScreen({
+    super.key,
+    // required this.image2, required this.image3
+  });
 
   @override
   State<OnboardingTwoScreen> createState() => _OnboardingTwoScreenState();
 }
 
 class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
-
   // @override
   // void didChangeDependencies() {
   //   precacheImage(widget.image2.image, context);
@@ -30,7 +31,7 @@ class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
       body: Column(
         children: [
           // SvgPicture.asset("assets/banner2.svg"),
-          widget.image2,
+          // widget.image2,
           // Image.asset("assets/banner2.png"),
           // CachedNetworkImage(imageUrl: 'https://couplegames.s3.amazonaws.com/Onboarding+Screens/Screen2.png'),
           Expanded(flex: 1, child: Container()),
@@ -47,8 +48,9 @@ class _OnboardingTwoScreenState extends State<OnboardingTwoScreen> {
             width: 22,
             widthbox: 4.0,
             onPress: () {
-              Get.to(()=> OnboardingThreeScreen(image3: widget.image3), transition: Transition.noTransition );
-              },
+              Get.to(() => const OnboardingThreeScreen(),
+                  transition: Transition.noTransition);
+            },
           ),
           Expanded(flex: 2, child: Container()),
         ],

@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,6 +38,7 @@ class Home extends StatelessWidget {
           backgroundColor: secondaryColor,
           items: navBarItems,
           fixedColor: whiteColor,
+          // currentIndex: ,
           // selectedLabelStyle: ,
           unselectedItemColor: whiteColor,
           type: BottomNavigationBarType.fixed,

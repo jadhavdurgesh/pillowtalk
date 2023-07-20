@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'dart:math' as math;
 import '../constants/colors.dart';
@@ -35,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         image1 = Image.asset("assets/banner1.png");
         image2 = Image.asset("assets/banner2.png");
         image3 = Image.asset("assets/banner3.png");
-        Get.off(()=> OnboardingOneScreen(image1: image1,image2: image2,image3: image3,), transition: Transition.noTransition);
+        Get.off(()=> const OnboardingOneScreen(), transition: Transition.noTransition);
       }
     );
   }
