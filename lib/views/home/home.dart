@@ -1,12 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pillowtalk/views/discover_screen.dart';
-import 'package:pillowtalk/views/home_screen.dart';
-import 'package:pillowtalk/views/message_screen.dart';
-import 'package:pillowtalk/views/profile_screen.dart';
-
-import '../constants/colors.dart';
+import 'package:pillowtalk/views/home/discover_screen.dart';
+import 'package:pillowtalk/views/home/home_screen.dart';
+import 'package:pillowtalk/views/home/message_screen.dart';
+import '../../constants/colors.dart';
+import 'profile_screen.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

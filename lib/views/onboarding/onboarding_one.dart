@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart';
 import 'package:pillowtalk/components/onboard_content.dart';
 import 'package:pillowtalk/constants/lists.dart';
-import 'package:pillowtalk/views/home_screen.dart';
+import 'package:pillowtalk/views/home/home_screen.dart';
 import 'package:pillowtalk/views/onboarding/onboarding_two.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -86,7 +86,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
             _pageIndex == onboardDataList.length - 1
                 ? Get.to(() => const OnboardingFourScreen())
                 : _pageController.nextPage(
-                    duration: const Duration(milliseconds: 150),
+                    duration: const Duration(milliseconds: 200),
                     curve: Curves.ease);
           },
         )

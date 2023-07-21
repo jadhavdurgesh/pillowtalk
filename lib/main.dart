@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-
-import 'views/onboarding/onboarding_one.dart';
+import 'package:pillowtalk/views/onboarding/onboarding_one.dart';
+import 'views/experiment/onboarding_screen.dart';
 import 'views/splash_screen.dart';
 
 void main() {

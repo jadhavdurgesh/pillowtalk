@@ -4,7 +4,7 @@ import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/lists.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../constants/fonts/fontstyle.dart';
+import '../../constants/fonts/fontstyle.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,12 +16,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: darkColor),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+                onPressed: () => Scaffold.of(context).openDrawer(),
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
+          },
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -32,7 +39,22 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(decoration: BoxDecoration(color: secondaryColor),child: Row(
+              children: [
+                SvgPicture.asset("assets/icons/drawer/follow.svg"),
+                Text(
+                  "Follow us on socials",
+                  style: kMontserratMedium,
+                )
+              ],
+            ),
+            )
+          ],
+        )
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -49,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             20.heightBox,
             VxSwiper.builder(
-              aspectRatio: 3/4,
+              aspectRatio: 3 / 4,
               // viewportFraction: 0.6,
               // height: 500,
               // autoPlayCurve: Curves.bounceIn,
@@ -69,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     20.heightBox,
                     Text(cardStringsList[index]),
-                      20.heightBox,
-                      Expanded(child: Text(descCardLlist[index]))
+                    20.heightBox,
+                    Expanded(child: Text(descCardLlist[index]))
                   ],
                 );
               },

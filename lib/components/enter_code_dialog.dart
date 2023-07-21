@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/code_textfield.dart';
-import 'package:pillowtalk/views/home_screen.dart';
+import 'package:pillowtalk/views/home/home_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../constants/colors.dart';
