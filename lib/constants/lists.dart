@@ -29,7 +29,7 @@ const descCardLlist = [
 ];
 
 final List<OnBoard> onboardDataList = [
-  OnBoard(image: "assets/banner1.png", text: "Connecting with\nyour partner"),
-  OnBoard(image: "assets/banner2.png", text: "Deepen\ncommunication"),
-  OnBoard(image: "assets/banner3.png", text: "Strengthening\nintimacy"),
+  OnBoard(image: "assets/banner1.webp", text: "Connecting with\nyour partner"),
+  OnBoard(image: "assets/banner2.webp", text: "Deepen\ncommunication"),
+  OnBoard(image: "assets/banner3.webp", text: "Strengthening\nintimacy"),
 ];

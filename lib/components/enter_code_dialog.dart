@@ -16,22 +16,25 @@ class EnterCodeDialog extends StatefulWidget {
 }
 
 class _EnterCodeDialogState extends State<EnterCodeDialog> {
-
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Dialog(
+      child: StatefulBuilder(builder: (stfContext, stfSetState) {
+        return Dialog(
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
           child: SingleChildScrollView(
             child: Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: backgroundColor),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: backgroundColor),
               padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -46,9 +49,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                   Text(
                     "When your partner invited you to Playdate, their message should included a 4 digit code.",
                     textAlign: TextAlign.center,
-                    style: kMontserratMedium.copyWith(
-                      fontSize: 12
-                    ),
+                    style: kMontserratMedium.copyWith(fontSize: 12),
                   ),
                   16.heightBox,
                   Row(
@@ -65,12 +66,16 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       customOutlineButton(
-                        title: "ENTER",
+                        title: isLoading ? "ENTERING" : "ENTER",
                         assetName: "assets/icons/arrow.svg",
                         height: 22,
                         width: 22,
                         widthbox: 4.0,
                         onPress: () {
+                          stfSetState(() {
+                            isLoading = true;
+                          });
+                          print(isLoading.toString());
                           Get.back();
                           Get.to(()=> const HomeScreen());
                         },
@@ -81,7 +86,8 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
               ),
             ),
           ),
-        ),
-      );
+        );
+      }),
+    );
   }
 }

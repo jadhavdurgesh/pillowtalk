@@ -53,7 +53,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 36,
+                      height: 44,
                       child: TextField(
                         controller: firstnameController,
                       ),
@@ -70,7 +70,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 36,
+                      height: 44,
                       child: TextField(
                         controller: lastnameController,
                       ),
@@ -87,7 +87,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 36,
+                      height: 44,
                       child: TextField(
                         controller: emailController,
                       ),
@@ -104,7 +104,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 36,
+                      height: 44,
                       child: TextField(
                         controller: passController,
                         obscureText: true,

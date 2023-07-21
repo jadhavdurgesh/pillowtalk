@@ -10,6 +10,8 @@ Widget customOutlineButton(
     double? height,
     double? width,
     double? widthbox,
+    bool isWidget = false,
+    Widget? customWidget,
     void Function()? onPress}) {
   return OutlinedButton(
       style: OutlinedButton.styleFrom(
@@ -22,18 +24,18 @@ Widget customOutlineButton(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              title!,
-              style: kRobotoMedium.copyWith(color: secondaryColor),
+            isWidget ? customWidget! : SvgPicture.asset(
+              assetName!,
+              width: width,
+              height: height,
             ),
             SizedBox(
               width: widthbox,
             ),
-            SvgPicture.asset(
-              assetName!,
-              width: width,
-              height: height,
-            )
+            Text(
+              title!,
+              style: kRobotoMedium.copyWith(color: secondaryColor),
+            ),
           ],
         ),
       ));

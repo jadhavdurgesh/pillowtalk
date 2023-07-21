@@ -8,35 +8,33 @@ import 'package:velocity_x/velocity_x.dart';
 import 'onboarding/onboarding_one.dart';
 
 class SplashScreen extends StatefulWidget {
-
   const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
-
-  late final AnimationController _controller = AnimationController(vsync: this, duration: const Duration(seconds: 2))..repeat();
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller =
+      AnimationController(vsync: this, duration: const Duration(seconds: 2))
+        ..repeat();
 
   late Image image1;
   late Image image2;
   late Image image3;
 
-
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(
-      const Duration(seconds: 2),
-      (){
-        image1 = Image.asset("assets/banner1.png");
-        image2 = Image.asset("assets/banner2.png");
-        image3 = Image.asset("assets/banner3.png");
-        Get.off(()=> const OnboardingOneScreen(), transition: Transition.noTransition);
-      }
-    );
+    Future.delayed(const Duration(seconds: 2), () {
+      image1 = Image.asset("assets/banner1.png");
+      image2 = Image.asset("assets/banner2.png");
+      image3 = Image.asset("assets/banner3.png");
+      Get.off(() => const OnboardingOneScreen(),
+          transition: Transition.noTransition);
+    });
   }
 
   @override
@@ -60,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             width: 130,
             height: 130,
           )),
-          
+
           28.heightBox,
 
           Text(
@@ -77,22 +75,27 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
           32.heightBox,
           AnimatedBuilder(
-              animation: _controller,
-              builder: (_, child) {
-                return Transform.rotate(
-                  angle: _controller.value * 2 * math.pi,
-                  child: child,
-                );
-              },
-              child: Container(
+            animation: _controller,
+            builder: (_, child) {
+              return Transform.rotate(
+                angle: _controller.value * 2 * math.pi,
+                child: child,
+              );
+            },
+            child: Container(
                 margin: const EdgeInsets.all(20.0),
-                child: Image.asset("assets/indicator.png", width: 40, height: 40, fit: BoxFit.fitWidth,)
-                ),
-              ),
+                child: Image.asset(
+                  "assets/indicator.png",
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.fitWidth,
+                )),
+          ),
           Expanded(child: Container()),
-          Text("V1.2.1", style: kMontserratMedium.copyWith(
-            color: lightColor
-          ),),
+          Text(
+            "V1.2.1",
+            style: kMontserratMedium.copyWith(color: lightColor),
+          ),
 
           48.heightBox
         ],

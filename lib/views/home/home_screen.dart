@@ -40,23 +40,71 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(decoration: BoxDecoration(color: secondaryColor),child: Row(
+          child: ListView(
+        children: [
+          DrawerHeader(
+            child: Column(
               children: [
-                SvgPicture.asset("assets/icons/drawer/follow.svg"),
-                Text(
-                  "Follow us on socials",
-                  style: kMontserratMedium,
+                20.heightBox,
+                Row(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/drawer/follow.svg",
+                      width: 24,
+                      height: 24,
+                    ),
+                    8.widthBox,
+                    Text(
+                      "Follow us on socials",
+                      style: kMontserratMedium.copyWith(
+                          color: secondaryColor, fontSize: 18),
+                    )
+                  ],
+                ),
+                20.heightBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/icons/drawer/Facebook.svg",
+                      width: 36,
+                    ),
+                    20.widthBox,
+                    Image.asset(
+                      "assets/Instagram.png",
+                      width: 36,
+                    ),
+                    20.widthBox,
+                    SvgPicture.asset(
+                      "assets/icons/drawer/Twitter.svg",
+                      width: 36,
+                    ),
+                    20.widthBox,
+                    SvgPicture.asset(
+                      "assets/icons/drawer/Snapchat.svg",
+                      width: 36,
+                    ),
+                  ],
                 )
               ],
             ),
-            )
-          ],
-        )
-      ),
+          ),
+          ListTile(
+            leading: SvgPicture.asset("assets/icons/drawer/manage_subscription.svg"),
+            title: Text("Manage Subscription", style: kMontserratMedium.copyWith(color: secondaryColor),),
+          ),
+          ListTile(
+            leading: SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
+            title: Text("Privacy Policy", style: kMontserratMedium.copyWith(color: secondaryColor),),
+          ),
+          ListTile(
+            leading: SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
+            title: Text("Term of use", style: kMontserratMedium.copyWith(color: secondaryColor),),
+          ),
+        ],
+      )),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

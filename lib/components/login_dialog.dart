@@ -51,7 +51,7 @@ class _LoginDialogState extends State<LoginDialog> {
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
                       SizedBox(
-                        height: 36,
+                        height: 44,
                         child: TextField(
                           controller: emailController,
                         ),
@@ -68,7 +68,7 @@ class _LoginDialogState extends State<LoginDialog> {
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
                       SizedBox(
-                        height: 36,
+                        height: 44,
                         child: TextField(
                           controller: passController,
                           obscureText: true,

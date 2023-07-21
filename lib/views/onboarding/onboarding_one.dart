@@ -84,7 +84,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           widthbox: 4.0,
           onPress: () {
             _pageIndex == onboardDataList.length - 1
-                ? Get.to(() => const OnboardingFourScreen())
+                ? Get.to(() => const OnboardingFourScreen(), transition: Transition.noTransition)
                 : _pageController.nextPage(
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.ease);

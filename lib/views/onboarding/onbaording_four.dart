@@ -44,13 +44,13 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              100.heightBox,
+              50.heightBox,
               Center(
                   child: Image.asset(
-                "assets/illustration1.jpg",
-                width: 220,
+                "assets/illustration3.png",
+                width: 400,
               )),
-              24.heightBox,
+              // 24.heightBox,
               Text(
                 "Love is in the air",
                 style: kMontserratMedium.copyWith(fontSize: 20),
@@ -62,26 +62,35 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
                       onTap: () {
                         showCreateAccountDialog();
                       },
-                      child: Text(
-                        "Create an account",
-                        style: kMontserratMedium.copyWith(
-                            fontSize: 14,
-                            color: secondaryColor,
-                            decoration: TextDecoration.underline),
+                      child: SizedBox(
+                        height: 24,
+                        child: Text(
+                          "Create an account",
+                          style: kMontserratMedium.copyWith(
+                              fontSize: 14,
+                              color: secondaryColor,
+                              decoration: TextDecoration.underline),
+                        ),
                       )),
-                  Text(
-                    " or ",
-                    style: kMontserratMedium,
+                  SizedBox(
+                    height: 24,
+                    child: Text(
+                      " or ",
+                      style: kMontserratMedium,
+                    ),
                   ),
                   GestureDetector(
                       onTap: () {
                         showLoginDialog();
                       },
-                      child: Text(
-                        "log in",
-                        style: kMontserratMedium.copyWith(
-                            color: secondaryColor,
-                            decoration: TextDecoration.underline),
+                      child: SizedBox(
+                        height: 24,
+                        child: Text(
+                          "log in",
+                          style: kMontserratMedium.copyWith(
+                              color: secondaryColor,
+                              decoration: TextDecoration.underline),
+                        ),
                       )),
                 ],
               ),
