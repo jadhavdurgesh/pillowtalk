@@ -6,6 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../constants/colors.dart';
 import '../constants/fonts/fontstyle.dart';
+import '../views/home/home.dart';
 import 'outline_button.dart';
 
 class EnterCodeDialog extends StatefulWidget {
@@ -77,7 +78,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                           });
                           print(isLoading.toString());
                           Get.back();
-                          Get.to(()=> const HomeScreen());
+                          Get.to(()=> const Home());
                         },
                       ),
                     ],

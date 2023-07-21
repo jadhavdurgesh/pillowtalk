@@ -24,17 +24,17 @@ Widget customOutlineButton(
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            isWidget ? customWidget! : SvgPicture.asset(
-              assetName!,
-              width: width,
-              height: height,
+            Text(
+              title!,
+              style: kRobotoMedium.copyWith(color: secondaryColor),
             ),
             SizedBox(
               width: widthbox,
             ),
-            Text(
-              title!,
-              style: kRobotoMedium.copyWith(color: secondaryColor),
+            isWidget ? customWidget! : SvgPicture.asset(
+              assetName!,
+              width: width,
+              height: height,
             ),
           ],
         ),

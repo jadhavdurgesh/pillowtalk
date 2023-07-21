@@ -91,15 +91,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           ListTile(
             leading: SvgPicture.asset("assets/icons/drawer/manage_subscription.svg"),
-            title: Text("Manage Subscription", style: kMontserratMedium.copyWith(color: secondaryColor),),
+            title: Text("Manage Subscription", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
           ),
           ListTile(
             leading: SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
-            title: Text("Privacy Policy", style: kMontserratMedium.copyWith(color: secondaryColor),),
+            title: Text("Privacy Policy", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
           ),
           ListTile(
             leading: SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
-            title: Text("Term of use", style: kMontserratMedium.copyWith(color: secondaryColor),),
+            title: Text("Term of use", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
           ),
         ],
       )),

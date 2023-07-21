@@ -39,7 +39,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
       body: Container(
         margin: const EdgeInsets.all(16),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
@@ -47,7 +47,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               50.heightBox,
               Center(
                   child: Image.asset(
-                "assets/illustration3.png",
+                "assets/illustration1.png",
                 width: 400,
               )),
               // 24.heightBox,

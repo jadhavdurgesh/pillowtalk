@@ -1,11 +1,8 @@
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:pillowtalk/components/onboard_content.dart';
 import 'package:pillowtalk/constants/lists.dart';
-import 'package:pillowtalk/views/home/home_screen.dart';
-import 'package:pillowtalk/views/onboarding/onboarding_two.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../components/outline_button.dart';

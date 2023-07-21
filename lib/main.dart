@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/views/onboarding/onboarding_one.dart';
-import 'views/experiment/onboarding_screen.dart';
+import 'package:pillowtalk/views/payment_screen.dart';
 import 'views/splash_screen.dart';
 
 void main() {
@@ -27,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const SplashScreen(),
+      home: const PaymentScreen(),
     );
   }
 }
