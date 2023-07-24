@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/views/payment_screen.dart';
-import 'views/splash_screen.dart';
+import 'package:pillowtalk/views/home/home.dart';
 
+late Size mq;
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
+  late Size mq;
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const PaymentScreen(),
+      home: const Home(),
     );
   }
 }

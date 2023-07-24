@@ -89,18 +89,68 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          ListTile(
-            leading: SvgPicture.asset("assets/icons/drawer/manage_subscription.svg"),
-            title: Text("Manage Subscription", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                Row(children: [
+                  SvgPicture.asset(
+                      "assets/icons/drawer/manage_subscription.svg"),
+                  12.widthBox,
+                  Text(
+                    "Manage Subscription",
+                    style: kMontserratMedium.copyWith(
+                        color: secondaryColor, fontSize: 16),
+                  ),
+                ]),
+                20.heightBox,
+                Row(children: [
+                  SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
+                  12.widthBox,
+                  Text(
+                    "Privacy Policy",
+                    style: kMontserratMedium.copyWith(
+                        color: secondaryColor, fontSize: 16),
+                  ),
+                ]),
+                20.heightBox,
+                Row(children: [
+                  SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
+                  12.widthBox,
+                  Text(
+                    "Term of use",
+                    style: kMontserratMedium.copyWith(
+                        color: secondaryColor, fontSize: 16),
+                  ),
+                ]),
+              ],
+            ),
           ),
-          ListTile(
-            leading: SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
-            title: Text("Privacy Policy", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
-          ),
-          ListTile(
-            leading: SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
-            title: Text("Term of use", style: kMontserratMedium.copyWith(color: secondaryColor, fontSize: 16),),
-          ),
+          // ListTile(
+          //   leading:
+          //       SvgPicture.asset("assets/icons/drawer/manage_subscription.svg"),
+          //   title:Text(
+          //     "Term of use",
+          //     style: kMontserratMedium.copyWith(
+          //         color: secondaryColor, fontSize: 16),
+          //   ),
+          // ),
+          // ListTile(
+          //   leading: SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
+          //   title: Text(
+          //     "Privacy Policy",
+          //     style: kMontserratMedium.copyWith(
+          //         color: secondaryColor, fontSize: 16),
+          //   ),
+          // ),
+          // ListTile(
+          //   leading: SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
+          //   title: Text(
+          //     "Term of use",
+          //     style: kMontserratMedium.copyWith(
+          //         color: secondaryColor, fontSize: 16),
+          //   ),
+          // ),
         ],
       )),
       body: Padding(
