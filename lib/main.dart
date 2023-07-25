@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/views/home/home.dart';
+import 'package:pillowtalk/views/payment_screen.dart';
+import 'package:pillowtalk/views/splash_screen.dart';
 
 late Size mq;
 void main() {
@@ -17,6 +19,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late Size mq;
+
+   @override
+  void didChangeDependencies() {
+    // Adjust the provider based on the image type
+    super.didChangeDependencies();
+    precacheImage(const AssetImage("assets/banner1.webp"), context);
+    precacheImage(const AssetImage("assets/banner2.webp"), context);
+    precacheImage(const AssetImage("assets/banner3.webp"), context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -26,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const Home(),
+      home: const PaymentScreen(),
     );
   }
 }

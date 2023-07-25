@@ -6,6 +6,8 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../components/create_account_dialog.dart';
 import '../../components/login_dialog.dart';
+import '../../components/sign_in_outline_button.dart';
+import '../../main.dart';
 
 class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
@@ -35,6 +37,9 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    mq = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(16),
@@ -95,7 +100,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
                 ],
               ),
               20.heightBox,
-              customOutlineButton(
+              customSignInOutlineButton(
                 assetName: "assets/icons/google.svg",
                 title: "CONTINUE WITH GOOGLE",
                 height: 18,
@@ -103,7 +108,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
                 widthbox: 12,
               ),
               8.heightBox,
-              customOutlineButton(
+              customSignInOutlineButton(
                 assetName: "assets/icons/Facebook.svg",
                 title: "CONTINUE WITH FACEBOOK",
                 height: 20,
@@ -111,7 +116,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
                 widthbox: 12,
               ),
               8.heightBox,
-              customOutlineButton(
+              customSignInOutlineButton(
                 assetName: "assets/icons/apple.svg",
                 title: "CONTINUE WITH APPLE",
                 height: 20,

@@ -6,6 +6,7 @@ import 'package:pillowtalk/constants/lists.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../components/outline_button.dart';
+import '../../constants/colors.dart';
 import 'onbaording_four.dart';
 
 class OnboardingOneScreen extends StatefulWidget {
@@ -29,6 +30,18 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
   //   precacheImage(widget.image1.image, context);
   //   super.didChangeDependencies();
   // }
+  late Image image1;
+  late Image image2;
+  late Image image3;
+
+  // @override
+  // void didChangeDependencies() {
+  //   // Adjust the provider based on the image type
+  //   super.didChangeDependencies();
+  //   precacheImage(image1.image, context);
+  //   precacheImage(image2.image, context);
+  //   precacheImage(image3.image, context);
+  // }
 
   late PageController _pageController;
   int _pageIndex = 0;
@@ -36,7 +49,17 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
   @override
   void initState() {
     super.initState();
+    image1 = Image.asset("assets/banner1.webp");
+    image2 = Image.asset("assets/banner2.webp");
+    image3 = Image.asset("assets/banner3.webp");
+    preCache();
     _pageController = PageController(initialPage: 0);
+  }
+
+  Future<void> preCache() async {
+    await precacheImage(image1.image, context);
+    await precacheImage(image2.image, context);
+    await precacheImage(image3.image, context);
   }
 
   @override
@@ -50,8 +73,11 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-      child: Column(children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
         ExpandablePageView.builder(
+          animationDuration: const Duration(seconds: 2),
           controller: _pageController,
           itemCount: onboardDataList.length,
           onPageChanged: (index) {
@@ -70,7 +96,6 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
             );
           },
         ),
-        28.heightBox,
         customOutlineButton(
           assetName: "assets/icons/arrow.svg",
           title: _pageIndex == onboardDataList.length - 1
@@ -80,14 +105,21 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           width: 20,
           widthbox: 4.0,
           onPress: () {
-            _pageIndex == onboardDataList.length - 1
-                ? Get.to(() => const OnboardingFourScreen(), transition: Transition.noTransition)
-                : _pageController.nextPage(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.ease);
+            if (_pageIndex == onboardDataList.length - 1) {
+              Get.to(() => const OnboardingFourScreen(),
+                  transition: Transition.noTransition);
+            } else if (_pageIndex == onboardDataList.length - 2) {
+              _pageController.jumpToPage(2);
+            } else {
+              _pageController.jumpToPage(1);
+            }
+            // _pageIndex == onboardDataList.length - 1
+            //     ? Get.to(() => const OnboardingFourScreen(),
+            //         transition: Transition.noTransition)
+            //     : _pageController.nextPage(duration: const Duration(milliseconds: 100), curve: Curves.ease);
           },
-        )
-      ]),
-    ));
+        ), 
+            ]),
+          ));
   }
 }

@@ -40,7 +40,7 @@ class _MessageCardState extends State<MessageCard> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Stack(
                         children: [
-                          Image.asset("assets/chat/tarot1.png"),
+                          Image.asset("assets/tarot1.png"),
                           const Positioned(
                             left: 84,
                             top: 70,
@@ -99,7 +99,7 @@ class _MessageCardState extends State<MessageCard> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Stack(
                         children: [
-                          Image.asset("assets/chat/tarot2.png"),
+                          Image.asset("assets/tarot2.png"),
                           const Positioned(
                             left: 70,
                             top: 40,

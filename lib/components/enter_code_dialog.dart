@@ -78,7 +78,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                           });
                           print(isLoading.toString());
                           Get.back();
-                          Get.to(()=> const Home());
+                          Get.to(()=> (){});
                         },
                       ),
                     ],

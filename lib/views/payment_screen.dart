@@ -47,25 +47,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ),
           ),
           28.heightBox,
-          Expanded(
-            child: ListView(
-              shrinkWrap: true,
-              physics: const AlwaysScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              children: [
-                paymentCard(),
-                60.widthBox,
-                paymentCard(),
-                60.widthBox,
-                paymentCard(),
-                60.widthBox,
-                paymentCard(),
-                60.widthBox,
-                paymentCard(),
-              ],
-            ),
-          ),
+          paymentCard(),
           SizedBox(
             height: MediaQuery.of(context).size.height*0.1,
           ),

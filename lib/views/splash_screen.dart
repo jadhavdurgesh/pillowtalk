@@ -37,6 +37,15 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
+    @override
+  void didChangeDependencies() {
+    // Adjust the provider based on the image type
+    super.didChangeDependencies();
+    precacheImage(const AssetImage("assets/banner1"), context);
+    precacheImage(const AssetImage("assets/banner2"), context);
+    precacheImage(const AssetImage("assets/banner3"), context);
+  }
+
   @override
   void dispose() {
     _controller.dispose();
