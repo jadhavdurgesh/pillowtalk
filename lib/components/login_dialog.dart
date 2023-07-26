@@ -19,7 +19,7 @@ class _LoginDialogState extends State<LoginDialog> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-
+var hidePass = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -71,9 +71,17 @@ class _LoginDialogState extends State<LoginDialog> {
                         height: 44,
                         child: TextField(
                           controller: passController,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            suffixIcon: Icon(Icons.visibility_off_outlined, color: darkColor,)
+                          obscureText: hidePass ? true : false,
+                          decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                              icon: hidePass == true? const Icon(Icons.visibility_off_outlined) : const Icon(Icons.visibility_outlined),
+                              color: darkColor,
+                              onPressed: (){
+                                setState(() {
+                                  hidePass = !hidePass;
+                                });
+                              },
+                            )
                           ),
                         ),
                       )

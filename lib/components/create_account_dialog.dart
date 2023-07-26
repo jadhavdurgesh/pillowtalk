@@ -20,6 +20,8 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
   TextEditingController firstnameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
 
+  var hidePass = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,7 +32,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
         ),
         child: SingleChildScrollView(
           child: Container(
-            width: MediaQuery.of(context).size.width*0.9,
+            width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: backgroundColor),
@@ -116,16 +118,17 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       height: 44,
                       child: TextField(
                         controller: passController,
-                        obscureText: true,
+                        obscureText: hidePass ? true : false,
                         decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                          onTap: () {
-                          },
-                          child: const Icon(
-                            Icons.visibility_off_outlined,
-                            color: darkColor,
-                          ),
-                        )),
+                            suffixIcon: IconButton(
+                              icon: hidePass == true? const Icon(Icons.visibility_off_outlined) : const Icon(Icons.visibility_outlined),
+                              color: darkColor,
+                              onPressed: (){
+                                setState(() {
+                                  hidePass = !hidePass;
+                                });
+                              },
+                            )),
                       ),
                     )
                   ],
@@ -134,14 +137,15 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                 RichText(
                   text:
                       TextSpan(style: kMontserratMedium.copyWith(), children: [
-                    const TextSpan(
+                    TextSpan(
                         text:
-                            "By selecting Agree and continue below, I agree to Playdate "),
+                            "By selecting Agree and continue below, I agree to Playdate ",
+                        style: kMontserratMedium.copyWith(color: greyColor)),
                     TextSpan(
                         text: "Terms & Conditions",
                         style:
                             kMontserratMedium.copyWith(color: secondaryColor)),
-                    const TextSpan(text: " and "),
+                    TextSpan(text: " and ",  style: kMontserratMedium.copyWith(color: greyColor)),
                     TextSpan(
                         text: "Privacy Policy",
                         style:
@@ -161,7 +165,8 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       widthbox: 4.0,
                       onPress: () {
                         Get.back();
-                        Get.to(() => const OnboardingFiveScreen(), transition: Transition.noTransition);
+                        Get.to(() => const OnboardingFiveScreen(),
+                            transition: Transition.noTransition);
                       },
                     ),
                   ],

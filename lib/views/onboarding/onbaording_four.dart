@@ -18,6 +18,18 @@ class OnboardingFourScreen extends StatefulWidget {
 
 class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
 
+  late Image image;
+
+  @override
+  void initState() {
+    super.initState();
+    image = Image.asset('assets/illustration1.png');
+    preCache();
+  }
+  Future<void> preCache() async {
+    await precacheImage(image.image, context);
+  }
+
   Future<dynamic> showLoginDialog() {
     return showDialog(
       context: context,
@@ -41,18 +53,25 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
     mq = MediaQuery.of(context).size;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         margin: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
-            50.heightBox,
-            Center(
-                child: Image.asset(
-              "assets/illustration1.png",
-              width: 400,
-            )),
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.05
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.50,
+              child: Center(
+                  child: Image.asset(
+                "assets/illustration1.png",
+                fit: BoxFit.cover,
+                // width: 400,
+              )),
+            ),
             // 24.heightBox,
             Text(
               "Love is in the air",

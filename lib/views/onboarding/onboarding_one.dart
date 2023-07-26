@@ -107,16 +107,12 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           onPress: () {
             if (_pageIndex == onboardDataList.length - 1) {
               Get.to(() => const OnboardingFourScreen(),
-                  transition: Transition.noTransition, duration: const Duration(milliseconds: 200));
+                  transition: Transition.topLevel, duration: const Duration(milliseconds: 100),);
             } else if (_pageIndex == onboardDataList.length - 2) {
               _pageController.jumpToPage(2);
             } else {
               _pageController.jumpToPage(1);
             }
-            // _pageIndex == onboardDataList.length - 1
-            //     ? Get.to(() => const OnboardingFourScreen(),
-            //         transition: Transition.noTransition)
-            //     : _pageController.nextPage(duration: const Duration(milliseconds: 100), curve: Curves.ease);
           },
         ), 
             ]),
