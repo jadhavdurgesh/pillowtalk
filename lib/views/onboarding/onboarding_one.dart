@@ -107,7 +107,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           onPress: () {
             if (_pageIndex == onboardDataList.length - 1) {
               Get.to(() => const OnboardingFourScreen(),
-                  transition: Transition.noTransition);
+                  transition: Transition.noTransition, duration: const Duration(milliseconds: 200));
             } else if (_pageIndex == onboardDataList.length - 2) {
               _pageController.jumpToPage(2);
             } else {

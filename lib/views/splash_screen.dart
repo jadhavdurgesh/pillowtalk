@@ -41,9 +41,9 @@ class _SplashScreenState extends State<SplashScreen>
   void didChangeDependencies() {
     // Adjust the provider based on the image type
     super.didChangeDependencies();
-    precacheImage(const AssetImage("assets/banner1"), context);
-    precacheImage(const AssetImage("assets/banner2"), context);
-    precacheImage(const AssetImage("assets/banner3"), context);
+    precacheImage(const AssetImage("assets/banner1.webp"), context);
+    precacheImage(const AssetImage("assets/banner2.webp"), context);
+    precacheImage(const AssetImage("assets/banner3.webp"), context);
   }
 
   @override

@@ -9,3 +9,4 @@ const darkFontColor = Color(0xff3B3B40);
 const primaryColor = Color(0xffFD5564);
 const secondaryColor = Color(0xff1976D2);
 const indicatorColor = Color(0xff27AE60);
+const yellowColor = Color(0xffFEE801);

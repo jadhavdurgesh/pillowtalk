@@ -43,88 +43,85 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              50.heightBox,
-              Center(
-                  child: Image.asset(
-                "assets/illustration1.png",
-                width: 400,
-              )),
-              // 24.heightBox,
-              Text(
-                "Love is in the air",
-                style: kMontserratMedium.copyWith(fontSize: 20),
-              ),
-              14.heightBox,
-              Row(
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        showCreateAccountDialog();
-                      },
-                      child: SizedBox(
-                        height: 24,
-                        child: Text(
-                          "Create an account",
-                          style: kMontserratMedium.copyWith(
-                              fontSize: 14,
-                              color: secondaryColor,
-                              decoration: TextDecoration.underline),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 24,
-                    child: Text(
-                      " or ",
-                      style: kMontserratMedium,
-                    ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            50.heightBox,
+            Center(
+                child: Image.asset(
+              "assets/illustration1.png",
+              width: 400,
+            )),
+            // 24.heightBox,
+            Text(
+              "Love is in the air",
+              style: kMontserratMedium.copyWith(fontSize: 20),
+            ),
+            14.heightBox,
+            Row(
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      showCreateAccountDialog();
+                    },
+                    child: SizedBox(
+                      height: 24,
+                      child: Text(
+                        "Create an account",
+                        style: kMontserratMedium.copyWith(
+                            fontSize: 14,
+                            color: secondaryColor,
+                            decoration: TextDecoration.underline),
+                      ),
+                    )),
+                SizedBox(
+                  height: 24,
+                  child: Text(
+                    " or ",
+                    style: kMontserratMedium,
                   ),
-                  GestureDetector(
-                      onTap: () {
-                        showLoginDialog();
-                      },
-                      child: SizedBox(
-                        height: 24,
-                        child: Text(
-                          "log in",
-                          style: kMontserratMedium.copyWith(
-                              color: secondaryColor,
-                              decoration: TextDecoration.underline),
-                        ),
-                      )),
-                ],
-              ),
-              20.heightBox,
-              customSignInOutlineButton(
-                assetName: "assets/icons/google.svg",
-                title: "CONTINUE WITH GOOGLE",
-                height: 18,
-                width: 18,
-                widthbox: 12,
-              ),
-              8.heightBox,
-              customSignInOutlineButton(
-                assetName: "assets/icons/Facebook.svg",
-                title: "CONTINUE WITH FACEBOOK",
-                height: 20,
-                width: 20,
-                widthbox: 12,
-              ),
-              8.heightBox,
-              customSignInOutlineButton(
-                assetName: "assets/icons/apple.svg",
-                title: "CONTINUE WITH APPLE",
-                height: 20,
-                width: 20,
-                widthbox: 12,
-              ),
-            ],
-          ),
+                ),
+                GestureDetector(
+                    onTap: () {
+                      showLoginDialog();
+                    },
+                    child: SizedBox(
+                      height: 24,
+                      child: Text(
+                        "log in",
+                        style: kMontserratMedium.copyWith(
+                            color: secondaryColor,
+                            decoration: TextDecoration.underline),
+                      ),
+                    )),
+              ],
+            ),
+            20.heightBox,
+            customSignInOutlineButton(
+              assetName: "assets/icons/google.svg",
+              title: "CONTINUE WITH GOOGLE",
+              height: 18,
+              width: 18,
+              widthbox: 12,
+            ),
+            8.heightBox,
+            customSignInOutlineButton(
+              assetName: "assets/icons/Facebook.svg",
+              title: "CONTINUE WITH FACEBOOK",
+              height: 20,
+              width: 20,
+              widthbox: 12,
+            ),
+            8.heightBox,
+            customSignInOutlineButton(
+              assetName: "assets/icons/apple.svg",
+              title: "CONTINUE WITH APPLE",
+              height: 20,
+              width: 20,
+              widthbox: 12,
+            ),
+          ],
         ),
       ),
     );

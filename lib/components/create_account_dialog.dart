@@ -30,6 +30,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
         ),
         child: SingleChildScrollView(
           child: Container(
+            width: MediaQuery.of(context).size.width*0.9,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: backgroundColor),
@@ -44,37 +45,45 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                   style: kMontserratMedium.copyWith(fontSize: 18),
                 ),
                 24.heightBox,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                Row(
                   children: [
-                    Text(
-                      "First name",
-                      style: kMontserratMedium.copyWith(fontSize: 14),
-                    ),
-                    SizedBox(
-                      height: 44,
-                      child: TextField(
-                        controller: firstnameController,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "First name",
+                            style: kMontserratMedium.copyWith(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 44,
+                            child: TextField(
+                              controller: firstnameController,
+                            ),
+                          )
+                        ],
                       ),
-                    )
-                  ],
-                ),
-                16.heightBox,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Last name",
-                      style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
-                    SizedBox(
-                      height: 44,
-                      child: TextField(
-                        controller: lastnameController,
+                    16.widthBox,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Last name",
+                            style: kMontserratMedium.copyWith(fontSize: 14),
+                          ),
+                          SizedBox(
+                            height: 44,
+                            child: TextField(
+                              controller: lastnameController,
+                            ),
+                          )
+                        ],
                       ),
-                    )
+                    ),
                   ],
                 ),
                 16.heightBox,
