@@ -36,7 +36,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: backgroundColor),
-            padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
+            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height*0.04, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,

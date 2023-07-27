@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pillowtalk/components/drawer_widget.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/lists.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -14,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  var isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,165 +43,95 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      drawer: Drawer(
-          child: ListView(
+      drawer: customDrawer(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrawerHeader(
-            child: Column(
-              children: [
-                20.heightBox,
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      "assets/icons/drawer/follow.svg",
-                      width: 24,
-                      height: 24,
-                    ),
-                    8.widthBox,
-                    Text(
-                      "Follow us on socials",
-                      style: kMontserratMedium.copyWith(
-                          color: secondaryColor, fontSize: 18),
-                    )
-                  ],
-                ),
-                20.heightBox,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/icons/drawer/Facebook.svg",
-                      width: 36,
-                    ),
-                    20.widthBox,
-                    Image.asset(
-                      "assets/Instagram.png",
-                      width: 36,
-                    ),
-                    20.widthBox,
-                    SvgPicture.asset(
-                      "assets/icons/drawer/Twitter.svg",
-                      width: 36,
-                    ),
-                    20.widthBox,
-                    SvgPicture.asset(
-                      "assets/icons/drawer/Snapchat.svg",
-                      width: 36,
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                Row(children: [
-                  SvgPicture.asset(
-                      "assets/icons/drawer/manage_subscription.svg"),
-                  12.widthBox,
-                  Text(
-                    "Manage Subscription",
-                    style: kMontserratMedium.copyWith(
-                        color: secondaryColor, fontSize: 16),
-                  ),
-                ]),
-                20.heightBox,
-                Row(children: [
-                  SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
-                  12.widthBox,
-                  Text(
-                    "Privacy Policy",
-                    style: kMontserratMedium.copyWith(
-                        color: secondaryColor, fontSize: 16),
-                  ),
-                ]),
-                20.heightBox,
-                Row(children: [
-                  SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
-                  12.widthBox,
-                  Text(
-                    "Term of use",
-                    style: kMontserratMedium.copyWith(
-                        color: secondaryColor, fontSize: 16),
-                  ),
-                ]),
-              ],
-            ),
-          ),
-          // ListTile(
-          //   leading:
-          //       SvgPicture.asset("assets/icons/drawer/manage_subscription.svg"),
-          //   title:Text(
-          //     "Term of use",
-          //     style: kMontserratMedium.copyWith(
-          //         color: secondaryColor, fontSize: 16),
-          //   ),
-          // ),
-          // ListTile(
-          //   leading: SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
-          //   title: Text(
-          //     "Privacy Policy",
-          //     style: kMontserratMedium.copyWith(
-          //         color: secondaryColor, fontSize: 16),
-          //   ),
-          // ),
-          // ListTile(
-          //   leading: SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
-          //   title: Text(
-          //     "Term of use",
-          //     style: kMontserratMedium.copyWith(
-          //         color: secondaryColor, fontSize: 16),
-          //   ),
-          // ),
-        ],
-      )),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
+            child: Text(
               "Welcome, John & Jane",
               style: kMontserratMedium.copyWith(fontSize: 20),
             ),
-            8.heightBox,
-            Text(
+          ),
+          8.heightBox,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
               "Pick a card",
               style: kMontserratMedium.copyWith(color: greyColor, fontSize: 18),
             ),
-            20.heightBox,
-            VxSwiper.builder(
-              aspectRatio: 3 / 4,
-              // viewportFraction: 0.6,
-              // height: 500,
-              // autoPlayCurve: Curves.bounceIn,
-              enlargeCenterPage: true,
-              itemCount: cardImagesList.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Expanded(
-                      flex: 3,
+          ),
+          20.heightBox,
+          Container(
+            height: 500,
+            color: secondaryColor,
+            width: double.infinity,
+            child: Stack(
+              fit: StackFit.loose,
+              children: [
+                Positioned(
+                  right: 0,
+                  top: 70,
+                  height: 250,
+                  child: Container(
+                    // color: Colors.yellow,
+                    child: Image.asset(
+                      'assets/card3.png',
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 120,
+                  top: 30,
+                  height: 350,
+                  child: Container(
+                    // color: Colors.green,
+                    child: Image.asset(
+                      'assets/card2.png',
+                    ),
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: const Duration(milliseconds: 500),
+                  bottom: isExpanded ? 10 : 20,
+                  child: Container(
+                    // color: primaryColor,
+                    child: Positioned(
+                      left: 0,
                       child: Container(
-                        child: Image.asset(
-                          cardImagesList[index],
-                          fit: BoxFit.fitWidth,
+                        padding: EdgeInsets.zero,
+                        // color: Colors.red,
+                        child: GestureDetector(
+                          onPanUpdate: onPanUpdate,
+                          onTap: (){},
+                          child: Image.asset(
+                            'assets/card1.png',
+                            fit: BoxFit.fitHeight,
+                          ),
                         ),
                       ),
                     ),
-                    20.heightBox,
-                    Text(cardStringsList[index]),
-                    20.heightBox,
-                    Expanded(child: Text(descCardLlist[index]))
-                  ],
-                );
-              },
-            )
-          ],
-        ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
+
+void onPanUpdate(DragUpdateDetails details){
+  if(details.delta.dy < 0){
+    setState((){
+      isExpanded = true;
+    });
+  }
+  else if(details.delta.dy > 0){
+    setState(() {
+      isExpanded = false;
+    });
+  }
+}
 }

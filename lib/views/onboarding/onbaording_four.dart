@@ -23,7 +23,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   @override
   void initState() {
     super.initState();
-    image = Image.asset('assets/illustration1.png');
+    image = Image.asset('assets/illustration1.webp');
     preCache();
   }
   Future<void> preCache() async {
@@ -67,7 +67,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               height: MediaQuery.of(context).size.height*0.50,
               child: Center(
                   child: Image.asset(
-                "assets/illustration1.png",
+                "assets/illustration1.webp",
                 fit: BoxFit.cover,
                 // width: 400,
               )),
