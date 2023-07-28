@@ -73,11 +73,12 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+      child:
+          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         ExpandablePageView.builder(
-          animationDuration: const Duration(seconds: 2),
+          physics: const AlwaysScrollableScrollPhysics(),
+          animationDuration: const Duration(seconds: 10),
+          animationCurve: Curves.slowMiddle,
           controller: _pageController,
           itemCount: onboardDataList.length,
           onPageChanged: (index) {
@@ -106,16 +107,19 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           widthbox: 4.0,
           onPress: () {
             if (_pageIndex == onboardDataList.length - 1) {
-              Get.to(() => const OnboardingFourScreen(),
-                  transition: Transition.topLevel, duration: const Duration(milliseconds: 100),);
+              Get.to(
+                () => const OnboardingFourScreen(),
+                transition: Transition.topLevel,
+                duration: const Duration(milliseconds: 100),
+              );
             } else if (_pageIndex == onboardDataList.length - 2) {
               _pageController.jumpToPage(2);
             } else {
               _pageController.jumpToPage(1);
             }
           },
-        ), 
-            ]),
-          ));
+        ),
+      ]),
+    ));
   }
 }

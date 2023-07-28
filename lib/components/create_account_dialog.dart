@@ -36,7 +36,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: backgroundColor),
-            padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height*0.04, horizontal: 16),
+            padding: EdgeInsets.symmetric(
+                vertical: MediaQuery.of(context).size.height * 0.025,
+                horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
@@ -59,8 +61,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                             style: kMontserratMedium.copyWith(fontSize: 14),
                           ),
                           SizedBox(
-                            height: 44,
+                            height: 42,
                             child: TextField(
+                              decoration: const InputDecoration(isDense: true),
                               controller: firstnameController,
                             ),
                           )
@@ -78,8 +81,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                             style: kMontserratMedium.copyWith(fontSize: 14),
                           ),
                           SizedBox(
-                            height: 44,
+                            height: 42,
                             child: TextField(
+                              decoration: const InputDecoration(isDense: true),
                               controller: lastnameController,
                             ),
                           )
@@ -98,8 +102,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 44,
+                      height: 42,
                       child: TextField(
+                        decoration: const InputDecoration(isDense: true),
                         controller: emailController,
                       ),
                     )
@@ -115,15 +120,18 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       style: kMontserratMedium.copyWith(fontSize: 14),
                     ),
                     SizedBox(
-                      height: 44,
+                      height: 36,
                       child: TextField(
                         controller: passController,
                         obscureText: hidePass ? true : false,
                         decoration: InputDecoration(
+                            isDense: true,
                             suffixIcon: IconButton(
-                              icon: hidePass == true? const Icon(Icons.visibility_off_outlined) : const Icon(Icons.visibility_outlined),
+                              icon: hidePass == true
+                                  ? const Icon(Icons.visibility_off_outlined, size: 20,)
+                                  : const Icon(Icons.visibility_outlined, size: 20,),
                               color: darkColor,
-                              onPressed: (){
+                              onPressed: () {
                                 setState(() {
                                   hidePass = !hidePass;
                                 });
@@ -145,7 +153,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                         text: "Terms & Conditions",
                         style:
                             kMontserratMedium.copyWith(color: secondaryColor)),
-                    TextSpan(text: " and ",  style: kMontserratMedium.copyWith(color: greyColor)),
+                    TextSpan(
+                        text: " and ",
+                        style: kMontserratMedium.copyWith(color: greyColor)),
                     TextSpan(
                         text: "Privacy Policy",
                         style:
