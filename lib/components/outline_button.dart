@@ -10,8 +10,6 @@ Widget customOutlineButton(
     double? height,
     double? width,
     double? widthbox,
-    bool isWidget = false,
-    Widget? customWidget,
     void Function()? onPress}) {
   return OutlinedButton(
       style: OutlinedButton.styleFrom(
@@ -31,7 +29,7 @@ Widget customOutlineButton(
             SizedBox(
               width: widthbox,
             ),
-            isWidget ? customWidget! : SvgPicture.asset(
+            SvgPicture.asset(
               assetName!,
               width: width,
               height: height,

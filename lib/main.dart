@@ -5,6 +5,8 @@ import 'package:pillowtalk/views/home/home.dart';
 import 'package:pillowtalk/views/payment_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 
+import 'views/onboarding/onboarding_screen.dart';
+
 late Size mq;
 void main() {
   runApp(const MyApp());

@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 
 import '../constants/colors.dart';
 import '../constants/fonts/fontstyle.dart';
-import '../main.dart';
 
 Widget customSignInOutlineButton(
     {String? title,
@@ -11,8 +10,7 @@ Widget customSignInOutlineButton(
     double? height,
     double? width,
     double? widthbox,
-    bool isWidget = false,
-    Widget? customWidget,
+    context,
     // double? startwidth,
     void Function()? onPress}) {
 
@@ -25,13 +23,10 @@ Widget customSignInOutlineButton(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: Row(
-          // mainAxisSize: MainAxisSize.min,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-
+          mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(width: 70,),
-            isWidget ? customWidget! : SvgPicture.asset(
+            SizedBox(width: MediaQuery.of(context).size.height*0.07,),
+            SvgPicture.asset(
               assetName!,
               width: width,
               height: height,
@@ -44,6 +39,8 @@ Widget customSignInOutlineButton(
               style: kRobotoMedium.copyWith(color: secondaryColor),
             ),
             const Spacer(flex: 1,),
+            // SizedBox(width: MediaQuery.of(context).size.height*0.07,),
+
           ],
         ),
       ));

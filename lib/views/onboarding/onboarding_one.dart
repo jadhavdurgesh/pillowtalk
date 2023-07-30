@@ -77,8 +77,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         ExpandablePageView.builder(
           physics: const AlwaysScrollableScrollPhysics(),
-          animationDuration: const Duration(seconds: 10),
-          animationCurve: Curves.slowMiddle,
+          animationDuration: const Duration(seconds: 2),
           controller: _pageController,
           itemCount: onboardDataList.length,
           onPageChanged: (index) {
@@ -110,7 +109,7 @@ class _OnboardingOneScreenState extends State<OnboardingOneScreen> {
               Get.to(
                 () => const OnboardingFourScreen(),
                 transition: Transition.topLevel,
-                duration: const Duration(milliseconds: 100),
+                duration: const Duration(milliseconds: 1),
               );
             } else if (_pageIndex == onboardDataList.length - 2) {
               _pageController.jumpToPage(2);

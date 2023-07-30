@@ -148,22 +148,22 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                     TextSpan(
                         text:
                             "By selecting Agree and continue below, I agree to Playdate ",
-                        style: kMontserratMedium.copyWith(color: greyColor)),
+                        style: kMontserratMedium.copyWith(color: greyColor, fontSize: 12)),
                     TextSpan(
                         text: "Terms & Conditions",
                         style:
-                            kMontserratMedium.copyWith(color: secondaryColor)),
+                            kMontserratMedium.copyWith(color: secondaryColor,fontSize: 12, decoration: TextDecoration.underline), ),
                     TextSpan(
                         text: " and ",
-                        style: kMontserratMedium.copyWith(color: greyColor)),
+                        style: kMontserratMedium.copyWith(color: greyColor,fontSize: 12)),
                     TextSpan(
                         text: "Privacy Policy",
                         style:
-                            kMontserratMedium.copyWith(color: secondaryColor)),
+                            kMontserratMedium.copyWith(color: secondaryColor,fontSize: 12,decoration: TextDecoration.underline)),
                   ]),
                   textAlign: TextAlign.center,
                 ),
-                24.heightBox,
+                16.heightBox,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

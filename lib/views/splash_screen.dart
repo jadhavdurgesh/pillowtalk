@@ -6,6 +6,7 @@ import '../constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'onboarding/onboarding_one.dart';
+import 'onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
       image1 = Image.asset("assets/banner1.png");
       image2 = Image.asset("assets/banner2.png");
       image3 = Image.asset("assets/banner3.png");
-      Get.off(() => const OnboardingOneScreen(),
+      Get.off(() => const OnboardingScreen(),
           transition: Transition.noTransition);
     });
   }
@@ -71,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
           28.heightBox,
 
           Text(
-            "Playdate",
+            "PillowTalk",
             style: kMontserratMedium.copyWith(fontSize: 22),
           ),
 

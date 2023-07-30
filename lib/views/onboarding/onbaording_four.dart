@@ -24,10 +24,17 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   void initState() {
     super.initState();
     image = Image.asset('assets/illustration1.webp');
-    preCache();
+    // preCache();
   }
-  Future<void> preCache() async {
-    await precacheImage(image.image, context);
+  // Future<void> preCache() async {
+  //   await precacheImage(image.image, context);
+  // }
+
+    @override
+  void didChangeDependencies() {
+    //provide the image provider to precached Image
+    precacheImage(image.image, context);
+    super.didChangeDependencies();
   }
 
   Future<dynamic> showLoginDialog() {
@@ -122,7 +129,8 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               title: "CONTINUE WITH GOOGLE",
               height: 18,
               width: 18,
-              widthbox: 12,
+              widthbox: 16,
+              context: context
             ),
             8.heightBox,
             customSignInOutlineButton(
@@ -131,6 +139,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               height: 20,
               width: 20,
               widthbox: 12,
+              context: context
             ),
             8.heightBox,
             customSignInOutlineButton(
@@ -139,7 +148,9 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               height: 20,
               width: 20,
               widthbox: 12,
+              context: context
             ),
+            Expanded(child: Container())
           ],
         ),
       ),
