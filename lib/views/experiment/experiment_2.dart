@@ -1,6 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/lists.dart';
 
@@ -8,11 +13,16 @@ class CardScrollWidget extends StatelessWidget {
   var currentPage;
   var padding = 20.0;
   var verticalInsets = 20.0;
-  CardScrollWidget({super.key, this.currentPage});
+  PageController controller;
+  CardScrollWidget({
+    Key? key,
+    required this.currentPage,
+    required this.controller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var cardAspectRatio = 12.0 / 16.0;
+    var cardAspectRatio = 12.0 / 17.0;
     var widgetAspectRatio = cardAspectRatio * 1.2;
     return AspectRatio(
       aspectRatio: widgetAspectRatio,
@@ -44,19 +54,46 @@ class CardScrollWidget extends StatelessWidget {
               top: padding + verticalInsets * max(-delta, 0.0),
               bottom: padding + verticalInsets * max(-delta, 0.0),
               start: start,
-               textDirection: TextDirection.rtl,
-               child: Container(
+              textDirection: TextDirection.rtl,
+              child: Container(
                 // color: secondaryColor,
                 child: AspectRatio(
                   aspectRatio: cardAspectRatio,
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      Image.asset(cardImagesList[i], fit: BoxFit.fill,)
+                      Image.asset(
+                        cardImagesList[i],
+                        fit: BoxFit.fill,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: GestureDetector(
+                          onTap: () {
+                            controller.nextPage(
+                                duration: const Duration(seconds: 1),
+                                curve: Curves.easeInOut);
+                          },
+                          child: Container(
+                            padding:
+                                const EdgeInsets.only(right: 50, bottom: 50),
+                            // color: secondaryColor,
+                            child: SvgPicture.asset(
+                              'assets/icons/cardbutton.svg',
+                              width: MediaQuery.of(context).size.width * 0.2,
+                            ),
+                          ),
+                        ),
+                        // child: FloatingActionButton(onPressed: () {
+                        //   controller.nextPage(duration: const Duration(seconds: 1), curve: Curves.easeInOut);
+                          
+                        // },),
+                      )
+                      // Positioned(child: Container(height: 10,width: 10, color: Colors.,))
                     ],
                   ),
                 ),
-               ),
+              ),
             );
             cardList.add(cardItem);
           }

@@ -8,10 +8,10 @@ final urlImages = [
 ];
 
 const cardImagesList = [
-  icCard1,
-  icCard2,
-  icCard3,
   icCard4,
+  icCard3,
+  icCard2,
+  icCard1,
 ];
 
 const cardStringsList = [
