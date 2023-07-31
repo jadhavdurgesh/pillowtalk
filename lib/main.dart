@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
+import 'package:pillowtalk/views/experiment/experiment_screen.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:pillowtalk/views/payment_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 
+import 'constants/lists.dart';
 import 'views/onboarding/onboarding_screen.dart';
 
 late Size mq;
@@ -30,6 +32,8 @@ class _MyAppState extends State<MyApp> {
     precacheImage(const AssetImage("assets/banner2.webp"), context);
     precacheImage(const AssetImage("assets/banner3.webp"), context);
   }
+  
+  var currentPage = cardImagesList.length - 1.0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +44,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const SplashScreen(),
+      home: const ExperimentScreen(),
     );
   }
 }
