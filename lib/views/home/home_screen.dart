@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           20.heightBox,
           Container(
             height: 500,
-            color: secondaryColor,
+            // color: secondaryColor,
             width: double.infinity,
             child: Stack(
               fit: StackFit.loose,

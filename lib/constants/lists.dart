@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:pillowtalk/components/onboard_content.dart';
 import 'package:pillowtalk/constants/strings.dart';
 
@@ -12,6 +13,12 @@ const cardImagesList = [
   icCard3,
   icCard2,
   icCard1,
+];
+List<Image> cardImages = [
+  Image.asset(icCard1),
+  Image.asset(icCard2),
+  Image.asset(icCard3),
+  Image.asset(icCard4),
 ];
 
 const cardStringsList = [

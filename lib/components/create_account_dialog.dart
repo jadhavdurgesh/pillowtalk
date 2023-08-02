@@ -147,7 +147,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       TextSpan(style: kMontserratMedium.copyWith(), children: [
                     TextSpan(
                         text:
-                            "By selecting Agree and continue below, I agree to Playdate ",
+                            "By selecting Agree and continue below, I agree to PillowTalk ",
                         style: kMontserratMedium.copyWith(color: greyColor, fontSize: 12)),
                     TextSpan(
                         text: "Terms & Conditions",
@@ -175,8 +175,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       widthbox: 4.0,
                       onPress: () {
                         Get.back();
-                        Get.to(() => const OnboardingFiveScreen(),
-                            transition: Transition.noTransition);
+                        Get.to(() => const OnboardingFiveScreen(),);
                       },
                     ),
                   ],

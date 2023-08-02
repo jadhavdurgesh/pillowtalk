@@ -7,6 +7,7 @@ import 'package:pillowtalk/views/payment_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 
 import 'constants/lists.dart';
+import 'views/experiment/experiment_four.dart';
 import 'views/experiment/experiment_three.dart';
 import 'views/onboarding/onboarding_screen.dart';
 
@@ -45,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const ExperimentThree(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -99,7 +99,7 @@ var hidePass = true;
                         widthbox: 4.0,
                         onPress: () {
                           Get.back();
-                          Get.to(()=> const OnboardingFiveScreen(), transition: Transition.noTransition);
+                          Get.to(()=> const OnboardingFiveScreen());
                         },
                       ),
                     ],

@@ -14,7 +14,6 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-
   late Image image1;
   late Image image2;
   late Image image3;
@@ -45,50 +44,63 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-  mq = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: onboardDataList.length,
-              onPageChanged: (index) {
-                setState(() {
-                  _pageIndex = index;
-                });
-              },
-              itemBuilder: (context, index) {
-                return OnboardContent(
-                    image: onboardDataList[index].image,
-                    text: onboardDataList[index].text);
+    mq = MediaQuery.of(context).size;
+    return WillPopScope(
+      onWillPop: () async {
+        _pageController.previousPage(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut);
+        if(_pageIndex == 0)
+        {
+          return true;
+        }
+        return false;
+      },
+      child: Scaffold(
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: onboardDataList.length,
+                onPageChanged: (index) {
+                  setState(() {
+                    _pageIndex = index;
+                  });
+                },
+                itemBuilder: (context, index) {
+                  return OnboardContent(
+                      image: onboardDataList[index].image,
+                      text: onboardDataList[index].text);
+                },
+              ),
+            ),
+            // SizedBox(
+            //   height: mq.height*0.01,
+            // ),
+            customOutlineButton(
+              assetName: "assets/icons/arrow.svg",
+              title: _pageIndex == onboardDataList.length - 1
+                  ? "LET'S BEGIN"
+                  : "CONTINUE",
+              // height: 20,
+              // width: 20,
+              widthbox: 4.0,
+              onPress: () {
+                if (_pageIndex == onboardDataList.length - 1) {
+                  Get.to(() => const OnboardingFourScreen());
+                } else {
+                  _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut);
+                }
               },
             ),
-          ),
-          // SizedBox(
-          //   height: mq.height*0.01,
-          // ),
-          customOutlineButton(
-            assetName: "assets/icons/arrow.svg",
-            title: _pageIndex == onboardDataList.length - 1
-                ? "LET'S BEGIN"
-                : "CONTINUE",
-            // height: 20,
-            // width: 20,
-            widthbox: 4.0,
-            onPress: () {
-               if(_pageIndex == onboardDataList.length - 1){
-                Get.to(()=> const OnboardingFourScreen(), transition: Transition.topLevel ,  duration: const Duration(milliseconds: 1),);
-               }
-               else{
-                _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-               }
-            },
-          ),
-          SizedBox(
-            height: mq.height*0.08,
-          )
-        ],
+            SizedBox(
+              height: mq.height * 0.08,
+            )
+          ],
+        ),
       ),
     );
   }
