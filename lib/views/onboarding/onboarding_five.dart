@@ -54,7 +54,6 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
               height: 22,
               width: 22,
               widthbox: 12,
-              
             ),
             8.heightBox,
             customOutlineButton(

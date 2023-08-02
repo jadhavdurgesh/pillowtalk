@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/code_textfield.dart';
-import 'package:pillowtalk/views/home/home_screen.dart';
-import 'package:pillowtalk/views/onboarding/onboarding_five.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../constants/colors.dart';
@@ -78,7 +76,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                             isLoading = true;
                           });
                           Get.back();
-                          Get.to(()=> const Home(), transition: Transition.rightToLeft,duration: const Duration(milliseconds: 150));
+                          Get.to(()=> const Home(), transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 200));
                         },
                       ),
                     ],
