@@ -175,7 +175,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       widthbox: 4.0,
                       onPress: () {
                         Get.back();
-                        Get.to(() => const OnboardingFiveScreen(),);
+                        Get.to(() => const OnboardingFiveScreen(), transition: Transition.rightToLeft,duration: const Duration(milliseconds: 150));
                       },
                     ),
                   ],

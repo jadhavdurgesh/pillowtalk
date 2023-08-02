@@ -78,7 +78,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                             isLoading = true;
                           });
                           Get.back();
-                          Get.to(()=> const Home());
+                          Get.to(()=> const Home(), transition: Transition.rightToLeft,duration: const Duration(milliseconds: 150));
                         },
                       ),
                     ],

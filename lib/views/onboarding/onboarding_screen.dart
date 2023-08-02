@@ -48,7 +48,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return WillPopScope(
       onWillPop: () async {
         _pageController.previousPage(
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 150),
             curve: Curves.easeInOut);
         if(_pageIndex == 0)
         {
@@ -88,10 +88,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               widthbox: 4.0,
               onPress: () {
                 if (_pageIndex == onboardDataList.length - 1) {
-                  Get.to(() => const OnboardingFourScreen());
+                  Get.to(() => const OnboardingFourScreen(), transition: Transition.rightToLeft,duration: const Duration(milliseconds: 150),);
                 } else {
                   _pageController.nextPage(
-                      duration: const Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 150),
                       curve: Curves.easeInOut);
                 }
               },
