@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   top: 70,
                   height: 250,
                   child: Container(
-                    // color: Colors.yellow,
+                    color: Colors.yellow,
                     child: Image.asset(
                       'assets/card3.png',
                     ),

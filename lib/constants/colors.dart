@@ -10,3 +10,4 @@ const primaryColor = Color(0xffFD5564);
 const secondaryColor = Color(0xff1976D2);
 const indicatorColor = Color(0xff27AE60);
 const yellowColor = Color(0xffFEE801);
+const expColor = Color(0xff121212);

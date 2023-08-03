@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/views/experiment/experiment_screen.dart';
-import 'package:pillowtalk/views/home/home.dart';
-import 'package:pillowtalk/views/payment_screen.dart';
-import 'package:pillowtalk/views/splash_screen.dart';
+import 'package:pillowtalk/views/experiment/codeit.dart';
 
 import 'constants/lists.dart';
-import 'views/experiment/experiment_four.dart';
-import 'views/experiment/experiment_three.dart';
-import 'views/onboarding/onboarding_screen.dart';
-
 late Size mq;
 void main() {
   runApp(const MyApp());
@@ -46,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const SplashScreen(),
+      home: const CodeIt(),
     );
   }
 }

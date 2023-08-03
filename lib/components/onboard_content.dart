@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/main.dart';
-import 'package:velocity_x/velocity_x.dart';
-
 import '../constants/fonts/fontstyle.dart';
 
 

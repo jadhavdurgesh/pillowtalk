@@ -40,3 +40,10 @@ final List<OnBoard> onboardDataList = [
   OnBoard(image: "assets/banner2.webp", text: "Deepen\ncommunication"),
   OnBoard(image: "assets/banner3.webp", text: "Strengthening\nintimacy"),
 ];
+
+// final List<String> sliderList = [
+//   'assets/card1.png',
+//   'assets/card2.png',
+//   'assets/card3.png',
+//   'assets/card4.png',
+// ];
