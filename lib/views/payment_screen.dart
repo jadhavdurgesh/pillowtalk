@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pillowtalk/components/payment_card.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 

@@ -1,11 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/views/experiment/codeit.dart';
+import 'package:pillowtalk/experiment/experiment.dart';
+import 'package:pillowtalk/views/splash_screen.dart';
 
 import 'constants/lists.dart';
+import 'firebase_options.dart';
 late Size mq;
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -27,9 +34,6 @@ class _MyAppState extends State<MyApp> {
     precacheImage(const AssetImage("assets/banner2.webp"), context);
     precacheImage(const AssetImage("assets/banner3.webp"), context);
   }
-  
-  var currentPage = cardImagesList.length - 1.0;
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -39,7 +43,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const CodeIt(),
+      home: const SplashScreen(),
     );
   }
 }

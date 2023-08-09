@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/views/onboarding/onboarding_five.dart';
 import 'package:velocity_x/velocity_x.dart';
-
+import '../services/firebase_auth_methods.dart';
 import '../constants/colors.dart';
 import '../constants/fonts/fontstyle.dart';
 import 'outline_button.dart';
@@ -21,6 +22,12 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
   TextEditingController lastnameController = TextEditingController();
 
   var hidePass = true;
+  void signUpUser() {
+    FirebaseAuthMethods(FirebaseAuth.instance).signUpWithEmail(
+        email: emailController.text,
+        password: passController.text,
+        context: context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,8 +135,14 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                             isDense: true,
                             suffixIcon: IconButton(
                               icon: hidePass == true
-                                  ? const Icon(Icons.visibility_off_outlined, size: 20,)
-                                  : const Icon(Icons.visibility_outlined, size: 20,),
+                                  ? const Icon(
+                                      Icons.visibility_off_outlined,
+                                      size: 20,
+                                    )
+                                  : const Icon(
+                                      Icons.visibility_outlined,
+                                      size: 20,
+                                    ),
                               color: darkColor,
                               onPressed: () {
                                 setState(() {
@@ -148,18 +161,25 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                     TextSpan(
                         text:
                             "By selecting Agree and continue below, I agree to PillowTalk ",
-                        style: kMontserratMedium.copyWith(color: greyColor, fontSize: 12)),
+                        style: kMontserratMedium.copyWith(
+                            color: greyColor, fontSize: 12)),
                     TextSpan(
-                        text: "Terms & Conditions",
-                        style:
-                            kMontserratMedium.copyWith(color: secondaryColor,fontSize: 12, decoration: TextDecoration.underline), ),
+                      text: "Terms & Conditions",
+                      style: kMontserratMedium.copyWith(
+                          color: secondaryColor,
+                          fontSize: 12,
+                          decoration: TextDecoration.underline),
+                    ),
                     TextSpan(
                         text: " and ",
-                        style: kMontserratMedium.copyWith(color: greyColor,fontSize: 12)),
+                        style: kMontserratMedium.copyWith(
+                            color: greyColor, fontSize: 12)),
                     TextSpan(
                         text: "Privacy Policy",
-                        style:
-                            kMontserratMedium.copyWith(color: secondaryColor,fontSize: 12,decoration: TextDecoration.underline)),
+                        style: kMontserratMedium.copyWith(
+                            color: secondaryColor,
+                            fontSize: 12,
+                            decoration: TextDecoration.underline)),
                   ]),
                   textAlign: TextAlign.center,
                 ),
@@ -174,8 +194,11 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                       width: 22,
                       widthbox: 4.0,
                       onPress: () {
+                        signUpUser();
                         Get.back();
-                        Get.to(() => const OnboardingFiveScreen(), transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 200));
+                        Get.to(() => const OnboardingFiveScreen(),
+                            transition: Transition.rightToLeftWithFade,
+                            duration: const Duration(milliseconds: 200));
                       },
                     ),
                   ],

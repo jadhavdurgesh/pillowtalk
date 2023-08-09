@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../constants/fonts/fontstyle.dart';
+import 'outline_button.dart';
 
 Widget paymentCard(){
   return Container(

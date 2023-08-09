@@ -29,17 +29,16 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cached_network_image: ^3.2.3
-  card_swiper: ^3.0.1
-  carousel_slider: ^4.2.1
+  cloud_firestore: ^4.8.4
   cupertino_icons: ^1.0.2
+  firebase_auth: ^4.7.2
+  firebase_core: ^2.15.0
   flutter:
     sdk: flutter
-  flutter_advanced_networkimage_2: ^2.0.1
   flutter_svg: ^1.0.0
   get: ^4.6.5
   google_fonts: ^4.0.4
   http: ^0.13.4
-  vector_math: ^2.1.4
   velocity_x: ^4.1.0
 
 dev_dependencies:

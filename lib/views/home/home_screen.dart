@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pillowtalk/components/carousel.dart';
 import 'package:pillowtalk/components/drawer_widget.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/lists.dart';
@@ -62,61 +63,62 @@ class _HomeScreenState extends State<HomeScreen> {
               style: kMontserratMedium.copyWith(color: greyColor, fontSize: 18),
             ),
           ),
-          20.heightBox,
-          Container(
-            height: 500,
-            // color: secondaryColor,
-            width: double.infinity,
-            child: Stack(
-              fit: StackFit.loose,
-              children: [
-                Positioned(
-                  right: 0,
-                  top: 70,
-                  height: 250,
-                  child: Container(
-                    color: Colors.yellow,
-                    child: Image.asset(
-                      'assets/card3.png',
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 120,
-                  top: 30,
-                  height: 350,
-                  child: Container(
-                    // color: Colors.green,
-                    child: Image.asset(
-                      'assets/card2.png',
-                    ),
-                  ),
-                ),
-                AnimatedPositioned(
-                  duration: const Duration(milliseconds: 500),
-                  bottom: isExpanded ? 10 : 20,
-                  child: Container(
-                    // color: primaryColor,
-                    child: Positioned(
-                      left: 0,
-                      child: Container(
-                        padding: EdgeInsets.zero,
-                        // color: Colors.red,
-                        child: GestureDetector(
-                          onPanUpdate: onPanUpdate,
-                          onTap: (){},
-                          child: Image.asset(
-                            'assets/card1.png',
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
+          32.heightBox,
+          // SliderDart(),
+          // Container(
+          //   height: 500,
+          //   // color: secondaryColor,
+          //   width: double.infinity,
+          //   child: Stack(
+          //     fit: StackFit.loose,
+          //     children: [
+          //       Positioned(
+          //         right: 0,
+          //         top: 70,
+          //         height: 250,
+          //         child: Container(
+          //           color: Colors.yellow,
+          //           child: Image.asset(
+          //             'assets/card3.png',
+          //           ),
+          //         ),
+          //       ),
+          //       Positioned(
+          //         left: 120,
+          //         top: 30,
+          //         height: 350,
+          //         child: Container(
+          //           // color: Colors.green,
+          //           child: Image.asset(
+          //             'assets/card2.png',
+          //           ),
+          //         ),
+          //       ),
+          //       AnimatedPositioned(
+          //         duration: const Duration(milliseconds: 500),
+          //         bottom: isExpanded ? 10 : 20,
+          //         child: Container(
+          //           // color: primaryColor,
+          //           child: Positioned(
+          //             left: 0,
+          //             child: Container(
+          //               padding: EdgeInsets.zero,
+          //               // color: Colors.red,
+          //               child: GestureDetector(
+          //                 onPanUpdate: onPanUpdate,
+          //                 onTap: (){},
+          //                 child: Image.asset(
+          //                   'assets/card1.png',
+          //                   fit: BoxFit.fitHeight,
+          //                 ),
+          //               ),
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
