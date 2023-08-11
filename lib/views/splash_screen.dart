@@ -4,8 +4,6 @@ import 'dart:math' as math;
 import '../constants/colors.dart';
 import '../constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import 'onboarding/onboarding_one.dart';
 import 'onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {

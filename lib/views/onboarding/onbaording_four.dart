@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
@@ -8,6 +10,7 @@ import '../../components/create_account_dialog.dart';
 import '../../components/login_dialog.dart';
 import '../../components/sign_in_outline_button.dart';
 import '../../main.dart';
+import '../../services/firebase_auth_methods.dart';
 
 class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
@@ -130,7 +133,10 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               height: 18,
               width: 18,
               widthbox: 16,
-              context: context
+              context: context,
+              onPress: () {
+                FirebaseAuthMethods(FirebaseAuth.instance).signInWithGoogle(context);
+              },
             ),
             8.heightBox,
             customSignInOutlineButton(

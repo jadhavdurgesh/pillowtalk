@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'customIcons.dart';
-
 class ExperimentOne extends StatefulWidget {
   const ExperimentOne({super.key});
 
@@ -14,12 +12,6 @@ class ExperimentOne extends StatefulWidget {
 
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRatio = cardAspectRatio * 1.2;
-List<String> title = [
-  "Hounted Ground",
-  "Fallen In Love",
-  "The Dreaming Moon",
-  "Jack the Persian and the Black Castel",
-];
   List<String> images = [
   "assets/card1.png",
   "assets/card2.png",

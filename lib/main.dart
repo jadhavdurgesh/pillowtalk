@@ -2,10 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/experiment/experiment.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
-
-import 'constants/lists.dart';
 import 'firebase_options.dart';
 late Size mq;
 void main() async {
