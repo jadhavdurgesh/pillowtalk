@@ -26,6 +26,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
     return SafeArea(
       child: StatefulBuilder(builder: (stfContext, stfSetState) {
         return Dialog(
+          insetAnimationCurve: Curves.easeInOut,
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

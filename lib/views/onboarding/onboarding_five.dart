@@ -7,13 +7,11 @@ import '../../components/enter_code_dialog.dart';
 
 class OnboardingFiveScreen extends StatefulWidget {
   const OnboardingFiveScreen({super.key});
-
   @override
   State<OnboardingFiveScreen> createState() => _OnboardingFiveScreenState();
 }
 
 class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
-
 
   Future<dynamic> showEnterCodeDialog() {
     return showDialog(
