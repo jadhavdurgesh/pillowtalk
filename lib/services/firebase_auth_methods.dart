@@ -39,7 +39,7 @@ class FirebaseAuthMethods {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       Get.back();
-      Get.to(() => const OnboardingFiveScreen(),
+      Get.offAll(() => const OnboardingFiveScreen(),
           transition: Transition.rightToLeftWithFade,
           duration: const Duration(milliseconds: 200));
     } on FirebaseAuthException catch (e) {
@@ -58,7 +58,7 @@ class FirebaseAuthMethods {
             accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
         UserCredential userCredential =
             await _auth.signInWithCredential(credential);
-        Get.off(() => const OnboardingFiveScreen());
+        Get.offAll(() => const OnboardingFiveScreen());
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);

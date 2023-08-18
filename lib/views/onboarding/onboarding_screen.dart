@@ -23,9 +23,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     super.initState();
-    image1 = Image.asset("assets/banner1.webp");
-    image2 = Image.asset("assets/banner2.webp");
-    image3 = Image.asset("assets/banner3.webp");
+    image1 = Image.asset("assets/banner4.png");
+    image2 = Image.asset("assets/banner5.png");
+    image3 = Image.asset("assets/banner6.png");
     preCache();
     _pageController = PageController(initialPage: 0);
   }

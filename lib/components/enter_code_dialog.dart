@@ -76,8 +76,8 @@ class _EnterCodeDialogState extends State<EnterCodeDialog> {
                           stfSetState(() {
                             isLoading = true;
                           });
-                          Get.back();
-                          Get.to(()=> const Home(), transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 200));
+                          // Get.back();
+                          Get.offAll(()=> const Home(), transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 200));
                         },
                       ),
                     ],

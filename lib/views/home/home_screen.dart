@@ -32,9 +32,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           autoLoop: false,
           minScale: 0.8,
         ),
-        width: MediaQuery.of(context).size.width*0.5,
+        width: MediaQuery.of(context).size.width * 0.7,
         height: 300,
         isClip: false,
+        // padding: EdgeInsets.only(right: 20),
         // currentIndex: currentIndex,
         onItemChanged: (index) {
           setState(() {
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         },
         itemConfig: GalleryItemConfig(
           width: MediaQuery.of(context).size.width,
-          height: 450,
+          height: MediaQuery.of(context).size.height,
           radius: 12,
           isShowTransformMask: false,
           // shadows: [
@@ -58,18 +59,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 // color: secondaryColor,
                 child: currentIndex == index
                     ? Image.asset(cardImagesList[index])
-                    : Opacity(
-                        opacity: 0.55,
-                        child: Image.asset(cardImagesList[index]))),
+                    : Container(
+                      color: whiteColor,
+                      child: Opacity(
+                          opacity: 0.55,
+                          child: Image.asset(cardImagesList[index])),
+                    )),
             Positioned(
-              right: mq.width * 0.4,
-              bottom: 70,
-              child: Container(
-                // color: Colors.black,
-                child: SvgPicture.asset(
-                  'assets/icons/cardbutton.svg',
-                ),
-              ),
+              right: mq.width * 0.1,
+              bottom: 50,
+              child: currentIndex == index
+                  ? Container(
+                      // color: Colors.black,
+                      child: SvgPicture.asset(
+                        'assets/icons/cardbutton.svg',
+                      ),
+                    )
+                  : Container(),
             ),
           ]);
         });
@@ -79,29 +85,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: darkColor),
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-                onPressed: () => Scaffold.of(context).openDrawer(),
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-                icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
-          },
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: SvgPicture.asset(
-              "assets/icons/notification.svg",
-              width: 24,
-            ),
-          )
-        ],
-      ),
-      drawer: customDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -118,8 +101,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Pick a card",
-              style:
-                  kMontserratMedium.copyWith(color: greyColor, fontSize: 18),
+              style: kMontserratMedium.copyWith(color: greyColor, fontSize: 18),
             ),
           ),
           28.heightBox,
@@ -132,9 +114,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 controller: PageController(),
                 clipBehavior: Clip.hardEdge,
                 // padEnds: false,
-                itemCount: cardImagesList.length,
+                // reverse: false,
+                // allowImplicitScrolling: true,
+                itemCount: 1,
                 itemBuilder: ((context, index) {
-                  return buildGallery3D();
+                  return Container(
+                      // color: primaryColor,
+                      width: mq.width,
+                      padding: EdgeInsets.only(
+                          left: mq.width * 0.32, right: mq.width * 0.02),
+                      child: buildGallery3D());
                 })),
           ),
           16.heightBox,
@@ -153,65 +142,79 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               20.heightBox,
               Text(descCardLlist[currentIndex],
                   style: const TextStyle(fontSize: 16)),
-              8.heightBox,
-              Stack(
+              // .heightBox,
+              // SizedBox(height: mq.height*0.02,),
+              Column(
                 children: [
                   Container(
-                    height: 85,
+                    height: mq.height * 0.1,
                     // color: primaryColor,
                     child: Row(
                       // mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Intimacy Level'
-                        ),
+                        Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            child: const Text('Intimacy Level')),
                         20.widthBox,
-                        CustomIndicator(context: context, progressIndex: currentIndex,),
+                        Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            CustomIndicator(
+                              context: context,
+                              progressIndex: currentIndex,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: Container(),
+                                ),
+                                const Text(
+                                  '😉',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Container(),
+                                ),
+                                const Text(
+                                  '👄',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Container(),
+                                ),
+                                const Text(
+                                  '👀',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                Flexible(
+                                  flex: 2,
+                                  child: Container(),
+                                ),
+                                const Text(
+                                  '😈',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Container(),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
                       ],
                     ),
                   ),
-                  Positioned(
-                    bottom: -4,
-                    right: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 32),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Text(
-                            '😉',
-                            style: TextStyle(
-                              fontSize: 20
-                            ),
-                          ),
-                          48.widthBox,
-                          const Text(
-                            '👄',
-                            style: TextStyle(
-                              fontSize: 20
-                            ),
-                          ),
-                           48.widthBox,
-                          const Text(
-                            '👀',
-                            style: TextStyle(
-                              fontSize: 20
-                            ),
-                          ),
-                           48.widthBox,
-                          const Text(
-                            '😈',
-                            style: TextStyle(
-                              fontSize: 20
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
-              )
+              ),
+              // SizedBox(height: mq.height*0.01,),
             ]),
           ),
         ],

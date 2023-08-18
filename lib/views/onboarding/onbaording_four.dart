@@ -1,14 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../../components/create_account_dialog.dart';
 import '../../components/login_dialog.dart';
 import '../../components/sign_in_outline_button.dart';
 import '../../main.dart';
 import '../../services/firebase_auth_methods.dart';
+import 'onboarding_five.dart';
 
 class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
@@ -18,7 +19,6 @@ class OnboardingFourScreen extends StatefulWidget {
 }
 
 class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
-
   late Image image;
 
   @override
@@ -27,7 +27,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
     image = Image.asset('assets/illustration1.webp');
   }
 
-    @override
+  @override
   void didChangeDependencies() {
     //provide the image provider to precached Image
     precacheImage(image.image, context);
@@ -35,12 +35,9 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   }
 
   Future<dynamic> showLoginDialog() {
-    return showDialog(
-      context: context,
-      builder: (ctx) => const LoginDialog()
-    );
+    return showDialog(context: context, builder: (ctx) => const LoginDialog());
   }
-  
+
   Future<dynamic> showCreateAccountDialog() {
     return showDialog(
       context: context,
@@ -53,7 +50,6 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     mq = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -64,11 +60,9 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.05
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height*0.50,
+              height: MediaQuery.of(context).size.height * 0.50,
               child: Center(
                   child: Image.asset(
                 "assets/illustration1.webp",
@@ -129,18 +123,18 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               widthbox: 16,
               context: context,
               onPress: () {
-                FirebaseAuthMethods(FirebaseAuth.instance).signInWithGoogle(context);
+                FirebaseAuthMethods(FirebaseAuth.instance)
+                    .signInWithGoogle(context);
               },
             ),
             8.heightBox,
             customSignInOutlineButton(
-              assetName: "assets/icons/Facebook.svg",
-              title: "CONTINUE WITH FACEBOOK",
-              height: 20,
-              width: 20,
-              widthbox: 12,
-              context: context
-            ),
+                assetName: "assets/icons/Facebook.svg",
+                title: "CONTINUE WITH FACEBOOK",
+                height: 20,
+                width: 20,
+                widthbox: 12,
+                context: context),
             8.heightBox,
             customSignInOutlineButton(
               assetName: "assets/icons/apple.svg",
@@ -148,7 +142,10 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               height: 20,
               width: 20,
               widthbox: 12,
-              context: context
+              context: context,
+              onPress: () => Get.offAll(() => const OnboardingFiveScreen(),
+                  transition: Transition.rightToLeftWithFade,
+                  duration: const Duration(milliseconds: 200)),
             ),
             Expanded(child: Container())
           ],

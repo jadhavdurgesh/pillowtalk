@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../../main.dart';
 import '../constants/colors.dart';
 import 'blue_chat.dart';

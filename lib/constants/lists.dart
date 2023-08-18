@@ -36,9 +36,9 @@ const descCardLlist = [
 ];
 
 final List<OnBoard> onboardDataList = [
-  OnBoard(image: "assets/banner1.webp", text: "Connecting with\nyour partner"),
-  OnBoard(image: "assets/banner2.webp", text: "Deepen\ncommunication"),
-  OnBoard(image: "assets/banner3.webp", text: "Strengthening\nintimacy"),
+  OnBoard(image: "assets/banner4.png", text: "Connecting with\nyour partner"),
+  OnBoard(image: "assets/banner5.png", text: "Deepen\ncommunication"),
+  OnBoard(image: "assets/banner6.png", text: "Strengthening\nintimacy"),
 ];
 
 final List<String> sliderList = [
