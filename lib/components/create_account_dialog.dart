@@ -77,10 +77,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                               style: kMontserratMedium.copyWith(fontSize: 14),
                             ),
                             SizedBox(
-                              height: 42,
+                              height: 70,
                               child: TextFormField(
-                                decoration:
-                                    const InputDecoration(isDense: true),
+                                decoration: const InputDecoration(),
                                 controller: firstnameController,
                                 validator: (value) {
                                   bool _nameRegex =
@@ -108,10 +107,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                               style: kMontserratMedium.copyWith(fontSize: 14),
                             ),
                             SizedBox(
-                              height: 42,
+                              height: 70,
                               child: TextFormField(
-                                decoration:
-                                    const InputDecoration(isDense: true),
+                                decoration: const InputDecoration(),
                                 controller: lastnameController,
                                 validator: (value) {
                                   bool _nameRegex =
@@ -140,9 +138,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
                       SizedBox(
-                        height: 42,
+                        height: 70,
                         child: TextFormField(
-                          decoration: const InputDecoration(isDense: true),
+                          decoration: const InputDecoration(),
                           controller: emailController,
                           validator: (value) {
                             bool emailValid = RegExp(
@@ -162,8 +160,10 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                         "Password",
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
-                      SizedBox(
-                        height: 36,
+                      // 8.heightBox,
+                      Container(
+                        height: 72,
+                        // color: primaryColor,
                         child: TextFormField(
                           controller: passController,
                           obscureText: hidePass ? true : false,
@@ -176,24 +176,49 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                             return null;
                           },
                           decoration: InputDecoration(
-                              isDense: true,
-                              suffixIcon: IconButton(
-                                icon: hidePass == true
-                                    ? const Icon(
-                                        Icons.visibility_off_outlined,
-                                        size: 20,
-                                      )
-                                    : const Icon(
-                                        Icons.visibility_outlined,
-                                        size: 20,
-                                      ),
-                                color: darkColor,
-                                onPressed: () {
+                            
+                            suffix: GestureDetector(
+                                onTap: () {
                                   setState(() {
                                     hidePass = !hidePass;
                                   });
                                 },
-                              )),
+                                child: Container(
+                                  height: 20,
+                                  // color: primaryColor,
+                                  child: hidePass == true
+                                      ? const Icon(
+                                        Icons.visibility_off_outlined,
+                                        size: 22,
+                                      )
+                                      : const Icon(
+                                          Icons.visibility_outlined,
+                                          size: 22,
+                                        ),
+                                )),
+                            // isDense: true,
+                            // suffixIcon: Container(
+                            //   height: 0,
+                            //   color: primaryColor,
+                            //   child: IconButton(
+                            //     icon: hidePass == true
+                            //         ? const Icon(
+                            //             Icons.visibility_off_outlined,
+                            //             size: 20,
+                            //           )
+                            //         : const Icon(
+                            //             Icons.visibility_outlined,
+                            //             size: 20,
+                            //           ),
+                            //     color: darkColor,
+                            //     onPressed: () {
+                            //       setState(() {
+                            //         hidePass = !hidePass;
+                            //       });
+                            //     },
+                            //   ),
+                            // )
+                          ),
                         ),
                       ),
                     ],
@@ -239,7 +264,7 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                         width: 22,
                         widthbox: 4.0,
                         onPress: () {
-                          if(_formField.currentState!.validate()){
+                          if (_formField.currentState!.validate()) {
                             signUpUser();
                           }
                         },

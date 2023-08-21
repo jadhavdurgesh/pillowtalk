@@ -65,7 +65,7 @@ class _LoginDialogState extends State<LoginDialog> {
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
                       SizedBox(
-                        height: 44,
+                        height: 70,
                         child: TextFormField(
                           controller: emailController,
                           validator: (value) {
@@ -74,8 +74,7 @@ class _LoginDialogState extends State<LoginDialog> {
                                 .hasMatch(value!);
                             if (value.isEmpty) {
                               return "Enter email";
-                            }
-                            else if (!emailValid) {
+                            } else if (!emailValid) {
                               return "Enter valid email";
                             }
                             return null;
@@ -88,7 +87,7 @@ class _LoginDialogState extends State<LoginDialog> {
                         style: kMontserratMedium.copyWith(fontSize: 14),
                       ),
                       SizedBox(
-                        height: 44,
+                        height: 70,
                         child: TextFormField(
                           controller: passController,
                           obscureText: hidePass ? true : false,
@@ -101,17 +100,24 @@ class _LoginDialogState extends State<LoginDialog> {
                             return null;
                           },
                           decoration: InputDecoration(
-                              suffixIcon: IconButton(
-                            icon: hidePass == true
-                                ? const Icon(Icons.visibility_off_outlined)
-                                : const Icon(Icons.visibility_outlined),
-                            color: darkColor,
-                            onPressed: () {
-                              setState(() {
-                                hidePass = !hidePass;
-                              });
-                            },
-                          )),
+                            suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    hidePass = !hidePass;
+                                  });
+                                },
+                                child: hidePass == true
+                                    ? const Icon(
+                                      Icons.visibility_off_outlined,
+                                      size: 22,
+                                      color: darkColor,
+                                    )
+                                    : const Icon(
+                                        Icons.visibility_outlined,
+                                        size: 22,
+                                        color: darkColor,
+                                      )),
+                          ),
                         ),
                       ),
                     ],
@@ -128,7 +134,7 @@ class _LoginDialogState extends State<LoginDialog> {
                       width: 22,
                       widthbox: 4.0,
                       onPress: () {
-                        if(_formField.currentState!.validate()){
+                        if (_formField.currentState!.validate()) {
                           loginUser();
                         }
                       },

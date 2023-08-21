@@ -42,7 +42,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
             ),
             14.heightBox,
             Text(
-              "Invite your partner to enjoy the full experience, or\njoin using invite code.",
+              "Invite your partner to enjoy the full experience, or join using invite code.",
               style: kMontserratMedium,
             ),
             20.heightBox,
