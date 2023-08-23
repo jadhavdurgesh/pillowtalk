@@ -35,13 +35,40 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   }
 
   Future<dynamic> showLoginDialog() {
-    return showDialog(context: context, builder: (ctx) => const LoginDialog());
+    return showGeneralDialog(
+      barrierLabel: "Label",
+      transitionDuration: const Duration(milliseconds: 700),
+      context: context,
+      barrierDismissible: true,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return const LoginDialog();
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return SlideTransition(
+          position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+              .animate(anim1),
+          child: child,
+        );
+      },
+    );
   }
 
   Future<dynamic> showCreateAccountDialog() {
-    return showDialog(
+    return showGeneralDialog(
+      barrierLabel: "Label",
+      transitionDuration: const Duration(milliseconds: 700),
       context: context,
-      builder: (ctx) => const CreateAccountDialog(),
+      barrierDismissible: true,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return const CreateAccountDialog();
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return SlideTransition(
+          position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
+              .animate(anim1),
+          child: child,
+        );
+      },
     );
   }
 

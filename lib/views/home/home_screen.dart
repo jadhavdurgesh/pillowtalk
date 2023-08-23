@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_gallery_3d/gallery3d.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:pillowtalk/components/custom_indicator.dart';
 import 'package:pillowtalk/components/drawer_widget.dart';
 import 'package:pillowtalk/constants/colors.dart';
@@ -85,6 +86,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
     return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: backgroundColor,
+      //   elevation: 0,
+      //   iconTheme: const IconThemeData(color: darkColor),
+      //   leading: Builder(
+      //     builder: (context) {
+      //       return IconButton(
+      //           onPressed: () => Scaffold.of(context).openDrawer(),
+      //           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+      //           icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
+      //     },
+      //   ),
+      //   actions: [
+      //     GestureDetector(
+      //       onTap: () {
+      //         Get.to(()=> const NotificationScreen(), transition: Transition.noTransition );
+      //       },
+      //       child: Container(
+      //         child: Padding(
+      //           padding: const EdgeInsets.symmetric(horizontal: 12),
+      //           child: SvgPicture.asset(
+      //             "assets/icons/notification.svg",
+      //             width: 26,
+      //           ),
+      //         ),
+      //       ),
+      //     )
+      //   ],
+      // ),
+      // drawer: customDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -142,8 +173,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               20.heightBox,
               Text(descCardLlist[currentIndex],
                   style: const TextStyle(fontSize: 16)),
-              // .heightBox,
-              // SizedBox(height: mq.height*0.02,),
+              12.heightBox,
               Column(
                 children: [
                   Container(

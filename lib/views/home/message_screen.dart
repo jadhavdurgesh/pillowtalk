@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/message_card.dart';
-import 'package:pillowtalk/views/home/home.dart';
 
 import '../../constants/colors.dart';
 import 'home1.dart';
@@ -21,7 +20,7 @@ class MessageScreen extends StatelessWidget {
               leading: IconButton(
                   onPressed: () {
                     // controller.currentNavIndex.value = 0;
-                    Get.back(result: () => const Home());
+                    // Get.back(result: () => const Home());
                     Get.offAll(() => const Home(),
                         transition: Transition.rightToLeftWithFade,
                         duration: const Duration(milliseconds: 200));
@@ -32,13 +31,7 @@ class MessageScreen extends StatelessWidget {
               backgroundColor: backgroundColor,
               elevation: 0,
             ),
-        body: WillPopScope(
-            onWillPop: () async {
-              // Get.back(result: const Home());
-              // Get.to(() => const Home());
-              return true;
-            },
-            child: const MessageCard()),
+        body: const MessageCard(),
             
         // body: Center(
         //     child: StreamBuilder(

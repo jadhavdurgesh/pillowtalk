@@ -21,7 +21,7 @@ Widget blueMessage({context, String? text}) {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
+                    bottomLeft: Radius.circular(10))),
             child: Text(
               text!,
               style: const TextStyle(
@@ -31,6 +31,7 @@ Widget blueMessage({context, String? text}) {
           ),
         ),
         const CircleAvatar(
+          radius: 16,
           backgroundImage: AssetImage("assets/man.png"),
         ),
       ],

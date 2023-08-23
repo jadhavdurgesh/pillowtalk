@@ -50,8 +50,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         _pageController.previousPage(
             duration: const Duration(milliseconds: 250),
             curve: Curves.easeInOut);
-        if(_pageIndex == 0)
-        {
+        if (_pageIndex == 0) {
           return true;
         }
         return false;
@@ -88,7 +87,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               widthbox: 4.0,
               onPress: () {
                 if (_pageIndex == onboardDataList.length - 1) {
-                  Get.to(() => const OnboardingFourScreen(), transition: Transition.rightToLeftWithFade,duration: const Duration(milliseconds: 200),);
+                  Get.to(
+                    () => const OnboardingFourScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 200),
+                  );
                 } else {
                   _pageController.nextPage(
                       duration: const Duration(milliseconds: 250),
