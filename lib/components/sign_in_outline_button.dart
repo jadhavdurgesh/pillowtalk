@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 
 Widget customSignInOutlineButton(
     {String? title,
@@ -36,7 +35,11 @@ Widget customSignInOutlineButton(
             ),
             Text(
               title!,
-              style: kRobotoMedium.copyWith(color: secondaryColor),
+              style: const TextStyle(
+                fontFamily: 'Roboto',
+                color: secondaryColor,
+                fontWeight: FontWeight.w500
+              ),
             ),
             const Spacer(flex: 1,),
             // SizedBox(width: MediaQuery.of(context).size.height*0.07,),

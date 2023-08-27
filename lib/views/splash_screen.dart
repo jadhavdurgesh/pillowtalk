@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'dart:math' as math;
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'onboarding/onboarding_screen.dart';
 
@@ -28,6 +28,9 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
 
     Future.delayed(const Duration(seconds: 2), () {
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+      SystemChrome.setSystemUIOverlayStyle(
+          const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
       image1 = Image.asset("assets/banner1.png");
       image2 = Image.asset("assets/banner2.png");
       image3 = Image.asset("assets/banner3.png");
@@ -36,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-    @override
+  @override
   void didChangeDependencies() {
     // Adjust the provider based on the image type
     super.didChangeDependencies();
@@ -69,16 +72,23 @@ class _SplashScreenState extends State<SplashScreen>
 
           28.heightBox,
 
-          Text(
+          const Text(
             "PillowTalk",
-            style: kMontserratMedium.copyWith(fontSize: 22),
+            style: TextStyle(
+              fontSize: 22,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
           ),
 
           16.heightBox,
 
-          Text(
+          const Text(
             'Discovering the spark',
-            style: kMontserratMedium,
+            style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
           ),
 
           32.heightBox,
@@ -100,9 +110,13 @@ class _SplashScreenState extends State<SplashScreen>
                 )),
           ),
           Expanded(child: Container()),
-          Text(
+          const Text(
             "V1.2.1",
-            style: kMontserratMedium.copyWith(color: lightColor),
+            style: TextStyle(
+              color: lightColor,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
           ),
 
           48.heightBox

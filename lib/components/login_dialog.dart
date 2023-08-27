@@ -1,12 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pillowtalk/services/firebase_auth_methods.dart';
-import 'package:pillowtalk/views/onboarding/onboarding_five.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 import 'outline_button.dart';
 
 class LoginDialog extends StatefulWidget {
@@ -48,10 +44,13 @@ class _LoginDialogState extends State<LoginDialog> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   "Log in",
                   textAlign: TextAlign.center,
-                  style: kMontserratMedium.copyWith(fontSize: 18),
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500),
                 ),
                 24.heightBox,
                 Form(
@@ -60,9 +59,12 @@ class _LoginDialogState extends State<LoginDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Email",
-                        style: kMontserratMedium.copyWith(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         // height: 70,
@@ -82,9 +84,12 @@ class _LoginDialogState extends State<LoginDialog> {
                         ),
                       ),
                       16.heightBox,
-                      Text(
+                      const Text(
                         "Password",
-                        style: kMontserratMedium.copyWith(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         // height: 70,
@@ -108,10 +113,10 @@ class _LoginDialogState extends State<LoginDialog> {
                                 },
                                 child: hidePass == true
                                     ? const Icon(
-                                      Icons.visibility_off_outlined,
-                                      size: 22,
-                                      color: darkColor,
-                                    )
+                                        Icons.visibility_off_outlined,
+                                        size: 22,
+                                        color: darkColor,
+                                      )
                                     : const Icon(
                                         Icons.visibility_outlined,
                                         size: 22,
@@ -144,10 +149,12 @@ class _LoginDialogState extends State<LoginDialog> {
                 24.heightBox,
                 GestureDetector(
                     onTap: () {},
-                    child: Text(
+                    child: const Text(
                       "Forget Password?",
                       textAlign: TextAlign.center,
-                      style: kMontserratMedium.copyWith(
+                      style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w500,
                           fontSize: 14,
                           color: secondaryColor,
                           decoration: TextDecoration.underline),

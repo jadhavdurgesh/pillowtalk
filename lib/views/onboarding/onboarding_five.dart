@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pillowtalk/components/outline_button.dart';
-import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
-
 import '../../components/enter_code_dialog.dart';
 
 class OnboardingFiveScreen extends StatefulWidget {
@@ -16,7 +14,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
   Future<dynamic> showEnterCodeDialog() {
     return showGeneralDialog(
        barrierLabel: "Label",
-      transitionDuration: const Duration(milliseconds: 700),
+      transitionDuration: const Duration(milliseconds: 300),
       context: context,
         barrierDismissible: true,
       pageBuilder: (context, animation, secondaryAnimation) {
@@ -48,14 +46,21 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen> {
               width: 220,
             )),
             24.heightBox,
-            Text(
+            const Text(
               "It takes two to tango",
-              style: kMontserratMedium.copyWith(fontSize: 20),
+              style: TextStyle(
+              fontSize: 20,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
             ),
             14.heightBox,
-            Text(
+            const Text(
               "Invite your partner to enjoy the full experience, or join using invite code.",
-              style: kMontserratMedium,
+              style: TextStyle(
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
             ),
             20.heightBox,
             customOutlineButton(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pillowtalk/constants/colors.dart';
 
 Widget indicatorContainer(double top , double bottom, Color color){
   return Container(

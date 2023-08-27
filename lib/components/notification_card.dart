@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class NotificationCard extends StatelessWidget {
@@ -19,22 +18,23 @@ class NotificationCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'My bunny 🐇 ',
-                    style: kMontserratSemibold.copyWith(
-                      fontSize: 14
-                    )
-                  ),
-                  TextSpan(
-                    text: 'just send you a message',
-                    style:  kMontserratRegular.copyWith(
-                      fontSize: 14
-                    )
-                  )
-                ]
-              )),
+              RichText(
+                  text: const TextSpan(children: [
+                TextSpan(
+                  text: 'My bunny 🐇 ',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500),
+                ),
+                TextSpan(
+                  text: 'just send you a message',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500),
+                )
+              ])),
               const Text(
                 '15 minutes ago',
               )

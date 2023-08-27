@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 
 Widget customOutlineButton(
     {String? title,
@@ -24,7 +23,11 @@ Widget customOutlineButton(
           children: [
             Text(
               title!,
-              style: kRobotoMedium.copyWith(color: secondaryColor),
+              style: const TextStyle(
+              color: secondaryColor,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
             ),
             SizedBox(
               width: widthbox,

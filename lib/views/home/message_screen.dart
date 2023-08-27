@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:pillowtalk/components/message_card.dart';
 
 import '../../constants/colors.dart';
-import 'home1.dart';
+import 'home.dart';
 
 class MessageScreen extends StatelessWidget {
   const MessageScreen({super.key});
@@ -19,15 +19,10 @@ class MessageScreen extends StatelessWidget {
       appBar: AppBar(
               leading: IconButton(
                   onPressed: () {
-                    // controller.currentNavIndex.value = 0;
-                    // Get.back(result: () => const Home());
-                    Get.offAll(() => const Home(),
-                        transition: Transition.rightToLeftWithFade,
-                        duration: const Duration(milliseconds: 200));
+                    Get.back(result: () => const Home());
                   },
-                  icon: SvgPicture.asset(
-                    "assets/icons/cross.svg",
-                  )),
+                  icon: const Icon(Icons.arrow_back, color: darkColor, size: 28,)
+                  ),
               backgroundColor: backgroundColor,
               elevation: 0,
             ),

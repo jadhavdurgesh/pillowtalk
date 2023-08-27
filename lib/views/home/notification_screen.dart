@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pillowtalk/components/notification_card.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'home.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});
@@ -15,18 +17,29 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+              leading: IconButton(
+                  onPressed: () {
+                    Get.back(result: () => const Home());
+                  },
+                  icon: const Icon(Icons.arrow_back, color: darkColor, size: 28,)
+                  ),
+              backgroundColor: backgroundColor,
+              elevation: 0,
+            ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            70.heightBox,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Today',
-                style: kMontserratMedium.copyWith(
-                  fontSize: 20
-                ),
+                style: TextStyle(
+              fontSize: 20,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
               ),
             ),
             16.heightBox,
@@ -46,13 +59,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
             ),
             const Divider(color: secondaryColor,thickness: 1),
             12.heightBox,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Yesterday',
-                style: kMontserratMedium.copyWith(
-                  fontSize: 20
-                ),
+                style: TextStyle(
+              fontSize: 20,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
               ),
             ),
             16.heightBox,
@@ -72,13 +87,15 @@ class _NotificationScreenState extends State<NotificationScreen> {
             ),
             const Divider(color: secondaryColor,thickness: 1),
             12.heightBox,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'August 15',
-                style: kMontserratMedium.copyWith(
-                  fontSize: 20
-                ),
+                style: TextStyle(
+              fontSize: 20,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
               ),
             ),
             16.heightBox,

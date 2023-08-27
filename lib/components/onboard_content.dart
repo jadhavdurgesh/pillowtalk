@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pillowtalk/main.dart';
-import '../constants/fonts/fontstyle.dart';
 
 
 class OnBoard {
@@ -39,7 +38,11 @@ class OnboardContent extends StatelessWidget {
           const Expanded(child: SizedBox(),),
           Text(
             text,
-            style: kMontserratMedium.copyWith(fontSize: 22),
+            style: const TextStyle(
+              fontSize: 22,
+              fontFamily: 'Montserrat',
+              fontWeight: FontWeight.w500
+            ),
             textAlign: TextAlign.center,
           ),
           SizedBox(

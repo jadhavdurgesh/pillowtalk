@@ -12,8 +12,6 @@ import 'package:pillowtalk/constants/lists.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../constants/fonts/fontstyle.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -61,11 +59,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 child: currentIndex == index
                     ? Image.asset(cardImagesList[index])
                     : Container(
-                      color: whiteColor,
-                      child: Opacity(
-                          opacity: 0.55,
-                          child: Image.asset(cardImagesList[index])),
-                    )),
+                        color: whiteColor,
+                        child: Opacity(
+                            opacity: 0.55,
+                            child: Image.asset(cardImagesList[index])),
+                      )),
             Positioned(
               right: mq.width * 0.1,
               bottom: 50,
@@ -86,53 +84,30 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: backgroundColor,
-      //   elevation: 0,
-      //   iconTheme: const IconThemeData(color: darkColor),
-      //   leading: Builder(
-      //     builder: (context) {
-      //       return IconButton(
-      //           onPressed: () => Scaffold.of(context).openDrawer(),
-      //           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-      //           icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
-      //     },
-      //   ),
-      //   actions: [
-      //     GestureDetector(
-      //       onTap: () {
-      //         Get.to(()=> const NotificationScreen(), transition: Transition.noTransition );
-      //       },
-      //       child: Container(
-      //         child: Padding(
-      //           padding: const EdgeInsets.symmetric(horizontal: 12),
-      //           child: SvgPicture.asset(
-      //             "assets/icons/notification.svg",
-      //             width: 26,
-      //           ),
-      //         ),
-      //       ),
-      //     )
-      //   ],
-      // ),
-      // drawer: customDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Welcome, John & Jane",
-              style: kMontserratMedium.copyWith(fontSize: 20),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
             ),
           ),
           8.heightBox,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Pick a card",
-              style: kMontserratMedium.copyWith(color: greyColor, fontSize: 18),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: greyColor,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
             ),
           ),
           28.heightBox,
@@ -168,7 +143,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             child: Column(children: [
               Text(
                 cardStringsList[currentIndex],
-                style: kMontserratMedium.copyWith(fontSize: 22),
+                style: const TextStyle(
+                    fontSize: 22,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w500),
               ),
               20.heightBox,
               Text(descCardLlist[currentIndex],
@@ -190,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         20.widthBox,
                         Expanded(
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             CustomIndicator(
                               context: context,

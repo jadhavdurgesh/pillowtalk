@@ -4,7 +4,6 @@ import 'package:pillowtalk/utils/showSnackBar.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../services/firebase_auth_methods.dart';
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 import 'outline_button.dart';
 
 class CreateAccountDialog extends StatefulWidget {
@@ -59,10 +58,13 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     "Sign up",
                     textAlign: TextAlign.center,
-                    style: kMontserratMedium.copyWith(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500),
                   ),
                   24.heightBox,
                   Row(
@@ -72,9 +74,12 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "First name",
-                              style: kMontserratMedium.copyWith(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
                               height: 70,
@@ -102,9 +107,12 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               "Last name",
-                              style: kMontserratMedium.copyWith(fontSize: 14),
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
                             ),
                             SizedBox(
                               height: 70,
@@ -133,9 +141,12 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Email",
-                        style: kMontserratMedium.copyWith(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500),
                       ),
                       SizedBox(
                         height: 70,
@@ -156,9 +167,12 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                         ),
                       ),
                       16.heightBox,
-                      Text(
+                      const Text(
                         "Password",
-                        style: kMontserratMedium.copyWith(fontSize: 14),
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500),
                       ),
                       // 8.heightBox,
                       Container(
@@ -176,7 +190,6 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                             return null;
                           },
                           decoration: InputDecoration(
-                            
                             suffix: GestureDetector(
                                 onTap: () {
                                   setState(() {
@@ -188,9 +201,9 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                                   // color: primaryColor,
                                   child: hidePass == true
                                       ? const Icon(
-                                        Icons.visibility_off_outlined,
-                                        size: 22,
-                                      )
+                                          Icons.visibility_off_outlined,
+                                          size: 22,
+                                        )
                                       : const Icon(
                                           Icons.visibility_outlined,
                                           size: 22,
@@ -225,28 +238,39 @@ class _CreateAccountDialogState extends State<CreateAccountDialog> {
                   ),
                   16.heightBox,
                   RichText(
-                    text: TextSpan(
-                        style: kMontserratMedium.copyWith(),
+                    text: const TextSpan(
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500),
                         children: [
                           TextSpan(
                               text:
                                   "By selecting Agree and continue below, I agree to PillowTalk ",
-                              style: kMontserratMedium.copyWith(
-                                  color: greyColor, fontSize: 12)),
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  color: greyColor,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500)),
                           TextSpan(
-                            text: "Terms & Conditions",
-                            style: kMontserratMedium.copyWith(
-                                color: secondaryColor,
-                                fontSize: 12,
-                                decoration: TextDecoration.underline),
-                          ),
+                              text: "Terms & Conditions",
+                              style: TextStyle(
+                                  color: secondaryColor,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                  decoration: TextDecoration.underline)),
                           TextSpan(
                               text: " and ",
-                              style: kMontserratMedium.copyWith(
-                                  color: greyColor, fontSize: 12)),
+                              style: TextStyle(
+                                  color: greyColor,
+                                  fontSize: 12,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500)),
                           TextSpan(
                               text: "Privacy Policy",
-                              style: kMontserratMedium.copyWith(
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500,
                                   color: secondaryColor,
                                   fontSize: 12,
                                   decoration: TextDecoration.underline)),

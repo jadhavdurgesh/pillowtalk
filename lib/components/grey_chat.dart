@@ -12,7 +12,7 @@ Widget greyMessage({context, String? text}){
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         const CircleAvatar(
-          radius: 16,
+          radius: 18,
           backgroundImage: AssetImage("assets/women.png"),
         ),
         Flexible(

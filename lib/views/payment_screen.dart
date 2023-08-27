@@ -4,7 +4,6 @@ import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../components/outline_button.dart';
-import '../constants/fonts/fontstyle.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
@@ -34,16 +33,20 @@ class _PaymentScreenState extends State<PaymentScreen> {
             width: 220,
           )),
           32.heightBox,
-          Text(
+          const Text(
             'Passion is high',
-            style: kMontserratMedium.copyWith(fontSize: 20),
+            style: TextStyle(
+                fontSize: 20,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w500),
           ),
           12.heightBox,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 28.0),
             child: Text(
               "Continue the conversation and ignite the sparks with premium intimacy card packs.",
-              style: kMontserratMedium.copyWith(),
+              style: TextStyle(
+                  fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
             ),
           ),
           28.heightBox,
@@ -60,29 +63,54 @@ class _PaymentScreenState extends State<PaymentScreen> {
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     "Subscription perks",
-                    style: kMontserratMedium.copyWith(color: secondaryColor),
+                    style: TextStyle(
+                        color: secondaryColor,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500),
                   ),
                   16.heightBox,
-                  Text("All Present and future Levels", style: kMontserratMedium),
+                  const Text(
+                    "All Present and future Levels",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  ),
                   16.heightBox,
-                  Text("New levels everymonth", style: kMontserratMedium),
+                  const Text(
+                    "New levels everymonth",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  ),
                   16.heightBox,
-                  Text("Complete Ad-free experience", style: kMontserratMedium),
+                  const Text(
+                    "Complete Ad-free experience",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  ),
                   16.heightBox,
-                  Text("Purchases apply to both users", style: kMontserratMedium),
+                  const Text(
+                    "Purchases apply to both users",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  ),
                   16.heightBox,
-                  Text("Access to all premimium features in the future", style: kMontserratMedium),
+                  const Text(
+                    "Access to all premimium features in the future",
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  ),
                   16.heightBox,
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12 , vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     decoration: BoxDecoration(
                         color: Colors.lightBlue[100],
                         borderRadius: BorderRadius.circular(2)),
-                    child: Text(
+                    child: const Text(
                       "Share to partner",
-                      style: kRobotoMedium,
+                      style: TextStyle(
+                          fontFamily: 'Roboto', fontWeight: FontWeight.w500),
                     ),
                   ),
                   16.heightBox,

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/code_textfield.dart';
-import 'package:pillowtalk/views/home/home1.dart';
+import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:math' as math;
 import '../constants/colors.dart';
-import '../constants/fonts/fontstyle.dart';
 import 'outline_button.dart';
 
 class EnterCodeDialog extends StatefulWidget {
@@ -51,16 +50,22 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  const Text(
                     "Enter invite code",
                     textAlign: TextAlign.center,
-                    style: kMontserratMedium.copyWith(fontSize: 18),
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500),
                   ),
                   8.heightBox,
-                  Text(
+                  const Text(
                     "When your partner invited you to Playdate, their message should included a 4 digit code.",
                     textAlign: TextAlign.center,
-                    style: kMontserratMedium.copyWith(fontSize: 12),
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500),
                   ),
                   16.heightBox,
                   Row(
@@ -116,7 +121,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                                 Get.offAll(() => const Home(),
                                     transition: Transition.rightToLeftWithFade,
                                     duration:
-                                        const Duration(milliseconds: 1000));
+                                        const Duration(milliseconds: 200));
                               },
                             ),
                     ],

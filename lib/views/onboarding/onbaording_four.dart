@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/constants/fonts/fontstyle.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../components/create_account_dialog.dart';
 import '../../components/login_dialog.dart';
@@ -37,7 +36,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   Future<dynamic> showLoginDialog() {
     return showGeneralDialog(
       barrierLabel: "Label",
-      transitionDuration: const Duration(milliseconds: 700),
+      transitionDuration: const Duration(milliseconds: 300),
       context: context,
       barrierDismissible: true,
       pageBuilder: (context, animation, secondaryAnimation) {
@@ -56,7 +55,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
   Future<dynamic> showCreateAccountDialog() {
     return showGeneralDialog(
       barrierLabel: "Label",
-      transitionDuration: const Duration(milliseconds: 700),
+      transitionDuration: const Duration(milliseconds: 300),
       context: context,
       barrierDismissible: true,
       pageBuilder: (context, animation, secondaryAnimation) {
@@ -98,9 +97,12 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               )),
             ),
             // 24.heightBox,
-            Text(
+            const Text(
               "Love is in the air",
-              style: kMontserratMedium.copyWith(fontSize: 20),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
             ),
             14.heightBox,
             Row(
@@ -109,32 +111,37 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
                     onTap: () {
                       showCreateAccountDialog();
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 24,
                       child: Text(
                         "Create an account",
-                        style: kMontserratMedium.copyWith(
+                        style: TextStyle(
                             fontSize: 14,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
                             color: secondaryColor,
                             decoration: TextDecoration.underline),
                       ),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                   child: Text(
                     " or ",
-                    style: kMontserratMedium,
+                    style: TextStyle(
+                        fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
                   ),
                 ),
                 GestureDetector(
                     onTap: () {
                       showLoginDialog();
                     },
-                    child: SizedBox(
+                    child: const SizedBox(
                       height: 24,
                       child: Text(
                         "log in",
-                        style: kMontserratMedium.copyWith(
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
                             color: secondaryColor,
                             decoration: TextDecoration.underline),
                       ),

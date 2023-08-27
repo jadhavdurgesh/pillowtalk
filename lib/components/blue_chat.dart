@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../main.dart';
 
 Widget blueMessage({context, String? text}) {
@@ -31,7 +30,7 @@ Widget blueMessage({context, String? text}) {
           ),
         ),
         const CircleAvatar(
-          radius: 16,
+          radius: 18,
           backgroundImage: AssetImage("assets/man.png"),
         ),
       ],
