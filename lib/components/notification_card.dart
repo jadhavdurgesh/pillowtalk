@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class NotificationCard extends StatelessWidget {
@@ -25,12 +26,14 @@ class NotificationCard extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 14,
                       fontFamily: 'Montserrat',
+                      color: darkColor,
                       fontWeight: FontWeight.w500),
                 ),
                 TextSpan(
                   text: 'just send you a message',
                   style: TextStyle(
                       fontSize: 14,
+                      color: darkColor,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500),
                 )

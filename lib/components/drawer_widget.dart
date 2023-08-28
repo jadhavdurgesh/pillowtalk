@@ -67,7 +67,7 @@ Widget customDrawer() {
                 "Manage Subscription",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
@@ -80,7 +80,7 @@ Widget customDrawer() {
                 "Privacy Policy",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
@@ -93,7 +93,7 @@ Widget customDrawer() {
                 "Term of use",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),

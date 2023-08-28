@@ -189,7 +189,7 @@ class _MessageCardState extends State<MessageCard> {
     );
   }
 
-  Widget chatInput({context}) {
+  Widget chatInput() {
     return Container(
       padding: EdgeInsets.symmetric(
           horizontal: 12, vertical: MediaQuery.of(context).size.height * 0.01),

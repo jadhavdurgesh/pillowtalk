@@ -24,10 +24,7 @@ Widget customOutlineButton(
             Text(
               title!,
               style: const TextStyle(
-              color: secondaryColor,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500
-            ),
+                  color: secondaryColor, fontWeight: FontWeight.w600),
             ),
             SizedBox(
               width: widthbox,

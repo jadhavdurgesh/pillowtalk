@@ -41,6 +41,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             currentIndex = index;
           });
         },
+        // onClickItem: (index) {
+        //   setState(() {
+        //     currentIndex = index;
+        //   });
+        // },
         itemConfig: GalleryItemConfig(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -148,10 +153,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
-              20.heightBox,
-              Text(descCardLlist[currentIndex],
-                  style: const TextStyle(fontSize: 16)),
-              12.heightBox,
+              16.heightBox,
+              Container(
+                height: 80,
+                // color: secondaryColor,
+                child: Text(descCardLlist[currentIndex],
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w500)),
+              ),
+              8.heightBox,
               Column(
                 children: [
                   Container(
