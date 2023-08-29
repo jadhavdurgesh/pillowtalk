@@ -33,141 +33,146 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: backgroundColor,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: darkColor),
-        leading: Builder(
-          builder: (context) {
-            return IconButton(
-                onPressed: () => Scaffold.of(context).openDrawer(),
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-                icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
-          },
-        ),
-        actions: [
-          InkWell(
-            onTap: () {
-              Get.to(() => const NotificationScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 200));
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: backgroundColor,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: darkColor),
+          leading: Builder(
+            builder: (context) {
+              return IconButton(
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
             },
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: SvgPicture.asset(
-                  "assets/icons/notification.svg",
-                  width: 26,
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-      drawer: customDrawer(),
-      body: PageStorage(bucket: _pageStorageBucket, child: currentScreen),
-      bottomNavigationBar: Container(
-        height: 70,
-        color: secondaryColor,
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              width: mq.width*0.239,
-              padding: const EdgeInsets.only(top: 8),
-              height: 60,
-              // color: primaryColor,
-              child: Column(
-                children: [
-                  SvgPicture.asset(
-                    'assets/icons/home.svg',
+          ),
+          actions: [
+            InkWell(
+              onTap: () {
+                Get.to(() => const NotificationScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 200));
+              },
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: SvgPicture.asset(
+                    "assets/icons/notification.svg",
+                    width: 26,
                   ),
-                  4.heightBox,
-                  const Text(
-                    'Home',
-                    style: TextStyle(color: whiteColor),
-                  )
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(
-                  () => const DiscoverScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 200),
-                );
-              },
-              child: Container(
-                width: mq.width*0.239,
-                padding: const EdgeInsets.only(top: 8),
-                height: 60,
-                // color: primaryColor,
-                child: Column(
-                  children: [
-                    SvgPicture.asset('assets/icons/discover.svg'),
-                    4.heightBox,
-                    const Text(
-                      'Discover',
-                      style: TextStyle(color: whiteColor),
-                    )
-                  ],
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Get.back();
-                Get.to(
-                  () => const MessageScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 200),
-                );
-              },
-              child: Container(
-                // color: primaryColor,
-                width: mq.width*0.239,
-                padding: const EdgeInsets.only(top: 8),
-                height: 60,
-                child: Column(
-                  children: [
-                    SvgPicture.asset('assets/icons/message.svg'),
-                    4.heightBox,
-                    const Text(
-                      'Message',
-                      style: TextStyle(color: whiteColor),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Get.to(
-                  () => const ProfileScreen(),
-                  transition: Transition.rightToLeftWithFade,
-                  duration: const Duration(milliseconds: 200),
-                );
-              },
-              child: Container(
-                width: mq.width*0.239,
-                padding: const EdgeInsets.only(top: 8),
-                height: 60,
-                child: Column(
-                  children: [
-                    SvgPicture.asset('assets/icons/profile.svg'),
-                    4.heightBox,
-                    const Text(
-                      'Profile',
-                      style: TextStyle(color: whiteColor),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            )
           ],
+        ),
+        drawer: customDrawer(),
+        body: PageStorage(bucket: _pageStorageBucket, child: currentScreen),
+        bottomNavigationBar: Container(
+          height: 56,
+          color: secondaryColor,
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                width: mq.width*0.239,
+                padding: const EdgeInsets.only(top: 8),
+                height: 60,
+                // color: primaryColor,
+                child: Column(
+                  children: [
+                    SvgPicture.asset(
+                      'assets/icons/home.svg',
+                    ),
+                    4.heightBox,
+                    const Text(
+                      'Home',
+                      style: TextStyle(color: whiteColor, fontSize: 12),
+                    )
+                  ],
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.to(
+                    () => const DiscoverScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 200),
+                  );
+                },
+                child: Container(
+                  width: mq.width*0.239,
+                  padding: const EdgeInsets.only(top: 8),
+                  height: 60,
+                  // color: primaryColor,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/icons/discover.svg'),
+                      4.heightBox,
+                      const Text(
+                        'Discover',
+                        style: TextStyle(color: whiteColor, fontSize: 12),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.back();
+                  Get.to(
+                    () => const MessageScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 200),
+                  );
+                },
+                child: Container(
+                  // color: primaryColor,
+                  width: mq.width*0.239,
+                  padding: const EdgeInsets.only(top: 8),
+                  height: 60,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/icons/message.svg',
+                      width: 22,
+                      ),
+                      4.heightBox,
+                      const Text(
+                        'Message',
+                        style: TextStyle(color: whiteColor,fontSize: 12),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.to(
+                    () => const ProfileScreen(),
+                    transition: Transition.rightToLeftWithFade,
+                    duration: const Duration(milliseconds: 200),
+                  );
+                },
+                child: Container(
+                  width: mq.width*0.239,
+                  padding: const EdgeInsets.only(top: 8),
+                  height: 60,
+                  child: Column(
+                    children: [
+                      SvgPicture.asset('assets/icons/profile.svg'),
+                      4.heightBox,
+                      const Text(
+                        'Profile',
+                        style: TextStyle(color: whiteColor, fontSize: 12),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

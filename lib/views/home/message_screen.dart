@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/message_card.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../constants/colors.dart';
 import 'home.dart';
@@ -15,19 +16,24 @@ class MessageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-              leading: IconButton(
-                  onPressed: () {
-                    Get.back(result: () => const Home());
-                  },
-                  icon: const Icon(Icons.arrow_back, color: darkColor, size: 28,)
-                  ),
-              backgroundColor: backgroundColor,
-              elevation: 0,
-            ),
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Get.back(result: () => const Home());
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: darkColor,
+                size: 28,
+              )),
+          backgroundColor: backgroundColor,
+          elevation: 0,
+        ),
         body: const MessageCard(),
-            
+
         // body: Center(
         //     child: StreamBuilder(
         //   stream: FirebaseFirestore.instance.collection('users').snapshots(),
@@ -50,6 +56,7 @@ class MessageScreen extends StatelessWidget {
         //     );
         //   },
         // )),
-        );
+      ),
+    );
   }
 }

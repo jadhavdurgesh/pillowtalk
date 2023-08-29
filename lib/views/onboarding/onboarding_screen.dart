@@ -55,54 +55,58 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         }
         return false;
       },
-      child: Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: onboardDataList.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    _pageIndex = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return OnboardContent(
-                      image: onboardDataList[index].image,
-                      text: onboardDataList[index].text);
+      child: SafeArea(
+        top: false,
+        // maintainBottomViewPadding: true,
+        child: Scaffold(
+          body: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: onboardDataList.length,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _pageIndex = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return OnboardContent(
+                        image: onboardDataList[index].image,
+                        text: onboardDataList[index].text);
+                  },
+                ),
+              ),
+              // SizedBox(
+              //   height: mq.height*0.01,
+              // ),
+              customOutlineButton(
+                assetName: "assets/icons/arrow.svg",
+                title: _pageIndex == onboardDataList.length - 1
+                    ? "LET'S BEGIN"
+                    : "CONTINUE",
+                // height: 20,
+                // width: 20,
+                widthbox: 4.0,
+                onPress: () {
+                  if (_pageIndex == onboardDataList.length - 1) {
+                    Get.to(
+                      () => const OnboardingFourScreen(),
+                      transition: Transition.rightToLeftWithFade,
+                      duration: const Duration(milliseconds: 200),
+                    );
+                  } else {
+                    _pageController.nextPage(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeInOut);
+                  }
                 },
               ),
-            ),
-            // SizedBox(
-            //   height: mq.height*0.01,
-            // ),
-            customOutlineButton(
-              assetName: "assets/icons/arrow.svg",
-              title: _pageIndex == onboardDataList.length - 1
-                  ? "LET'S BEGIN"
-                  : "CONTINUE",
-              // height: 20,
-              // width: 20,
-              widthbox: 4.0,
-              onPress: () {
-                if (_pageIndex == onboardDataList.length - 1) {
-                  Get.to(
-                    () => const OnboardingFourScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 200),
-                  );
-                } else {
-                  _pageController.nextPage(
-                      duration: const Duration(milliseconds: 250),
-                      curve: Curves.easeInOut);
-                }
-              },
-            ),
-            SizedBox(
-              height: mq.height * 0.08,
-            )
-          ],
+              SizedBox(
+                height: mq.height * 0.03,
+              )
+            ],
+          ),
         ),
       ),
     );

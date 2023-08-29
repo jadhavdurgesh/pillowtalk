@@ -35,40 +35,40 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
 
   Future<dynamic> showLoginDialog() {
     return showGeneralDialog(
-      barrierLabel: "Label",
-      transitionDuration: const Duration(milliseconds: 300),
-      context: context,
-      barrierDismissible: true,
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return const LoginDialog();
-      },
-      transitionBuilder: (context, anim1, anim2, child) {
-        return SlideTransition(
-          position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
-              .animate(anim1),
-          child: child,
+        barrierLabel: "Label",
+        transitionDuration: const Duration(milliseconds: 300),
+        context: context,
+        barrierDismissible: true,
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child: Opacity(opacity: a1.value, child: const LoginDialog()),
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return Container();
+        }
         );
-      },
-    );
   }
 
   Future<dynamic> showCreateAccountDialog() {
     return showGeneralDialog(
-      barrierLabel: "Label",
-      transitionDuration: const Duration(milliseconds: 300),
-      context: context,
-      barrierDismissible: true,
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return const CreateAccountDialog();
-      },
-      transitionBuilder: (context, anim1, anim2, child) {
-        return SlideTransition(
-          position: Tween(begin: const Offset(0, 1), end: const Offset(0, 0))
-              .animate(anim1),
-          child: child,
+        barrierLabel: "Label",
+        transitionDuration: const Duration(milliseconds: 300),
+        context: context,
+        barrierDismissible: true,
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child: Opacity(opacity: a1.value, child: const CreateAccountDialog()),
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return Container();
+        }
         );
-      },
-    );
   }
 
   final emailController = TextEditingController();

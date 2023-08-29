@@ -117,11 +117,13 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                                 stfSetState(() {
                                   isLoading = true;
                                 });
-                                // Get.back();
-                                Get.offAll(() => const Home(),
-                                    transition: Transition.rightToLeftWithFade,
-                                    duration:
-                                        const Duration(milliseconds: 200));
+                                Future.delayed(const Duration(seconds: 1), () {
+                                  Get.offAll(() => const Home(),
+                                      transition:
+                                          Transition.rightToLeftWithFade,
+                                      duration:
+                                          const Duration(milliseconds: 200));
+                                });
                               },
                             ),
                     ],

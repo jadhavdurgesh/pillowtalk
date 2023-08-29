@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:pillowtalk/constants/colors.dart';
+import 'package:pillowtalk/main.dart';
 
 import 'indicator.dart';
 
@@ -21,6 +22,7 @@ class CustomIndicator extends StatefulWidget {
 class _CustomIndicatorState extends State<CustomIndicator> {
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Container(
       height: 60,
       width: 280,

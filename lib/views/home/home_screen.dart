@@ -22,7 +22,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   var isExpanded = false;
   int currentIndex = 0;
-  final Random random = Random();
 
   Widget buildGallery3D() {
     return Gallery3D(
@@ -41,11 +40,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             currentIndex = index;
           });
         },
-        // onClickItem: (index) {
-        //   setState(() {
-        //     currentIndex = index;
-        //   });
-        // },
+        onClickItem: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
         itemConfig: GalleryItemConfig(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -93,31 +92,35 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Welcome, John & Jane",
               style: TextStyle(
-                  fontSize: 20,
+                  fontSize: mq.width * 0.048,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w500),
             ),
           ),
-          8.heightBox,
-          const Padding(
+          SizedBox(
+            height: mq.width * 0.02,
+          ),
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Pick a card",
               style: TextStyle(
-                  fontSize: 18,
+                  fontSize: mq.width * 0.044,
                   color: greyColor,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w500),
             ),
           ),
-          28.heightBox,
+          SizedBox(
+            height: mq.height * 0.02,
+          ),
           Container(
-            height: mq.height * 0.45,
+            height: mq.height * 0.42,
             // color: primaryColor,
             // padding: const EdgeInsets.symmetric(horizontal: ),
             alignment: Alignment.center,
@@ -133,41 +136,39 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       // color: primaryColor,
                       width: mq.width,
                       padding: EdgeInsets.only(
-                          left: mq.width * 0.32, right: mq.width * 0.02),
+                          left: mq.width * 0.335, right: mq.width * 0.03),
                       child: buildGallery3D());
                 })),
           ),
-          16.heightBox,
-          // AnimatedOpacity(
-          //   opacity: 1,
-          //   duration: const Duration(milliseconds: 400),
-          //   child: Text(cardStringsList[currentIndex]),
-          // )
+          SizedBox(
+            height: mq.height * 0.01,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Column(children: [
               Text(
                 cardStringsList[currentIndex],
-                style: const TextStyle(
-                    fontSize: 22,
+                style: TextStyle(
+                    fontSize: mq.width * 0.054,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
-              16.heightBox,
+              SizedBox(
+                height: mq.height * 0.02,
+              ),
               Container(
-                height: 80,
+                height: mq.height * 0.08,
                 // color: secondaryColor,
                 child: Text(descCardLlist[currentIndex],
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500)),
+                    style: TextStyle(
+                        fontSize: mq.width * 0.038,
+                        fontFamily: 'Univers',
+                        fontWeight: FontWeight.w300)),
               ),
-              8.heightBox,
               Column(
                 children: [
                   Container(
-                    height: mq.height * 0.1,
+                    height: mq.height * 0.11,
                     // color: primaryColor,
                     child: Row(
                       // mainAxisSize: MainAxisSize.min,
@@ -176,7 +177,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       children: [
                         Container(
                             margin: const EdgeInsets.only(top: 20),
-                            child: const Text('Intimacy Level')),
+                            child: const Text(
+                              'Intimacy level',
+                              style: TextStyle(
+                                  color: greyColor, fontFamily: 'Montserrat'),
+                            )),
                         20.widthBox,
                         Expanded(
                             child: Column(
@@ -234,7 +239,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                 ],
               ),
-              // SizedBox(height: mq.height*0.01,),
+              // Container(
+              //   color: primaryColor,
+              //   height: mq.height * 0.03,
+              // ),
             ]),
           ),
         ],

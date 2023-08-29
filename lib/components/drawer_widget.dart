@@ -23,7 +23,7 @@ Widget customDrawer() {
                 const Text("Follow us on socials",
                     style: TextStyle(
                         color: secondaryColor,
-                        fontSize: 18,
+                        fontSize: 16,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w500)),
               ],
@@ -34,22 +34,22 @@ Widget customDrawer() {
               children: [
                 SvgPicture.asset(
                   "assets/icons/drawer/Facebook.svg",
-                  width: 36,
+                  width: 32,
                 ),
                 20.widthBox,
                 Image.asset(
                   "assets/Instagram.png",
-                  width: 36,
+                  width: 32,
                 ),
                 20.widthBox,
                 SvgPicture.asset(
                   "assets/icons/drawer/Twitter.svg",
-                  width: 36,
+                  width: 32,
                 ),
                 20.widthBox,
                 SvgPicture.asset(
                   "assets/icons/drawer/Snapchat.svg",
-                  width: 36,
+                  width: 32,
                 ),
               ],
             )
@@ -67,7 +67,7 @@ Widget customDrawer() {
                 "Manage Subscription",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 20,
+                    fontSize: 16,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
@@ -80,7 +80,7 @@ Widget customDrawer() {
                 "Privacy Policy",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 20,
+                    fontSize: 16,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
@@ -93,7 +93,7 @@ Widget customDrawer() {
                 "Term of use",
                 style: TextStyle(
                     color: secondaryColor,
-                    fontSize: 20,
+                    fontSize: 16,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),

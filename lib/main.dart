@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'firebase_options.dart';
+import 'views/home/home.dart';
 late Size mq;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  SystemChrome.setSystemUIOverlayStyle(
+          const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((value) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

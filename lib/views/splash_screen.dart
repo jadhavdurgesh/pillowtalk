@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
 
     Future.delayed(const Duration(seconds: 2), () {
-      SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
       SystemChrome.setSystemUIOverlayStyle(
           const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
       image1 = Image.asset("assets/banner1.png");
@@ -56,71 +56,70 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(child: Container()),
-          // Logo file
-          Center(
-              child: Image.asset(
-            "assets/logo.png",
-            width: 130,
-            height: 130,
-          )),
-
-          28.heightBox,
-
-          const Text(
-            "PillowTalk",
-            style: TextStyle(
-              fontSize: 22,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500
-            ),
-          ),
-
-          16.heightBox,
-
-          const Text(
-            'Discovering the spark',
-            style: TextStyle(
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500
-            ),
-          ),
-
-          32.heightBox,
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (_, child) {
-              return Transform.rotate(
-                angle: _controller.value * 2 * math.pi,
-                child: child,
-              );
-            },
-            child: Container(
-                margin: const EdgeInsets.all(20.0),
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(child: Container()),
+            // Logo file
+            Center(
                 child: Image.asset(
-                  "assets/indicator.png",
-                  width: 40,
-                  height: 40,
-                  fit: BoxFit.fitWidth,
-                )),
-          ),
-          Expanded(child: Container()),
-          const Text(
-            "V1.2.1",
-            style: TextStyle(
-              color: lightColor,
-              fontFamily: 'Montserrat',
-              fontWeight: FontWeight.w500
-            ),
-          ),
+              "assets/logo.png",
+              width: 130,
+              height: 130,
+            )),
 
-          48.heightBox
-        ],
+            28.heightBox,
+
+            const Text(
+              "PillowTalk",
+              style: TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
+            ),
+
+            16.heightBox,
+
+            const Text(
+              'Discovering the spark',
+              style: TextStyle(
+                  fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+            ),
+
+            32.heightBox,
+            AnimatedBuilder(
+              animation: _controller,
+              builder: (_, child) {
+                return Transform.rotate(
+                  angle: _controller.value * 2 * math.pi,
+                  child: child,
+                );
+              },
+              child: Container(
+                  margin: const EdgeInsets.all(20.0),
+                  child: Image.asset(
+                    "assets/indicator.png",
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.fitWidth,
+                  )),
+            ),
+            Expanded(child: Container()),
+            const Text(
+              "V1.2.1",
+              style: TextStyle(
+                  color: lightColor,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
+            ),
+
+            48.heightBox
+          ],
+        ),
       ),
     );
   }
