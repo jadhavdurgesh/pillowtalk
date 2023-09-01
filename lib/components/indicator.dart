@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:pillowtalk/constants/colors.dart';
 
-Widget indicatorContainer(double top , double bottom, Color color){
+Widget indicatorContainer(double top, double bottom, double opacity) {
   return Container(
-            // color: Colors.yellow,
-            height: 60,
-            padding: EdgeInsets.only(top: top,bottom: bottom),
-            child: Container(
-              width: 9,
-              decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(16)
-              ),
-            ),
-          );
+    height: 60,
+    padding: EdgeInsets.only(top: top, bottom: bottom),
+    child: Container(
+      decoration: BoxDecoration(
+          color: lightColor, borderRadius: BorderRadius.circular(16)),
+      child: AnimatedOpacity(
+        duration: const Duration(seconds: 1),
+        opacity: opacity,
+        child: Container(
+          width: 9,
+          decoration: BoxDecoration(
+              color: primaryColor, borderRadius: BorderRadius.circular(16)),
+        ),
+      ),
+    ),
+  );
 }

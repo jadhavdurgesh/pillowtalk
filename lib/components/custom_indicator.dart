@@ -1,9 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/main.dart';
-
 import 'indicator.dart';
 
 class CustomIndicator extends StatefulWidget {
@@ -14,11 +11,9 @@ class CustomIndicator extends StatefulWidget {
     required this.context,
     required this.progressIndex,
   }) : super(key: key);
-
   @override
   State<CustomIndicator> createState() => _CustomIndicatorState();
 }
-
 class _CustomIndicatorState extends State<CustomIndicator> {
   @override
   Widget build(BuildContext context) {
@@ -30,49 +25,23 @@ class _CustomIndicatorState extends State<CustomIndicator> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          widget.progressIndex >= 1
-              ? indicatorContainer(21, 21, primaryColor)
-              : indicatorContainer(21, 21, lightColor),
-          widget.progressIndex >= 1
-              ? indicatorContainer(14, 14, primaryColor)
-              : indicatorContainer(14, 14, lightColor),
-          widget.progressIndex >= 1
-              ? indicatorContainer(14, 20, primaryColor)
-              : indicatorContainer(14, 20, lightColor),
-          widget.progressIndex >= 1
-              ? indicatorContainer(20, 14, primaryColor)
-              : indicatorContainer(20, 14, lightColor),
-          widget.progressIndex >= 2
-              ? indicatorContainer(14, 20, primaryColor)
-              : indicatorContainer(14, 20, lightColor),
-          widget.progressIndex >= 2
-              ? indicatorContainer(20, 14, primaryColor)
-              : indicatorContainer(20, 14, lightColor),
-          widget.progressIndex >= 2
-              ? indicatorContainer(14, 14, primaryColor)
-              : indicatorContainer(14, 14, lightColor),
-          widget.progressIndex >= 2
-              ? indicatorContainer(14, 20, primaryColor)
-              : indicatorContainer(14, 20, lightColor),
-          widget.progressIndex >= 3
-              ? indicatorContainer(20, 14, primaryColor)
-              : indicatorContainer(20, 14, lightColor),
-          widget.progressIndex >= 3
-              ? indicatorContainer(14, 20, primaryColor)
-              : indicatorContainer(14, 20, lightColor),
-          widget.progressIndex >= 3
-              ? indicatorContainer(14, 14, primaryColor)
-              : indicatorContainer(14, 14, lightColor),
-          widget.progressIndex >= 3
-              ? indicatorContainer(20, 14, primaryColor)
-              : indicatorContainer(20, 14, lightColor),
-          widget.progressIndex >= 3
-              ? indicatorContainer(14, 20, primaryColor)
-              : indicatorContainer(14, 20, lightColor),
-          indicatorContainer(20, 14, lightColor),
-          indicatorContainer(14, 20, lightColor),
-          indicatorContainer(20, 14, lightColor),
-          indicatorContainer(21, 21, lightColor),
+          indicatorContainer(21, 21, widget.progressIndex >= 1 ? 1.0 : 0.0,),
+          indicatorContainer(14, 14, widget.progressIndex >= 1 ? 1.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 1 ? 1.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 1 ? 1.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 2 ? 1.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 2 ? 1.0 : 0.0,),
+          indicatorContainer(14, 14, widget.progressIndex >= 2 ? 1.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 2 ? 1.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 3 ? 1.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 3 ? 1.0 : 0.0,),
+          indicatorContainer(14, 14, widget.progressIndex >= 3 ? 1.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 3 ? 1.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 2 ? 0.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 2 ? 0.0 : 0.0,),
+          indicatorContainer(14, 20, widget.progressIndex >= 2 ? 0.0 : 0.0,),
+          indicatorContainer(20, 14, widget.progressIndex >= 2 ? 0.0 : 0.0,),
+          indicatorContainer(21, 21, widget.progressIndex >= 1 ? 0.0 : 0.0,),
         ],
       ),
     );

@@ -2,6 +2,12 @@ const icCard1 = "assets/card1.png";
 const icCard2 = "assets/card2.png";
 const icCard3 = "assets/card3.png";
 const icCard4 = "assets/card4.png";
+const icCard5 = "assets/card5.png";
+const icCard6 = "assets/card6.png";
+const icCard7 = "assets/card7.png";
+const icCard8 = "assets/card8.png";
+const icCard9 = "assets/card9.png";
+const icCard10 = "assets/card10.png";
 
 const stringCard1 = "Ice Breaker";
 const stringCard2 = "Hobby & Interest";

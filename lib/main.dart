@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
+import 'package:pillowtalk/views/home/home_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'firebase_options.dart';
 import 'views/home/home.dart';
@@ -47,7 +48,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

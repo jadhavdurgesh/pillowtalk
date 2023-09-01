@@ -27,7 +27,7 @@ class NotificationCard extends StatelessWidget {
                       fontSize: 14,
                       fontFamily: 'Montserrat',
                       color: darkColor,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w600),
                 ),
                 TextSpan(
                   text: 'just send you a message',
@@ -38,6 +38,7 @@ class NotificationCard extends StatelessWidget {
                       fontWeight: FontWeight.w500),
                 )
               ])),
+              4.heightBox,
               const Text(
                 '15 minutes ago',
               )

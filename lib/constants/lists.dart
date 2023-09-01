@@ -9,23 +9,28 @@ final urlImages = [
 ];
 
 const cardImagesList = [
+  // icCard10,
+  // icCard9,
+  // icCard8,
+  icCard7,
+  icCard6,
+  icCard5,
   icCard4,
   icCard3,
   icCard2,
   icCard1,
 ];
-List<Image> cardImages = [
-  Image.asset(icCard1),
-  Image.asset(icCard2),
-  Image.asset(icCard3),
-  Image.asset(icCard4),
-];
-
 const cardStringsList = [
   stringCard1,
   stringCard2,
   stringCard3,
   stringCard4,
+  stringCard4,
+  stringCard4,
+  stringCard4,
+  // stringCard4,
+  // stringCard4,
+  // stringCard4,
 ];
 
 const descCardLlist = [
@@ -33,6 +38,12 @@ const descCardLlist = [
   descCard2,
   descCard3,
   descCard4,
+  descCard4,
+  descCard4,
+  descCard4,
+  // descCard4,
+  // descCard4,
+  // descCard4,
 ];
 
 final List<OnBoard> onboardDataList = [

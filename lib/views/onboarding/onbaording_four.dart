@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:math' as math;
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../components/create_account_dialog.dart';
@@ -17,7 +18,11 @@ class OnboardingFourScreen extends StatefulWidget {
   State<OnboardingFourScreen> createState() => _OnboardingFourScreenState();
 }
 
-class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
+class _OnboardingFourScreenState extends State<OnboardingFourScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller =
+      AnimationController(vsync: this, duration: const Duration(seconds: 2))
+        ..repeat();
   late Image image;
 
   @override
@@ -48,8 +53,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
         },
         pageBuilder: (context, animation, secondaryAnimation) {
           return Container();
-        }
-        );
+        });
   }
 
   Future<dynamic> showCreateAccountDialog() {
@@ -62,13 +66,13 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
           final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
           return Transform(
             transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
-            child: Opacity(opacity: a1.value, child: const CreateAccountDialog()),
+            child:
+                Opacity(opacity: a1.value, child: const CreateAccountDialog()),
           );
         },
         pageBuilder: (context, animation, secondaryAnimation) {
           return Container();
-        }
-        );
+        });
   }
 
   final emailController = TextEditingController();
@@ -157,6 +161,28 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen> {
               widthbox: 16,
               context: context,
               onPress: () {
+                Center(
+                  child: AnimatedBuilder(
+                    animation: _controller,
+                    builder: (_, child) {
+                      return Transform.rotate(
+                        angle: _controller.value * 2 * math.pi,
+                        child: child,
+                      );
+                    },
+                    child: Container(
+                        margin: const EdgeInsets.all(20.0),
+                        child: Image.asset(
+                          "assets/indicator.png",
+                          width: 40,
+                          height: 40,
+                          fit: BoxFit.fitWidth,
+                        )),
+                  ),
+                );
+                const CircularProgressIndicator(
+                  backgroundColor: primaryColor,
+                );
                 FirebaseAuthMethods(FirebaseAuth.instance)
                     .signInWithGoogle(context);
               },

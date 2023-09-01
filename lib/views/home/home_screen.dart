@@ -28,12 +28,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         controller: Gallery3DController(
           itemCount: cardImagesList.length,
           autoLoop: false,
-          minScale: 0.8,
+          minScale: 0.3,
+          // ellipseHeight: 50
         ),
-        width: MediaQuery.of(context).size.width * 0.7,
-        height: 300,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.width,
         isClip: false,
-        // padding: EdgeInsets.only(right: 20),
+        // padding: EdgeInsets.only(right: 20, left: 50),
         // currentIndex: currentIndex,
         onItemChanged: (index) {
           setState(() {
@@ -46,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           });
         },
         itemConfig: GalleryItemConfig(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width*0.66,
           height: MediaQuery.of(context).size.height,
-          radius: 12,
+          radius: 20,
           isShowTransformMask: false,
           // shadows: [
           //   BoxShadow(
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             height: mq.width * 0.02,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
               "Pick a card",
               style: TextStyle(
@@ -120,10 +121,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             height: mq.height * 0.02,
           ),
           Container(
-            height: mq.height * 0.42,
+            height: mq.height * 0.52,
             // color: primaryColor,
             // padding: const EdgeInsets.symmetric(horizontal: ),
-            alignment: Alignment.center,
+            // alignment: Alignment.center,
             child: PageView.builder(
                 controller: PageController(),
                 clipBehavior: Clip.hardEdge,
@@ -132,12 +133,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 // allowImplicitScrolling: true,
                 itemCount: 1,
                 itemBuilder: ((context, index) {
-                  return Container(
-                      // color: primaryColor,
-                      width: mq.width,
-                      padding: EdgeInsets.only(
-                          left: mq.width * 0.335, right: mq.width * 0.03),
-                      child: buildGallery3D());
+                  return Center(
+                    child: Container(
+                        // color: primaryColor,
+                        width: mq.width,
+                        padding: EdgeInsets.only(
+                            left: mq.width*0.001, right: mq.width * 0.2),
+                        child: buildGallery3D()),
+                  );
                 })),
           ),
           SizedBox(
