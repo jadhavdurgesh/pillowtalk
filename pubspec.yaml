@@ -99,7 +99,7 @@ flutter:
         - asset: assets/fonts/Univers/UniversCnRg.ttf
           weight: 500
         - asset: assets/fonts/Univers/UniversRegular.ttf
-          weight: 400
+          weight: 300
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
