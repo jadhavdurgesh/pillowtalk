@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pillowtalk/main.dart';
 
 import '../constants/colors.dart';
 
@@ -9,7 +10,11 @@ Widget customOutlineButton(
     double? height,
     double? width,
     double? widthbox,
+    Widget widget = const Center(),
+    bool isClick = false,
+    required BuildContext context,
     void Function()? onPress}) {
+      mq = MediaQuery.of(context).size;
   return OutlinedButton(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -17,18 +22,20 @@ Widget customOutlineButton(
       ),
       onPressed: onPress,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: mq.width*0.02),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               title!,
-              style: const TextStyle(
+              style: TextStyle(
+                fontSize: mq.width*0.035,
                   color: secondaryColor, fontWeight: FontWeight.w500),
             ),
             SizedBox(
               width: widthbox,
             ),
+            isClick ? widget :
             SvgPicture.asset(
               assetName!,
               width: width,

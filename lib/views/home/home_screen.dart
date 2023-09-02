@@ -12,6 +12,8 @@ import 'package:pillowtalk/constants/lists.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import 'message_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           });
         },
         itemConfig: GalleryItemConfig(
-          width: MediaQuery.of(context).size.width*0.66,
+          width: MediaQuery.of(context).size.width * 0.68,
           height: MediaQuery.of(context).size.height,
           radius: 20,
           isShowTransformMask: false,
@@ -62,9 +64,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Container(
                 // color: secondaryColor,
                 child: currentIndex == index
-                    ? Image.asset(cardImagesList[index])
+                    ? GestureDetector(
+                        onTap: () {
+                          // Get.back();
+                          Get.to(() => const MessageScreen(),
+                              transition: Transition.rightToLeftWithFade,
+                              duration: const Duration(milliseconds: 200));
+                        },
+                        child: Container(
+                            height: mq.height * 0.4,
+                            margin: const EdgeInsets.only(top: 16, left: 15),
+                            child: Image.asset(cardImagesList[index])))
                     : Container(
+                        height: mq.height * 0.5,
                         color: whiteColor,
+                        margin: const EdgeInsets.only(
+                          left: 30,
+                          right: 30,
+                        ),
                         child: Opacity(
                             opacity: 0.55,
                             child: Image.asset(cardImagesList[index])),
@@ -73,10 +90,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               right: mq.width * 0.1,
               bottom: 50,
               child: currentIndex == index
-                  ? Container(
-                      // color: Colors.black,
-                      child: SvgPicture.asset(
-                        'assets/icons/cardbutton.svg',
+                  ? GestureDetector(
+                      onTap: () {
+                        // Get.back();
+                        Get.to(() => const MessageScreen(),
+                            transition: Transition.rightToLeftWithFade,
+                            duration: const Duration(milliseconds: 200));
+                      },
+                      child: Container(
+                        // color: Colors.black,
+                        child: SvgPicture.asset(
+                          'assets/icons/cardbutton.svg',
+                        ),
                       ),
                     )
                   : Container(),
@@ -117,11 +142,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          SizedBox(
-            height: mq.height * 0.02,
-          ),
+          // SizedBox(
+          //   height: mq.height * 0.02,
+          // ),
           Container(
-            height: mq.height * 0.52,
+            height: mq.height * 0.45,
             // color: primaryColor,
             // padding: const EdgeInsets.symmetric(horizontal: ),
             // alignment: Alignment.center,
@@ -138,14 +163,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         // color: primaryColor,
                         width: mq.width,
                         padding: EdgeInsets.only(
-                            left: mq.width*0.001, right: mq.width * 0.2),
+                            left: mq.width * 0.001, right: mq.width * 0.2),
                         child: buildGallery3D()),
                   );
                 })),
           ),
-          SizedBox(
-            height: mq.height * 0.01,
-          ),
+          // SizedBox(
+          //   height: mq.height * 0.01,
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Column(children: [

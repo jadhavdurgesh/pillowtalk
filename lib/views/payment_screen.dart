@@ -115,6 +115,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   16.heightBox,
                   customOutlineButton(
+                    context: context,
                     title: "\$ BILLED YEARLY (BEST VALUE)",
                     assetName: "assets/icons/arrow.svg",
                     widthbox: 8,
@@ -122,6 +123,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                   16.heightBox,
                   customOutlineButton(
+                    context: context,
                     title: "\$Y BILLED MONTHLY",
                     assetName: "assets/icons/arrow.svg",
                     widthbox: 8,

@@ -81,6 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               //   height: mq.height*0.01,
               // ),
               customOutlineButton(
+                context: context,
                 assetName: "assets/icons/arrow.svg",
                 title: _pageIndex == onboardDataList.length - 1
                     ? "LET'S BEGIN"

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/code_textfield.dart';
+import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:math' as math;
@@ -32,6 +33,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
 
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return SafeArea(
       child: StatefulBuilder(builder: (stfContext, stfSetState) {
         return Dialog(
@@ -50,24 +52,29 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
+                  Text(
                     "Enter invite code",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: mq.width * 0.044,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w500),
                   ),
-                  8.heightBox,
-                  const Text(
+                  SizedBox(
+                    height: mq.width * 0.02,
+                  ),
+                  Text(
                     "When your partner invited you to Playdate, their message should included a 4 digit code.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 12,
+                        // fontSize: 12,
+                        fontSize: mq.width * 0.028,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w500),
                   ),
-                  16.heightBox,
+                  SizedBox(
+                    height: mq.width * 0.03,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -77,7 +84,9 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                       codeTextField(context: context),
                     ],
                   ),
-                  36.heightBox,
+                  SizedBox(
+                    height: mq.width * 0.06,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -108,6 +117,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                               ],
                             )
                           : customOutlineButton(
+                              context: context,
                               title: "ENTER",
                               assetName: "assets/icons/arrow.svg",
                               height: 22,

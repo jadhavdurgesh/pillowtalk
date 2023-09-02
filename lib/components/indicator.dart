@@ -9,7 +9,7 @@ Widget indicatorContainer(double top, double bottom, double opacity) {
       decoration: BoxDecoration(
           color: lightColor, borderRadius: BorderRadius.circular(16)),
       child: AnimatedOpacity(
-        duration: const Duration(seconds: 1),
+        duration: const Duration(milliseconds: 300),
         opacity: opacity,
         child: Container(
           width: 9,

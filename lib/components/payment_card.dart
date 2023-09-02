@@ -3,7 +3,9 @@ import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'outline_button.dart';
 
-Widget paymentCard() {
+Widget paymentCard(
+  BuildContext context
+) {
   return Container(
     // padding: const EdgeInsets.all(8),
     decoration: BoxDecoration(
@@ -50,6 +52,7 @@ Widget paymentCard() {
           ),
           16.heightBox,
           customOutlineButton(
+            context: context,
             title: "GET 5 FOR \$5",
             assetName: "assets/icons/arrow.svg",
             widthbox: 8,

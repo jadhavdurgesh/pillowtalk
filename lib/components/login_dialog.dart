@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/services/firebase_auth_methods.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../constants/colors.dart';
@@ -28,6 +29,7 @@ class _LoginDialogState extends State<LoginDialog> {
   final _formField = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return SafeArea(
       child: Dialog(
         backgroundColor: backgroundColor,
@@ -44,99 +46,106 @@ class _LoginDialogState extends State<LoginDialog> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
+                Text(
                   "Log in",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 18,
+                      fontSize: mq.width * 0.044,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.w500),
                 ),
-                24.heightBox,
+                SizedBox(
+                  height: mq.width * 0.04,
+                ),
                 Form(
                   key: _formField,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         "Email",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: mq.width * 0.034,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
-                        // height: 70,
-                        child: TextFormField(
-                          controller: emailController,
-                          validator: (value) {
-                            bool emailValid = RegExp(
-                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(value!);
-                            if (value.isEmpty) {
-                              return "Enter email";
-                            } else if (!emailValid) {
-                              return "Enter valid email";
-                            }
-                            return null;
-                          },
-                        ),
+                      TextFormField(
+                        autofocus: true,
+                        controller: emailController,
+                        decoration: const InputDecoration(isDense: true),
+                        validator: (value) {
+                          bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value!);
+                          if (value.isEmpty) {
+                            return "Enter email";
+                          } else if (!emailValid) {
+                            return "Enter valid email";
+                          }
+                          return null;
+                        },
                       ),
-                      16.heightBox,
-                      const Text(
+                      SizedBox(
+                        height: mq.width * 0.03,
+                      ),
+                      Text(
                         "Password",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: mq.width * 0.034,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
-                        // height: 70,
-                        child: TextFormField(
-                          controller: passController,
-                          obscureText: hidePass ? true : false,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return "Enter Password";
-                            } else if (value.length < 6) {
-                              return "Password length should be more than 6 characters";
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    hidePass = !hidePass;
-                                  });
-                                },
+                      TextFormField(
+                        controller: passController,
+                        obscureText: hidePass ? true : false,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Enter Password";
+                          } else if (value.length < 6) {
+                            return "Password length should be more than 6 characters";
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          isDense: true,
+                          suffix: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  hidePass = !hidePass;
+                                });
+                              },
+                              child: Container(
+                                height: mq.width * 0.05,
+                                width: mq.width * 0.08,
+                                // color: primaryColor,
                                 child: hidePass == true
-                                    ? const Icon(
+                                    ? Icon(
                                         Icons.visibility_off_outlined,
-                                        size: 22,
-                                        color: darkColor,
+                                        size: mq.width * 0.05,
                                       )
-                                    : const Icon(
+                                    : Icon(
                                         Icons.visibility_outlined,
-                                        size: 22,
-                                        color: darkColor,
-                                      )),
-                          ),
+                                        size: mq.width * 0.05,
+                                      ),
+                              )),
                         ),
                       ),
                     ],
                   ),
                 ),
-                36.heightBox,
+                SizedBox(
+                  height: mq.width*0.05,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     customOutlineButton(
+                      context: context,
                       title: "LOGIN",
                       assetName: "assets/icons/arrow.svg",
-                      height: 22,
-                      width: 22,
+                      height: mq.width*0.05,
+                      width: mq.width*0.05,
                       widthbox: 4.0,
                       onPress: () {
                         if (_formField.currentState!.validate()) {
@@ -146,16 +155,19 @@ class _LoginDialogState extends State<LoginDialog> {
                     ),
                   ],
                 ),
-                24.heightBox,
+                 SizedBox(
+                  height: mq.width*0.03,
+                ),
                 GestureDetector(
                     onTap: () {},
-                    child: const Text(
+                    child: Text(
                       "Forget Password?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w500,
-                          fontSize: 14,
+                          // fontSize: 14,
+                          fontSize: mq.width*0.0325,
                           color: secondaryColor,
                           decoration: TextDecoration.underline),
                     )),

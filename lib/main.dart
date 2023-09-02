@@ -7,6 +7,7 @@ import 'package:pillowtalk/views/home/home_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'firebase_options.dart';
 import 'views/home/home.dart';
+import 'views/onboarding/onbaording_four.dart';
 late Size mq;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +49,7 @@ class _MyAppState extends State<MyApp> {
         scaffoldBackgroundColor: backgroundColor,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
