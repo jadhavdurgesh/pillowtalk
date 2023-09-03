@@ -4,7 +4,7 @@ import 'package:pillowtalk/components/onboard_content.dart';
 import 'package:pillowtalk/components/outline_button.dart';
 import 'package:pillowtalk/constants/lists.dart';
 import 'package:pillowtalk/main.dart';
-import 'onbaording_four.dart';
+import '../authentication/onbaording_four.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

@@ -9,7 +9,8 @@ import '../../components/login_dialog.dart';
 import '../../components/sign_in_outline_button.dart';
 import '../../main.dart';
 import '../../services/firebase_auth_methods.dart';
-import 'onboarding_five.dart';
+import '../onboarding/onboarding_five.dart';
+
 class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
 
@@ -36,6 +37,13 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen>
     precacheImage(image.image, context);
     super.didChangeDependencies();
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Future<dynamic> showLoginDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",
@@ -53,6 +61,7 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen>
           return Container();
         });
   }
+
   Future<dynamic> showCreateAccountDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",
@@ -158,28 +167,28 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen>
               widthbox: 16,
               context: context,
               onPress: () {
-                Center(
-                  child: AnimatedBuilder(
-                    animation: _controller,
-                    builder: (_, child) {
-                      return Transform.rotate(
-                        angle: _controller.value * 2 * math.pi,
-                        child: child,
-                      );
-                    },
-                    child: Container(
-                        margin: const EdgeInsets.all(20.0),
-                        child: Image.asset(
-                          "assets/indicator.png",
-                          width: 40,
-                          height: 40,
-                          fit: BoxFit.fitWidth,
-                        )),
-                  ),
-                );
-                const CircularProgressIndicator(
-                  backgroundColor: primaryColor,
-                );
+                showDialog(
+                  barrierDismissible: false,
+                    context: context,
+                    builder: (_) => Center(
+                          child: AnimatedBuilder(
+                            animation: _controller,
+                            builder: (_, child) {
+                              return Transform.rotate(
+                                angle: _controller.value * 2 * math.pi,
+                                child: child,
+                              );
+                            },
+                            child: Container(
+                                margin: const EdgeInsets.all(20.0),
+                                child: Image.asset(
+                                  "assets/indicator.png",
+                                  width: 40,
+                                  height: 40,
+                                  fit: BoxFit.fitWidth,
+                                )),
+                          ),
+                        ));
                 FirebaseAuthMethods(FirebaseAuth.instance)
                     .signInWithGoogle(context);
               },

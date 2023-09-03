@@ -84,7 +84,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
               customOutlineButton(
                 context: context,
                 assetName: "assets/icons/arrow.svg",
-                title: isLoading ? "Awaiting partner" : "INVITE MY PARTNER",
+                title: isLoading ? "AWAITING PARTNER" : "INVITE MY PARTNER",
                 height: mq.width * 0.05,
                 width: mq.width * 0.05,
                 widthbox: 12,

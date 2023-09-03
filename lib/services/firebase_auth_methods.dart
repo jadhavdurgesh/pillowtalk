@@ -58,9 +58,18 @@ class FirebaseAuthMethods {
             accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
         UserCredential userCredential =
             await _auth.signInWithCredential(credential);
-        Get.offAll(() => const OnboardingFiveScreen());
+        Navigator.pop(context);
+        Get.offAll(() {
+          return const OnboardingFiveScreen();
+        },
+            duration: const Duration(milliseconds: 200),
+            transition: Transition.rightToLeftWithFade);
+      }
+      else if(googleAuth?.accessToken == null && googleAuth?.idToken == null){
+        Navigator.pop(context);
       }
     } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
       showSnackBar(context, e.message!);
     }
   }
