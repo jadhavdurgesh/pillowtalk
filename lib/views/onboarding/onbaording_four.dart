@@ -10,7 +10,6 @@ import '../../components/sign_in_outline_button.dart';
 import '../../main.dart';
 import '../../services/firebase_auth_methods.dart';
 import 'onboarding_five.dart';
-
 class OnboardingFourScreen extends StatefulWidget {
   const OnboardingFourScreen({super.key});
 
@@ -37,7 +36,6 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen>
     precacheImage(image.image, context);
     super.didChangeDependencies();
   }
-
   Future<dynamic> showLoginDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",
@@ -55,7 +53,6 @@ class _OnboardingFourScreenState extends State<OnboardingFourScreen>
           return Container();
         });
   }
-
   Future<dynamic> showCreateAccountDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",

@@ -41,7 +41,8 @@ class _LoginDialogState extends State<LoginDialog> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 color: backgroundColor),
-            padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
+            padding:
+                EdgeInsets.symmetric(vertical: mq.width * 0.05, horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
@@ -72,8 +73,14 @@ class _LoginDialogState extends State<LoginDialog> {
                       ),
                       TextFormField(
                         autofocus: true,
+                        cursorColor: secondaryColor,
                         controller: emailController,
-                        decoration: const InputDecoration(isDense: true),
+                        decoration: const InputDecoration(
+                            errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: darkColor)),
+                            focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: darkColor)),
+                            isDense: true),
                         validator: (value) {
                           bool emailValid = RegExp(
                                   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_'{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -103,12 +110,16 @@ class _LoginDialogState extends State<LoginDialog> {
                           if (value!.isEmpty) {
                             return "Enter Password";
                           } else if (value.length < 6) {
-                            return "Password length should be more than 6 characters";
+                            return "Password should be more than 6 characters";
                           }
                           return null;
                         },
                         decoration: InputDecoration(
                           isDense: true,
+                          errorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: darkColor)),
+                          focusedErrorBorder: const UnderlineInputBorder(
+                              borderSide: BorderSide(color: darkColor)),
                           suffix: GestureDetector(
                               onTap: () {
                                 setState(() {
@@ -135,7 +146,7 @@ class _LoginDialogState extends State<LoginDialog> {
                   ),
                 ),
                 SizedBox(
-                  height: mq.width*0.05,
+                  height: mq.width * 0.05,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -144,8 +155,8 @@ class _LoginDialogState extends State<LoginDialog> {
                       context: context,
                       title: "LOGIN",
                       assetName: "assets/icons/arrow.svg",
-                      height: mq.width*0.05,
-                      width: mq.width*0.05,
+                      height: mq.width * 0.05,
+                      width: mq.width * 0.05,
                       widthbox: 4.0,
                       onPress: () {
                         if (_formField.currentState!.validate()) {
@@ -155,8 +166,8 @@ class _LoginDialogState extends State<LoginDialog> {
                     ),
                   ],
                 ),
-                 SizedBox(
-                  height: mq.width*0.03,
+                SizedBox(
+                  height: mq.width * 0.03,
                 ),
                 GestureDetector(
                     onTap: () {},
@@ -167,7 +178,7 @@ class _LoginDialogState extends State<LoginDialog> {
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.w500,
                           // fontSize: 14,
-                          fontSize: mq.width*0.0325,
+                          fontSize: mq.width * 0.0325,
                           color: secondaryColor,
                           decoration: TextDecoration.underline),
                     )),

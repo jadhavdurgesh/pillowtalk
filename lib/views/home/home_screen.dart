@@ -31,6 +31,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           itemCount: cardImagesList.length,
           autoLoop: false,
           minScale: 0.3,
+          delayTime: 20000,
+          scrollTime: 20000
           // ellipseHeight: 50
         ),
         width: MediaQuery.of(context).size.width,
