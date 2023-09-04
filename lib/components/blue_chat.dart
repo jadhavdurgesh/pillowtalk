@@ -12,8 +12,8 @@ Widget blueMessage({context, String? text}) {
         Flexible(
           child: Container(
             padding: EdgeInsets.all(mq.width * 0.04),
-            margin: EdgeInsets.symmetric(
-              horizontal: mq.width * 0.04,
+            margin: EdgeInsets.only(
+              right: mq.width * 0.04,
             ),
             decoration: BoxDecoration(
                 color: Colors.blue[100],

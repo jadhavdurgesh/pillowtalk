@@ -45,11 +45,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             currentIndex = index;
           });
         },
-        // onClickItem: (index) {
-        //   setState(() {
-        //     currentIndex = index;
-        //   });
-        // },
+        onClickItem: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
         itemConfig: GalleryItemConfig(
           width: MediaQuery.of(context).size.width * 0.68,
           height: MediaQuery.of(context).size.height,

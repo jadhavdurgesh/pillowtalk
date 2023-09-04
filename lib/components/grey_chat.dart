@@ -18,7 +18,7 @@ Widget greyMessage({context, String? text}){
         Flexible(
           child: Container(
             padding: EdgeInsets.all(mq.width*0.04),
-            margin: EdgeInsets.symmetric(horizontal: mq.width*0.04,),
+            margin: EdgeInsets.only(left: mq.width*0.04,),
             decoration: BoxDecoration(
               color: Colors.grey[200],
               borderRadius: const BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10), bottomRight: Radius.circular(10))

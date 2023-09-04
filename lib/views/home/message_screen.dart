@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/message_card.dart';
+import 'package:pillowtalk/main.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../constants/colors.dart';
@@ -16,6 +17,7 @@ class MessageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return SafeArea(
       top: false,
       child: Scaffold(
@@ -29,10 +31,56 @@ class MessageScreen extends StatelessWidget {
                 color: darkColor,
                 size: 28,
               )),
+          title: Container(
+            // color: primaryColor,
+            width: mq.width * 0.4,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'My bunny 🐇',
+                  style: TextStyle(
+                      fontFamily: 'Univers',
+                      fontWeight: FontWeight.w500,
+                      fontSize: mq.width * 0.045),
+                ),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset('assets/icons/online_indicator.svg'),
+                      8.widthBox,
+                      Text(
+                        'Online',
+                        style: TextStyle(
+                            fontFamily: 'Univers',
+                            fontWeight: FontWeight.w300,
+                            fontSize: mq.width * 0.035),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           backgroundColor: backgroundColor,
+          forceMaterialTransparency: true,
           elevation: 0,
         ),
         body: const MessageCard(),
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(bottom: mq.width * 0.16),
+          child: FloatingActionButton(
+            backgroundColor: primaryColor,
+            onPressed: () {},
+            child: Center(
+                child: SvgPicture.asset(
+              'assets/icons/tapcards.svg',
+              fit: BoxFit.fitHeight,
+            )),
+          ),
+        ),
 
         // body: Center(
         //     child: StreamBuilder(

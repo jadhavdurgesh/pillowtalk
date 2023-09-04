@@ -6,6 +6,8 @@ import '../constants/colors.dart';
 
 Widget customDrawer() {
   return Drawer(
+    shadowColor: backgroundColor,
+    backgroundColor: backgroundColor,
       child: ListView(
     children: [
       DrawerHeader(

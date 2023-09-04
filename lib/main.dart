@@ -4,11 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/views/home/home_screen.dart';
+import 'package:pillowtalk/views/home/profile_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'experiment/chatgpt.dart';
 import 'firebase_options.dart';
 import 'views/home/home.dart';
 import 'views/authentication/onbaording_four.dart';
+import 'views/home/message_screen.dart';
 late Size mq;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,9 +50,10 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       theme: ThemeData(
         scaffoldBackgroundColor: backgroundColor,
+        useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const SplashScreen(),
+      home: const Home(),
     );
   }
 }

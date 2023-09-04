@@ -10,6 +10,7 @@ import '../../main.dart';
 import '../constants/colors.dart';
 import 'blue_chat.dart';
 import 'grey_chat.dart';
+import 'outline_button.dart';
 
 class MessageCard extends StatefulWidget {
   const MessageCard({super.key});
@@ -25,10 +26,9 @@ class _MessageCardState extends State<MessageCard> {
     mq = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () {
-        if(controller.isEmojiVisible.value){
+        if (controller.isEmojiVisible.value) {
           controller.isEmojiVisible.value = false;
-        }
-        else{
+        } else {
           Navigator.pop(context);
         }
         return Future.value(false);
@@ -45,14 +45,16 @@ class _MessageCardState extends State<MessageCard> {
                       child: Stack(
                         children: [
                           Image.asset("assets/tarot1.png"),
-                          const Positioned(
-                            left: 84,
-                            top: 70,
-                            child: SizedBox(
-                              width: 240,
+                          Positioned(
+                            left: mq.width*0.2,
+                            top: mq.width*0.16,
+                            child: Container(
+                              // color: primaryColor,
+                              width: mq.width*0.6,
                               child: Text(
                                 "“What is your best memory of me?”",
-                                style: TextStyle(color: whiteColor, fontSize: 25),
+                                style:
+                                    TextStyle(color: whiteColor, fontSize: mq.width*0.06),
                               ),
                             ),
                           ),
@@ -81,7 +83,8 @@ class _MessageCardState extends State<MessageCard> {
                             "I am still trying to hold my laugh when I think about the first time you met my parent. You were shaking in the car lol."),
                     greyMessage(
                         context: context,
-                        text: "Lol I still remember that. Stop laughing at me "),
+                        text:
+                            "Lol I still remember that. Stop laughing at me "),
                     blueMessage(
                         context: context,
                         text:
@@ -102,14 +105,16 @@ class _MessageCardState extends State<MessageCard> {
                       child: Stack(
                         children: [
                           Image.asset("assets/tarot2.png"),
-                          const Positioned(
-                            left: 70,
-                            top: 40,
-                            child: SizedBox(
-                              width: 290,
+                           Positioned(
+                            left: mq.width*0.18,
+                            top: mq.width*0.1,
+                            child: Container(
+                              // color: primaryColor,
+                              width: mq.width*0.65,
                               child: Text(
                                 "“What would you do first if you woke up as your partner?”",
-                                style: TextStyle(color: whiteColor, fontSize: 25),
+                                style:
+                                    TextStyle(color: whiteColor, fontSize: mq.width*0.06),
                               ),
                             ),
                           ),
@@ -136,6 +141,96 @@ class _MessageCardState extends State<MessageCard> {
                           color: Colors.grey[700], fontWeight: FontWeight.w300),
                     ),
                     16.heightBox,
+                    Container(
+                      // padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          color: backgroundColor,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: yellowColor),
+                          boxShadow: const [
+                            BoxShadow(color: lightColor, blurRadius: 10.0)
+                          ]),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 20),
+                        child: Column(
+                          children: [
+                            const Text(
+                              "Subscription perks",
+                              style: TextStyle(
+                                  color: secondaryColor,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            const Text(
+                              "All Present and future Levels",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            const Text(
+                              "New levels everymonth",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            const Text(
+                              "Complete Ad-free experience",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            const Text(
+                              "Purchases apply to both users",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            const Text(
+                              "Access to all premimium features in the future",
+                              style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            16.heightBox,
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 8),
+                              decoration: BoxDecoration(
+                                  color: Colors.lightBlue[100],
+                                  borderRadius: BorderRadius.circular(2)),
+                              child: const Text(
+                                "Share to partner",
+                                style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            16.heightBox,
+                            customOutlineButton(
+                              context: context,
+                              title: "\$ BILLED YEARLY (BEST VALUE)",
+                              assetName: "assets/icons/arrow.svg",
+                              widthbox: 8,
+                              onPress: () {},
+                            ),
+                            16.heightBox,
+                            customOutlineButton(
+                              context: context,
+                              title: "\$Y BILLED MONTHLY",
+                              assetName: "assets/icons/arrow.svg",
+                              widthbox: 8,
+                              onPress: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

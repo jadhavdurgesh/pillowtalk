@@ -37,6 +37,28 @@ class _HomeState extends State<Home> {
       top: false,
       child: Scaffold(
         appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'My bunny 🐇',
+                style: TextStyle(
+                    fontFamily: 'Univers',
+                    fontWeight: FontWeight.w500,
+                    fontSize: mq.width * 0.045),
+              ),
+              8.widthBox,
+              SvgPicture.asset('assets/icons/online_indicator.svg'),
+              8.widthBox,
+              Text(
+                'Online',
+                style: TextStyle(
+                    fontFamily: 'Univers',
+                    fontWeight: FontWeight.w300,
+                    fontSize: mq.width * 0.035),
+              )
+            ],
+          ),
           backgroundColor: backgroundColor,
           elevation: 0,
           iconTheme: const IconThemeData(color: darkColor),
@@ -44,7 +66,8 @@ class _HomeState extends State<Home> {
             builder: (context) {
               return IconButton(
                   onPressed: () => Scaffold.of(context).openDrawer(),
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
                   icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
             },
           ),
@@ -77,7 +100,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: mq.width*0.239,
+                width: mq.width * 0.239,
                 padding: const EdgeInsets.only(top: 8),
                 height: 60,
                 // color: primaryColor,
@@ -103,7 +126,7 @@ class _HomeState extends State<Home> {
                   );
                 },
                 child: Container(
-                  width: mq.width*0.239,
+                  width: mq.width * 0.239,
                   padding: const EdgeInsets.only(top: 8),
                   height: 60,
                   // color: primaryColor,
@@ -130,18 +153,19 @@ class _HomeState extends State<Home> {
                 },
                 child: Container(
                   // color: primaryColor,
-                  width: mq.width*0.239,
+                  width: mq.width * 0.239,
                   padding: const EdgeInsets.only(top: 8),
                   height: 60,
                   child: Column(
                     children: [
-                      SvgPicture.asset('assets/icons/message.svg',
-                      width: 22,
+                      SvgPicture.asset(
+                        'assets/icons/message.svg',
+                        width: 22,
                       ),
                       4.heightBox,
                       const Text(
                         'Message',
-                        style: TextStyle(color: whiteColor,fontSize: 12),
+                        style: TextStyle(color: whiteColor, fontSize: 12),
                       )
                     ],
                   ),
@@ -156,7 +180,7 @@ class _HomeState extends State<Home> {
                   );
                 },
                 child: Container(
-                  width: mq.width*0.239,
+                  width: mq.width * 0.239,
                   padding: const EdgeInsets.only(top: 8),
                   height: 60,
                   child: Column(
