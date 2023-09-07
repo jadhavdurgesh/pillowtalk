@@ -22,9 +22,10 @@ class MessageScreen extends StatelessWidget {
       top: false,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           leading: IconButton(
               onPressed: () {
-                Get.back(result: () => const Home());
+                Get.back();
               },
               icon: const Icon(
                 Icons.arrow_back,

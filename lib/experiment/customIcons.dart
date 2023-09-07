@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
-class CustomIcons {
-  static const IconData menu = IconData(0xe900, fontFamily: "CustomIcons");
-  static const IconData option = IconData(0xe902, fontFamily: "CustomIcons");
+class DryRun extends StatefulWidget {
+  const DryRun({super.key});
+
+  @override
+  State<DryRun> createState() => _DryRunState();
+}
+
+class _DryRunState extends State<DryRun> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        height: 50,
+        width: 100,
+        child: Lottie.asset('assets/json/Animation.json')),
+    );
+  }
 }

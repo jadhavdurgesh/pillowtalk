@@ -21,99 +21,22 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+var cardAspectRatio = 2 / 3;
+var widgetAspectRatio = cardAspectRatio * 1.55;
+
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   var isExpanded = false;
   int currentIndex = 0;
-
-  Widget buildGallery3D() {
-    return Gallery3D(
-        controller: Gallery3DController(
-          itemCount: cardImagesList.length,
-          autoLoop: false,
-          minScale: 0.3,
-          delayTime: 20000,
-          scrollTime: 20000
-          // ellipseHeight: 50
-        ),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.width,
-        isClip: false,
-        // padding: EdgeInsets.only(right: 20, left: 50),
-        // currentIndex: currentIndex,
-        onItemChanged: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        onClickItem: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        itemConfig: GalleryItemConfig(
-          width: MediaQuery.of(context).size.width * 0.68,
-          height: MediaQuery.of(context).size.height,
-          radius: 20,
-          isShowTransformMask: false,
-          // shadows: [
-          //   BoxShadow(
-          //       color: Color(0x90000000), offset: Offset(2, 0), blurRadius: 1)
-          // ]
-        ),
-        // onClickItem: (index) => print("currentIndex:$index"),
-        itemBuilder: (context, index) {
-          return Stack(children: [
-            Container(
-                // color: secondaryColor,
-                child: currentIndex == index
-                    ? GestureDetector(
-                        onTap: () {
-                          // Get.back();
-                          Get.to(() => const MessageScreen(),
-                              transition: Transition.rightToLeftWithFade,
-                              duration: const Duration(milliseconds: 200));
-                        },
-                        child: Container(
-                            height: mq.height * 0.4,
-                            margin: const EdgeInsets.only(top: 16, left: 15),
-                            child: Image.asset(cardImagesList[index])))
-                    : Container(
-                        height: mq.height * 0.5,
-                        color: whiteColor,
-                        margin: const EdgeInsets.only(
-                          left: 30,
-                          right: 30,
-                        ),
-                        child: Opacity(
-                            opacity: 0.55,
-                            child: Image.asset(cardImagesList[index])),
-                      )),
-            Positioned(
-              right: mq.width * 0.1,
-              bottom: 50,
-              child: currentIndex == index
-                  ? GestureDetector(
-                      onTap: () {
-                        // Get.back();
-                        Get.to(() => const MessageScreen(),
-                            transition: Transition.rightToLeftWithFade,
-                            duration: const Duration(milliseconds: 200));
-                      },
-                      child: Container(
-                        // color: Colors.black,
-                        child: SvgPicture.asset(
-                          'assets/icons/cardbutton.svg',
-                        ),
-                      ),
-                    )
-                  : Container(),
-            ),
-          ]);
-        });
-  }
-
+  var currentPage = cardImagesList.length - 1.0;
   @override
   Widget build(BuildContext context) {
+    PageController controller =
+        PageController(initialPage: cardImagesList.length - 1);
+    controller.addListener(() {
+      setState(() {
+        currentPage = controller.page!;
+      });
+    });
     mq = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
@@ -148,36 +71,37 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           //   height: mq.height * 0.02,
           // ),
           Container(
-            height: mq.height * 0.45,
             // color: primaryColor,
-            // padding: const EdgeInsets.symmetric(horizontal: ),
-            // alignment: Alignment.center,
-            child: PageView.builder(
-                controller: PageController(),
-                clipBehavior: Clip.hardEdge,
-                // padEnds: false,
-                // reverse: false,
-                // allowImplicitScrolling: true,
-                itemCount: 1,
-                itemBuilder: ((context, index) {
-                  return Center(
-                    child: Container(
-                        // color: primaryColor,
-                        width: mq.width,
-                        padding: EdgeInsets.only(
-                            left: mq.width * 0.001, right: mq.width * 0.2),
-                        child: buildGallery3D()),
-                  );
-                })),
+            height: mq.height * 0.45,
+            child: Center(
+              child: Column(
+                children: [
+                  Stack(
+                    children: <Widget>[
+                      CardScrollWidget(currentPage),
+                      Positioned.fill(
+                        child: PageView.builder(
+                          itemCount: cardImagesList.length,
+                          controller: controller,
+                          reverse: true,
+                          itemBuilder: (context, index) {
+                            return Container(
+                                // color: primaryColor,
+                                );
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
-          // SizedBox(
-          //   height: mq.height * 0.01,
-          // ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Column(children: [
               Text(
-                cardStringsList[currentIndex],
+                cardStringsList[currentPage.round().toInt()],
                 style: TextStyle(
                     fontSize: mq.width * 0.054,
                     fontFamily: 'Montserrat',
@@ -189,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               Container(
                 height: mq.height * 0.08,
                 // color: secondaryColor,
-                child: Text(descCardLlist[currentIndex],
+                child: Text(descCardLlist[currentPage.round().toInt()],
                     style: TextStyle(
                         fontSize: mq.width * 0.038,
                         fontFamily: 'Univers',
@@ -219,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           children: [
                             CustomIndicator(
                               context: context,
-                              progressIndex: currentIndex,
+                              progressIndex: currentPage.round().toInt(),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -277,6 +201,70 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
         ],
       ),
+    );
+  }
+}
+
+class CardScrollWidget extends StatelessWidget {
+  var currentPage;
+  var padding = 0.0;
+  var verticalInset = 30.0;
+  CardScrollWidget(this.currentPage, {super.key});
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: widgetAspectRatio,
+      child: LayoutBuilder(builder: (context, contraints) {
+        var width = contraints.maxWidth;
+        var height = contraints.maxHeight;
+
+        var safeWidth = width - 2 * padding;
+        var safeHeight = height - 2 * padding;
+
+        var heightOfPrimaryCard = safeHeight;
+        var widthOfPrimaryCard = heightOfPrimaryCard * cardAspectRatio;
+
+        var primaryCardLeft = safeWidth - widthOfPrimaryCard;
+        var horizontalInset = primaryCardLeft / 2;
+
+        List<Widget>? cardList = [];
+
+        for (var i = 0; i < cardImagesList.length; i++) {
+          var delta = i - currentPage;
+          bool isOnRight = delta > 0;
+
+          var start = padding +
+              max(
+                  primaryCardLeft -
+                      horizontalInset * -delta * (isOnRight ? 15 : 1),
+                  0.0);
+
+          var cardItem = Positioned.directional(
+            top: padding + verticalInset * max(-delta, 0.0),
+            bottom: padding + verticalInset * max(-delta, 0.0),
+            start: start,
+            textDirection: TextDirection.rtl,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(36.0),
+              child: Container(
+                child: AspectRatio(
+                  aspectRatio: cardAspectRatio,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      Image.asset(cardImagesList[i], fit: BoxFit.fill),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+          cardList.add(cardItem);
+        }
+        return Stack(
+          children: cardList,
+        );
+      }),
     );
   }
 }
