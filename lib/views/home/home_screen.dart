@@ -14,6 +14,8 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'message_screen.dart';
 
+int currentIndex = 0;
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -26,7 +28,6 @@ var widgetAspectRatio = cardAspectRatio * 1.55;
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   var isExpanded = false;
-  int currentIndex = 0;
   var currentPage = cardImagesList.length - 1.0;
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     controller.addListener(() {
       setState(() {
         currentPage = controller.page!;
+        currentIndex == currentPage;
       });
     });
     mq = MediaQuery.of(context).size;
@@ -212,6 +214,7 @@ class CardScrollWidget extends StatelessWidget {
   CardScrollWidget(this.currentPage, {super.key});
   @override
   Widget build(BuildContext context) {
+    print(currentIndex);
     return AspectRatio(
       aspectRatio: widgetAspectRatio,
       child: LayoutBuilder(builder: (context, contraints) {
@@ -250,9 +253,17 @@ class CardScrollWidget extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: cardAspectRatio,
                   child: Stack(
-                    fit: StackFit.expand,
+                    // fit: StackFit.expand,
                     children: <Widget>[
                       Image.asset(cardImagesList[i], fit: BoxFit.fill),
+                      Positioned(
+                          bottom: mq.width * 0.14,
+                          right: mq.width * 0.08,
+                          child: i == currentPage
+                              ? SvgPicture.asset(
+                                  'assets/icons/cardbutton.svg',
+                                )
+                              : Container()),
                     ],
                   ),
                 ),

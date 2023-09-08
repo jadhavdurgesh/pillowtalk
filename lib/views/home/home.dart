@@ -21,183 +21,128 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentNavIndex = 0;
-  final List<Widget> navBody = [
+  final PageStorageBucket _pageStorageBucket = PageStorageBucket();
+
+  // Define the screens for the bottom navigation bar
+  final List<Widget> navScreens = [
     const HomeScreen(),
     const DiscoverScreen(),
     const MessageScreen(),
     const ProfileScreen(),
   ];
 
-  final PageStorageBucket _pageStorageBucket = PageStorageBucket();
+  // Define the bottom navigation items
+  final List<BottomNavigationBarItem> navItems = [
+    BottomNavigationBarItem(
+      icon: SvgPicture.asset('assets/icons/home.svg'),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      icon: SvgPicture.asset('assets/icons/discover.svg'),
+      label: 'Discover',
+    ),
+    BottomNavigationBarItem(
+      icon: SvgPicture.asset('assets/icons/message.svg', width: 22),
+      label: 'Message',
+    ),
+    BottomNavigationBarItem(
+      icon: SvgPicture.asset('assets/icons/profile.svg'),
+      label: 'Profile',
+    ),
+  ];
+
   Widget currentScreen = const HomeScreen();
+
   @override
   Widget build(BuildContext context) {
-    mq = MediaQuery.of(context).size;
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'My bunny 🐇',
-                style: TextStyle(
-                    fontFamily: 'Univers',
-                    fontWeight: FontWeight.w500,
-                    fontSize: mq.width * 0.045),
+    final mq = MediaQuery.of(context).size;
+
+    // Define a function to handle bottom navigation bar item selection
+    void onNavItemTapped(int index) {
+      setState(() {
+        currentNavIndex = index;
+        currentScreen = navScreens[index];
+      });
+    }
+
+    // Exclude the bottom navigation bar on the message screen
+    if (currentNavIndex == 2) {
+      return Scaffold(
+        body: currentScreen,
+      );
+    }
+
+    // For other screens, show the bottom navigation bar
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'My bunny 🐇',
+              style: TextStyle(
+                fontFamily: 'Univers',
+                fontWeight: FontWeight.w500,
+                fontSize: mq.width * 0.045,
               ),
-              8.widthBox,
-              SvgPicture.asset('assets/icons/online_indicator.svg'),
-              8.widthBox,
-              Text(
-                'Online',
-                style: TextStyle(
-                    fontFamily: 'Univers',
-                    fontWeight: FontWeight.w300,
-                    fontSize: mq.width * 0.035),
-              )
-            ],
-          ),
-          backgroundColor: backgroundColor,
-          elevation: 0,
-          iconTheme: const IconThemeData(color: darkColor),
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                  onPressed: () => Scaffold.of(context).openDrawer(),
-                  tooltip:
-                      MaterialLocalizations.of(context).openAppDrawerTooltip,
-                  icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"));
-            },
-          ),
-          actions: [
-            InkWell(
-              onTap: () {
-                Get.to(() => const NotificationScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 200));
-              },
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: SvgPicture.asset(
-                    "assets/icons/notification.svg",
-                    width: 26,
-                  ),
-                ),
+            ),
+            8.widthBox,
+            SvgPicture.asset('assets/icons/online_indicator.svg'),
+            8.widthBox,
+            Text(
+              'Online',
+              style: TextStyle(
+                fontFamily: 'Univers',
+                fontWeight: FontWeight.w300,
+                fontSize: mq.width * 0.035,
               ),
-            )
+            ),
           ],
         ),
-        drawer: customDrawer(),
-        body: PageStorage(bucket: _pageStorageBucket, child: currentScreen),
-        bottomNavigationBar: Container(
-          height: 56,
-          color: secondaryColor,
-          padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                width: mq.width * 0.239,
-                padding: const EdgeInsets.only(top: 8),
-                height: 60,
-                // color: primaryColor,
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      'assets/icons/home.svg',
-                    ),
-                    4.heightBox,
-                    const Text(
-                      'Home',
-                      style: TextStyle(color: whiteColor, fontSize: 12),
-                    )
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Get.to(
-                    () => const DiscoverScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 200),
-                  );
-                },
-                child: Container(
-                  width: mq.width * 0.239,
-                  padding: const EdgeInsets.only(top: 8),
-                  height: 60,
-                  // color: primaryColor,
-                  child: Column(
-                    children: [
-                      SvgPicture.asset('assets/icons/discover.svg'),
-                      4.heightBox,
-                      const Text(
-                        'Discover',
-                        style: TextStyle(color: whiteColor, fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Get.back();
-                  Get.to(
-                    () => const MessageScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 200),
-                  );
-                },
-                child: Container(
-                  // color: primaryColor,
-                  width: mq.width * 0.239,
-                  padding: const EdgeInsets.only(top: 8),
-                  height: 60,
-                  child: Column(
-                    children: [
-                      SvgPicture.asset(
-                        'assets/icons/message.svg',
-                        width: 22,
-                      ),
-                      4.heightBox,
-                      const Text(
-                        'Message',
-                        style: TextStyle(color: whiteColor, fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  Get.to(
-                    () => const ProfileScreen(),
-                    transition: Transition.rightToLeftWithFade,
-                    duration: const Duration(milliseconds: 200),
-                  );
-                },
-                child: Container(
-                  width: mq.width * 0.239,
-                  padding: const EdgeInsets.only(top: 8),
-                  height: 60,
-                  child: Column(
-                    children: [
-                      SvgPicture.asset('assets/icons/profile.svg'),
-                      4.heightBox,
-                      const Text(
-                        'Profile',
-                        style: TextStyle(color: whiteColor, fontSize: 12),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+        backgroundColor: backgroundColor,
+        elevation: 0,
+        iconTheme: const IconThemeData(color: darkColor),
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+              onPressed: () => Scaffold.of(context).openDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              icon: SvgPicture.asset("assets/icons/drawer/drawer.svg"),
+            );
+          },
         ),
+        actions: [
+          InkWell(
+            onTap: () {
+              Get.back();
+              Get.to(() => const NotificationScreen(),
+                  transition: Transition.rightToLeftWithFade,
+                  duration: const Duration(milliseconds: 200));
+            },
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: SvgPicture.asset(
+                  "assets/icons/notification.svg",
+                  width: 26,
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+      drawer: customDrawer(),
+      body: PageStorage(bucket: _pageStorageBucket, child: currentScreen),
+      bottomNavigationBar: BottomNavigationBar(
+        items: navItems,
+        currentIndex: currentNavIndex,
+        onTap: onNavItemTapped,
+        selectedItemColor: whiteColor,
+        unselectedItemColor: whiteColor,
+        backgroundColor: secondaryColor,
+        type: BottomNavigationBarType.fixed,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
       ),
     );
   }

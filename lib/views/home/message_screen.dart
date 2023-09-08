@@ -25,7 +25,10 @@ class MessageScreen extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
-                Get.back();
+                Get.offAll(
+                  () => const Home(),
+                  //  transition: Transition.leftToRightWithFade, duration: const Duration(milliseconds: 200)
+                );
               },
               icon: const Icon(
                 Icons.arrow_back,

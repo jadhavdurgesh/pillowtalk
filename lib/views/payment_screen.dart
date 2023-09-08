@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:pillowtalk/constants/colors.dart';
+import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../components/outline_button.dart';
@@ -18,7 +21,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back(result: ()=> const Home());
+            },
             icon: SvgPicture.asset(
               "assets/icons/cross.svg",
             )),

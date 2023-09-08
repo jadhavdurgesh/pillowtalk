@@ -20,7 +20,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
        appBar: AppBar(
               leading: IconButton(
                   onPressed: () {
-                    Get.back(result: () => const Home());
+                    Get.back();
                   },
                   icon: const Icon(Icons.arrow_back, color: darkColor, size: 28,)
                   ),
