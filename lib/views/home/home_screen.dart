@@ -80,6 +80,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 Positioned.fill(
                   child: PageView.builder(
                     itemCount: cardImagesList.length,
+                    physics: ScrollPhysics(),
                     controller: controller,
                     reverse: true,
                     itemBuilder: (context, index) {
@@ -240,7 +241,7 @@ class CardScrollWidget extends StatelessWidget {
           var start = padding +
               max(
                   primaryCardLeft -
-                      horizontalInset * -delta * (isOnRight ? 15 : 1),
+                      horizontalInset * -delta * (isOnRight ? 4 : 1),
                   0.0);
 
           var cardItem = Positioned.directional(

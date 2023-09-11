@@ -19,7 +19,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
   Future<dynamic> showEnterCodeDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",
-        transitionDuration: const Duration(milliseconds: 300),
+        transitionDuration: const Duration(milliseconds: 250),
         context: context,
         barrierDismissible: true,
         transitionBuilder: (context, a1, a2, widget) {
@@ -113,7 +113,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
                   Future.delayed(const Duration(seconds: 1), () {
                     Get.offAll(() => const Home(),
                         transition: Transition.rightToLeftWithFade,
-                        duration: const Duration(milliseconds: 300));
+                        duration: const Duration(milliseconds: 250));
                   });
                 },
               ),

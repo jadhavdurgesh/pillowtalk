@@ -96,10 +96,8 @@ class _HomeState extends State<Home> {
           setState(() {
             currentNavIndex = 0;
           });
-          pageController.animateToPage(
+          pageController.jumpToPage(
             0,
-            duration: const Duration(milliseconds: 2000),
-            curve: Curves.linear,
           );
           return false;
         },
@@ -117,10 +115,8 @@ class _HomeState extends State<Home> {
           setState(() {
             currentNavIndex = 0;
           });
-          pageController.animateToPage(
+          pageController.jumpToPage(
             0,
-            duration: const Duration(milliseconds: 200),
-            curve: Curves.easeInOut,
           );
           return false;
         }
