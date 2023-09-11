@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:pillowtalk/views/onboarding/onboarding_five.dart';
 import 'dart:math' as math;
 import '../constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'authentication/onbaording_four.dart';
 import 'onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -34,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
       image1 = Image.asset("assets/banner1.png");
       image2 = Image.asset("assets/banner2.png");
       image3 = Image.asset("assets/banner3.png");
-      Get.off(() => const OnboardingScreen(),
+      Get.off(() => const OnboardingFourScreen(),
           transition: Transition.noTransition);
     });
   }

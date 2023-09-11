@@ -36,13 +36,13 @@ dependencies:
   firebase_core: ^2.15.0
   flutter:
     sdk: flutter
-  flutter_gallery_3d: ^1.1.1
   flutter_svg: ^1.0.0
   get: ^4.6.5
   google_fonts: ^4.0.4
   google_sign_in: ^6.1.4
   http: ^0.13.4
   lottie: ^2.6.0
+  sliding_clipped_nav_bar: ^3.1.0+4
   velocity_x: ^4.1.0
 
 dev_dependencies:

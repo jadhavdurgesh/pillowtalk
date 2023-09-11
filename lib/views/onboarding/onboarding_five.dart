@@ -113,7 +113,7 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
                   Future.delayed(const Duration(seconds: 1), () {
                     Get.offAll(() => const Home(),
                         transition: Transition.rightToLeftWithFade,
-                        duration: const Duration(milliseconds: 200));
+                        duration: const Duration(milliseconds: 300));
                   });
                 },
               ),

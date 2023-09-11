@@ -13,7 +13,7 @@ Widget customDrawer() {
           DrawerHeader(
             child: Column(
               children: [
-                20.heightBox,
+                30.heightBox,
                 Row(
                   children: [
                     SvgPicture.asset(
@@ -54,7 +54,7 @@ Widget customDrawer() {
                       width: 32,
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -63,11 +63,10 @@ Widget customDrawer() {
             child: Column(
               children: [
                 Row(children: [
-                  SvgPicture.asset(
-                      "assets/icons/drawer/manage_subscription.svg"),
+                  SvgPicture.asset("assets/icons/drawer/textsms.svg"),
                   12.widthBox,
                   const Text(
-                    "Manage Subscription",
+                    "Feedback",
                     style: TextStyle(
                         color: secondaryColor,
                         fontSize: 16,
@@ -77,23 +76,10 @@ Widget customDrawer() {
                 ]),
                 20.heightBox,
                 Row(children: [
-                  SvgPicture.asset("assets/icons/drawer/fingerprint.svg"),
+                  SvgPicture.asset("assets/icons/drawer/help.svg"),
                   12.widthBox,
                   const Text(
-                    "Privacy Policy",
-                    style: TextStyle(
-                        color: secondaryColor,
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                        fontWeight: FontWeight.w500),
-                  ),
-                ]),
-                20.heightBox,
-                Row(children: [
-                  SvgPicture.asset("assets/icons/drawer/termofuse.svg"),
-                  12.widthBox,
-                  const Text(
-                    "Term of use",
+                    "Help",
                     style: TextStyle(
                         color: secondaryColor,
                         fontSize: 16,

@@ -39,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Get.to(()=> const PaymentScreen());
+                Get.to(() => const PaymentScreen());
               },
               child: Container(
                 child: Padding(
@@ -115,6 +115,21 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(
+                        height: mq.width * 0.04,
+                      ),
+                      Row(children: [
+                        SvgPicture.asset("assets/icons/drawer/help.svg"),
+                        16.widthBox,
+                        Text(
+                          "Help",
+                          style: TextStyle(
+                              // color: secondaryColor,
+                              fontSize: mq.width * 0.045,
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ]),
                       SizedBox(
                         height: mq.width * 0.04,
                       ),

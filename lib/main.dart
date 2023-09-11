@@ -3,26 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-import 'package:pillowtalk/experiment/customIcons.dart';
+import 'package:pillowtalk/views/home/home.dart';
 import 'package:pillowtalk/views/home/home_screen.dart';
-import 'package:pillowtalk/views/home/profile_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'experiment/experiment.dart';
 import 'firebase_options.dart';
-import 'views/home/home.dart';
-import 'views/authentication/onbaording_four.dart';
-import 'views/home/message_screen.dart';
+
 late Size mq;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   SystemChrome.setSystemUIOverlayStyle(
-          const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((value) async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((value) async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    runApp(const MyApp());
   });
 }
 
@@ -36,7 +35,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   late Size mq;
 
-   @override
+  @override
   void didChangeDependencies() {
     // Adjust the provider based on the image type
     super.didChangeDependencies();
@@ -44,6 +43,7 @@ class _MyAppState extends State<MyApp> {
     precacheImage(const AssetImage("assets/banner2.webp"), context);
     precacheImage(const AssetImage("assets/banner3.webp"), context);
   }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const Home(),
+      home: const HomeScreen(),
     );
   }
 }

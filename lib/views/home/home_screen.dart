@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_gallery_3d/gallery3d.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/custom_indicator.dart';
@@ -74,29 +72,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           // ),
           Container(
             // color: primaryColor,
+            width: double.infinity,
             height: mq.height * 0.45,
-            child: Center(
-              child: Column(
-                children: [
-                  Stack(
-                    children: <Widget>[
-                      CardScrollWidget(currentPage),
-                      Positioned.fill(
-                        child: PageView.builder(
-                          itemCount: cardImagesList.length,
-                          controller: controller,
-                          reverse: true,
-                          itemBuilder: (context, index) {
-                            return Container(
-                                // color: primaryColor,
-                                );
-                          },
+            child: Stack(
+              children: <Widget>[
+                CardScrollWidget(currentPage),
+                Positioned.fill(
+                  child: PageView.builder(
+                    itemCount: cardImagesList.length,
+                    controller: controller,
+                    reverse: true,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Get.to(() => const MessageScreen(),
+                              transition: Transition.rightToLeftWithFade,
+                              duration: const Duration(milliseconds: 200));
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: mq.width*0.375),
+                          color: Colors.transparent,
                         ),
-                      )
-                    ],
+                      );
+                    },
                   ),
-                ],
-              ),
+                )
+              ],
             ),
           ),
           Padding(
@@ -110,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     fontWeight: FontWeight.w500),
               ),
               SizedBox(
-                height: mq.height * 0.02,
+                height: mq.height * 0.01,
               ),
               Container(
                 height: mq.height * 0.08,
@@ -214,9 +215,9 @@ class CardScrollWidget extends StatelessWidget {
   CardScrollWidget(this.currentPage, {super.key});
   @override
   Widget build(BuildContext context) {
-    print(currentIndex);
-    return AspectRatio(
-      aspectRatio: widgetAspectRatio,
+    // print(currentPage);
+    return Container(
+      // color: secondaryColor,
       child: LayoutBuilder(builder: (context, contraints) {
         var width = contraints.maxWidth;
         var height = contraints.maxHeight;
@@ -247,27 +248,9 @@ class CardScrollWidget extends StatelessWidget {
             bottom: padding + verticalInset * max(-delta, 0.0),
             start: start,
             textDirection: TextDirection.rtl,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(36.0),
-              child: Container(
-                child: AspectRatio(
-                  aspectRatio: cardAspectRatio,
-                  child: Stack(
-                    // fit: StackFit.expand,
-                    children: <Widget>[
-                      Image.asset(cardImagesList[i], fit: BoxFit.fill),
-                      Positioned(
-                          bottom: mq.width * 0.14,
-                          right: mq.width * 0.08,
-                          child: i == currentPage
-                              ? SvgPicture.asset(
-                                  'assets/icons/cardbutton.svg',
-                                )
-                              : Container()),
-                    ],
-                  ),
-                ),
-              ),
+            child: AspectRatio(
+              aspectRatio: cardAspectRatio,
+              child: Image.asset(cardImagesList[i], fit: BoxFit.fill),
             ),
           );
           cardList.add(cardItem);

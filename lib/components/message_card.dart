@@ -141,93 +141,113 @@ class _MessageCardState extends State<MessageCard> {
                           color: Colors.grey[700], fontWeight: FontWeight.w300),
                     ),
                     16.heightBox,
-                    Container(
-                      // padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          color: backgroundColor,
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: yellowColor),
-                          boxShadow: const [
-                            BoxShadow(color: lightColor, blurRadius: 10.0)
-                          ]),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 20, horizontal: 20),
-                        child: Column(
-                          children: [
-                            const Text(
-                              "Subscription perks",
-                              style: TextStyle(
-                                  color: secondaryColor,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            const Text(
-                              "All Present and future Levels",
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            const Text(
-                              "New levels everymonth",
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            const Text(
-                              "Complete Ad-free experience",
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            const Text(
-                              "Purchases apply to both users",
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            const Text(
-                              "Access to all premimium features in the future",
-                              style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            16.heightBox,
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 8),
-                              decoration: BoxDecoration(
-                                  color: Colors.lightBlue[100],
-                                  borderRadius: BorderRadius.circular(2)),
-                              child: const Text(
-                                "Share to partner",
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        // padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                            color: backgroundColor,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: yellowColor),
+                            boxShadow: const [
+                              BoxShadow(color: lightColor, blurRadius: 10.0)
+                            ]),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: mq.width*0.05, horizontal: mq.width*0.05),
+                          child: Column(
+                            children: [
+                              Text(
+                                "Subscription perks",
                                 style: TextStyle(
-                                    fontFamily: 'Roboto',
+                                    color: secondaryColor,
+                                    fontSize: mq.width*0.04,
+                                    fontFamily: 'Montserrat',
                                     fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            16.heightBox,
-                            customOutlineButton(
-                              context: context,
-                              title: "\$ BILLED YEARLY (BEST VALUE)",
-                              assetName: "assets/icons/arrow.svg",
-                              widthbox: 8,
-                              onPress: () {},
-                            ),
-                            16.heightBox,
-                            customOutlineButton(
-                              context: context,
-                              title: "\$Y BILLED MONTHLY",
-                              assetName: "assets/icons/arrow.svg",
-                              widthbox: 8,
-                              onPress: () {},
-                            ),
-                          ],
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              Text(
+                                "All Present and future Levels",
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: mq.width*0.032,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              Text(
+                                "New levels everymonth",
+                                style: TextStyle(
+                                  fontSize: mq.width*0.032,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              Text(
+                                "Complete Ad-free experience",
+                                style: TextStyle(
+                                  fontSize: mq.width*0.032,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              Text(
+                                "Purchases apply to both users",
+                                style: TextStyle(
+                                  fontSize: mq.width*0.032,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              // 16.heightBox,
+                              // const Text(
+                              //   "Access to all premimium features in the future",
+                              //   style: TextStyle(
+                              //       fontFamily: 'Montserrat',
+                              //       fontWeight: FontWeight.w500),
+                              // ),
+                              // 16.heightBox,
+                              // Container(
+                              //   padding: const EdgeInsets.symmetric(
+                              //       horizontal: 12, vertical: 8),
+                              //   decoration: BoxDecoration(
+                              //       color: Colors.lightBlue[100],
+                              //       borderRadius: BorderRadius.circular(2)),
+                              //   child: const Text(
+                              //     "Share to partner",
+                              //     style: TextStyle(
+                              //         fontFamily: 'Roboto',
+                              //         fontWeight: FontWeight.w500),
+                              //   ),
+                              // ),
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              customOutlineButton(
+                                context: context,
+                                title: "\$ BILLED YEARLY (BEST VALUE)",
+                                assetName: "assets/icons/arrow.svg",
+                                widthbox: 8,
+                                onPress: () {},
+                              ),
+                              SizedBox(
+                                height: mq.width*0.03,
+                              ),
+                              customOutlineButton(
+                                context: context,
+                                title: "\$Y BILLED MONTHLY",
+                                assetName: "assets/icons/arrow.svg",
+                                widthbox: 8,
+                                onPress: () {},
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

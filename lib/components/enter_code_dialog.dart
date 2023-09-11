@@ -132,7 +132,7 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                                       transition:
                                           Transition.rightToLeftWithFade,
                                       duration:
-                                          const Duration(milliseconds: 200));
+                                          const Duration(milliseconds: 400));
                                 });
                               },
                             ),

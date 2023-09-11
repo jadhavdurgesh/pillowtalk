@@ -8,7 +8,7 @@ Widget codeTextField({context}) {
   mq = MediaQuery.of(context).size;
   return Container(
     // color: primaryColor,
-    height: mq.width * 0.15,
+    height: mq.width * 0.16,
     width: mq.width * 0.14,
     child: Center(
       child: TextField(
