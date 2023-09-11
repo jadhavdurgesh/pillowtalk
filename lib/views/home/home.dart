@@ -69,11 +69,23 @@ class _HomeState extends State<Home> {
       setState(() {
         currentNavIndex = index;
         // currentScreen = navScreens[index];
-        pageController.animateToPage(
-          index,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeInOut,
-        );
+        if (index == 3) {
+          // If the Profile screen is selected (index 3),
+          // navigate directly to the Profile screen.
+          pageController.jumpToPage(
+            index,
+          );
+        } else {
+          // For other screens, use the PageView to navigate.
+          pageController.jumpToPage(
+            index,
+          );
+        }
+        // pageController.animateToPage(
+        //   index,
+        //   duration: const Duration(milliseconds: 200),
+        //   curve: Curves.easeInOut,
+        // );
       });
     }
 
@@ -174,7 +186,7 @@ class _HomeState extends State<Home> {
         ),
         drawer: customDrawer(),
         body: PageView.builder(
-          pageSnapping: false,
+          // pageSnapping: false,
           controller: pageController,
           physics: NeverScrollableScrollPhysics(),
           itemCount: navScreens.length,

@@ -37,25 +37,31 @@ class _PaymentScreenState extends State<PaymentScreen> {
           Center(
               child: Image.asset(
             "assets/illustration3.png",
-            width: 220,
+            width: mq.width * 0.45,
           )),
-          const Text(
+          Text(
             'Passion is high',
             style: TextStyle(
-                fontSize: 20,
+                fontSize: mq.width * 0.045,
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w500),
           ),
-          12.heightBox,
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 28.0),
+          SizedBox(
+            height: mq.width * 0.015,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: Text(
               "Continue the conversation and ignite the sparks with premium intimacy card packs.",
               style: TextStyle(
-                  fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
+                  fontSize: mq.width * 0.032,
+                  fontFamily: 'Montserrat',
+                  fontWeight: FontWeight.w500),
             ),
           ),
-          20.heightBox,
+          SizedBox(
+            height: mq.width * 0.04,
+          ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
@@ -67,7 +73,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ]),
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  vertical: mq.width * 0.05, horizontal: mq.width * 0.05),
+                  vertical: mq.width * 0.03, horizontal: mq.width * 0.05),
               child: Column(
                 children: [
                   Text(
@@ -79,7 +85,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   Text(
                     "All Present and future Levels",
@@ -89,7 +95,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   Text(
                     "New levels everymonth",
@@ -99,7 +105,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   Text(
                     "Complete Ad-free experience",
@@ -119,7 +125,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   const Text(
                     "Access to all premimium features in the future",
@@ -127,11 +133,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         fontFamily: 'Montserrat', fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: mq.width * 0.02, vertical: mq.width * 0.02),
                     decoration: BoxDecoration(
                         color: Colors.lightBlue[100],
                         borderRadius: BorderRadius.circular(2)),
@@ -142,7 +148,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   customOutlineButton(
                     context: context,
@@ -152,7 +158,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                     onPress: () {},
                   ),
                   SizedBox(
-                    height: mq.width * 0.03,
+                    height: mq.width * 0.02,
                   ),
                   customOutlineButton(
                     context: context,

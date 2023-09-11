@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }
