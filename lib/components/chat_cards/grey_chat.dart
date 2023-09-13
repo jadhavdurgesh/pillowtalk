@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 Widget greyMessage({context, String? text}){
 

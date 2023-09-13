@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 import 'package:pillowtalk/controllers/controllers.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../main.dart';
-import '../constants/colors.dart';
+import '../../../main.dart';
+import '../../constants/colors.dart';
 import 'blue_chat.dart';
 import 'grey_chat.dart';
-import 'outline_button.dart';
+import '../buttons/outline_button.dart';
 
 class MessageCard extends StatefulWidget {
   const MessageCard({super.key});

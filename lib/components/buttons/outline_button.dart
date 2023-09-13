@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pillowtalk/main.dart';
 
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 
-Widget customSignInOutlineButton(
+Widget customOutlineButton(
     {String? title,
     String? assetName,
     double? height,
     double? width,
     double? widthbox,
-    context,
-    // double? startwidth,
+    Widget widget = const Center(),
+    bool isClick = false,
+    required BuildContext context,
     void Function()? onPress}) {
-
+      mq = MediaQuery.of(context).size;
   return OutlinedButton(
       style: OutlinedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -20,30 +22,25 @@ Widget customSignInOutlineButton(
       ),
       onPressed: onPress,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: mq.width*0.02),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(width: MediaQuery.of(context).size.height*0.07,),
+            Text(
+              title!,
+              style: TextStyle(
+                fontSize: mq.width*0.035,
+                  color: secondaryColor, fontWeight: FontWeight.w500),
+            ),
+            SizedBox(
+              width: widthbox,
+            ),
+            isClick ? widget :
             SvgPicture.asset(
               assetName!,
               width: width,
               height: height,
             ),
-            SizedBox(
-              width: widthbox,
-            ),
-            Text(
-              title!,
-              style: const TextStyle(
-                fontFamily: 'Roboto',
-                color: secondaryColor,
-                fontWeight: FontWeight.w500
-              ),
-            ),
-            const Spacer(flex: 1,),
-            // SizedBox(width: MediaQuery.of(context).size.height*0.07,),
-
           ],
         ),
       ));

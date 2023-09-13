@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'outline_button.dart';
+import 'buttons/outline_button.dart';
 
 Widget paymentCard(
   BuildContext context

@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pillowtalk/components/dialog_box/forget_pass.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/services/firebase_auth_methods.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../constants/colors.dart';
-import 'outline_button.dart';
+import '../../constants/colors.dart';
+import '../buttons/outline_button.dart';
 
 class LoginDialog extends StatefulWidget {
   const LoginDialog({super.key});
@@ -13,9 +14,28 @@ class LoginDialog extends StatefulWidget {
   State<LoginDialog> createState() => _LoginDialogState();
 }
 
-class _LoginDialogState extends State<LoginDialog> {
+class _LoginDialogState extends State<LoginDialog> with SingleTickerProviderStateMixin {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+
+  Future<dynamic> showForgetPasswordDialog() {
+    return showGeneralDialog(
+        barrierLabel: "Label",
+        transitionDuration: const Duration(milliseconds: 250),
+        context: context,
+        barrierDismissible: true,
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child: Opacity(opacity: a1.value, child: const ForgetPasswordDialog()),
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return Container();
+        });
+  }
+
 
 //Login Function
   loginUser() {
@@ -170,7 +190,10 @@ class _LoginDialogState extends State<LoginDialog> {
                   height: mq.width * 0.03,
                 ),
                 GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                      showForgetPasswordDialog();
+                    },
                     child: Text(
                       "Forget Password?",
                       textAlign: TextAlign.center,

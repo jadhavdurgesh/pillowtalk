@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/utils/showSnackBar.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../services/firebase_auth_methods.dart';
-import '../constants/colors.dart';
-import 'outline_button.dart';
+import '../../services/firebase_auth_methods.dart';
+import '../../constants/colors.dart';
+import '../buttons/outline_button.dart';
 
 class CreateAccountDialog extends StatefulWidget {
   const CreateAccountDialog({super.key});

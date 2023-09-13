@@ -7,7 +7,7 @@ import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../components/outline_button.dart';
+import '../components/buttons/outline_button.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});

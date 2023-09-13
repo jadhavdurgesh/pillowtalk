@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pillowtalk/components/message_card.dart';
+import 'package:pillowtalk/components/chat_cards/message_card.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:velocity_x/velocity_x.dart';
 

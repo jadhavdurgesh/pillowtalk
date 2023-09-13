@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
+import '../../main.dart';
 
 Widget blueMessage({context, String? text}) {
   mq = MediaQuery.of(context).size;

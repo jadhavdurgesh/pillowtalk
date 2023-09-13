@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pillowtalk/components/outline_button.dart';
+import 'package:pillowtalk/components/buttons/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
-import '../../components/enter_code_dialog.dart';
+import '../../components/dialog_box/enter_code_dialog.dart';
 import '../../main.dart';
 import 'dart:math' as math;
 

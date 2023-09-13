@@ -5,23 +5,42 @@ import 'package:pillowtalk/main.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'dart:math' as math;
-import '../constants/colors.dart';
-import 'outline_button.dart';
+import '../../constants/colors.dart';
+import '../buttons/outline_button.dart';
+import 'create_new_pass.dart';
 
-class EnterCodeDialog extends StatefulWidget {
-  const EnterCodeDialog({super.key});
+class ForgetPassCodeDialog extends StatefulWidget {
+  const ForgetPassCodeDialog({super.key});
 
   @override
-  State<EnterCodeDialog> createState() => _EnterCodeDialogState();
+  State<ForgetPassCodeDialog> createState() => _ForgetPassCodeDialogState();
 }
 
-class _EnterCodeDialogState extends State<EnterCodeDialog>
+class _ForgetPassCodeDialogState extends State<ForgetPassCodeDialog>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller =
       AnimationController(vsync: this, duration: const Duration(seconds: 2))
         ..repeat();
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  Future<dynamic> showCreateNewPassDialog() {
+    return showGeneralDialog(
+        barrierLabel: "Label",
+        transitionDuration: const Duration(milliseconds: 250),
+        context: context,
+        barrierDismissible: true,
+        transitionBuilder: (context, a1, a2, widget) {
+          final curvedValue = Curves.easeInOutBack.transform(a1.value) - 1.0;
+          return Transform(
+            transform: Matrix4.translationValues(0.0, curvedValue * 200, 0.0),
+            child:
+                Opacity(opacity: a1.value, child: const CreateNewPassDialog()),
+          );
+        },
+        pageBuilder: (context, animation, secondaryAnimation) {
+          return Container();
+        });
+  }
 
   @override
   void dispose() {
@@ -47,13 +66,14 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: backgroundColor),
-              padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 16),
+              padding: EdgeInsets.symmetric(
+                  vertical: mq.width * 0.15, horizontal: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Enter invite code",
+                    "Forgot password?",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: mq.width * 0.044,
@@ -61,14 +81,14 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: mq.width * 0.02,
+                    height: mq.width * 0.05,
                   ),
                   Text(
-                    "When your partner invited you to Playdate, their message should included a 4 digit code.",
+                    "Enter the 4 - digit code to reset your password",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         // fontSize: 12,
-                        fontSize: mq.width * 0.028,
+                        fontSize: mq.width * 0.03,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.w500),
                   ),
@@ -90,52 +110,28 @@ class _EnterCodeDialogState extends State<EnterCodeDialog>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      isLoading
-                          ? Row(
-                              children: [
-                                const Text(
-                                  'Entering',
-                                  style: TextStyle(color: lightColor),
-                                ),
-                                AnimatedBuilder(
-                                  animation: _controller,
-                                  builder: (_, child) {
-                                    return Transform.rotate(
-                                      angle: _controller.value * 2 * math.pi,
-                                      child: child,
-                                    );
-                                  },
-                                  child: Container(
-                                      margin: const EdgeInsets.all(10.0),
-                                      child: Image.asset(
-                                        "assets/indicator.png",
-                                        width: 20,
-                                        height: 20,
-                                        fit: BoxFit.fitWidth,
-                                      )),
-                                ),
-                              ],
-                            )
-                          : customOutlineButton(
-                              context: context,
-                              title: "ENTER",
-                              assetName: "assets/icons/arrow.svg",
-                              height: 22,
-                              width: 22,
-                              widthbox: 4.0,
-                              onPress: () {
-                                stfSetState(() {
-                                  isLoading = true;
-                                });
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  Get.offAll(() => const Home(),
-                                      transition:
-                                          Transition.rightToLeftWithFade,
-                                      duration:
-                                          const Duration(milliseconds: 400));
-                                });
-                              },
-                            ),
+                      customOutlineButton(
+                        context: context,
+                        title: "NEXT",
+                        assetName: "assets/icons/arrow.svg",
+                        height: 22,
+                        width: 22,
+                        widthbox: 4.0,
+                        onPress: () {
+                          stfSetState(() {
+                            isLoading = true;
+                          });
+                          // Future.delayed(const Duration(seconds: 1), () {
+                          //   Get.offAll(() => const Home(),
+                          //       transition:
+                          //           Transition.rightToLeftWithFade,
+                          //       duration:
+                          //           const Duration(milliseconds: 400));
+                          // });
+                          Navigator.pop(context);
+                          showCreateNewPassDialog();
+                        },
+                      ),
                     ],
                   ),
                 ],
