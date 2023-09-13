@@ -9,6 +9,7 @@ import 'package:pillowtalk/views/splash_screen.dart';
 import 'experiment/experiment.dart';
 import 'firebase_options.dart';
 import 'views/authentication/onbaording_four.dart';
+import 'views/onboarding/onboarding_screen.dart';
 
 late Size mq;
 void main() async {
@@ -55,7 +56,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: secondaryColor),
       ),
-      home: const OnboardingFourScreen(),
+      home: const SplashScreen(),
     );
   }
 }

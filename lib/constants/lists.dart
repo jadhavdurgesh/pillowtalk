@@ -47,9 +47,9 @@ const descCardLlist = [
 ];
 
 final List<OnBoard> onboardDataList = [
-  OnBoard(image: "assets/banner4.png", text: "Connecting with\nyour partner"),
-  OnBoard(image: "assets/banner5.png", text: "Deepen\ncommunication"),
-  OnBoard(image: "assets/banner6.png", text: "Strengthening\nintimacy"),
+  OnBoard(image: "assets/onboarding1.png", text: "Pair with your\npartner"),
+  OnBoard(image: "assets/onboarding2.png", text: "Pick a card pack to start the conversation "),
+  OnBoard(image: "assets/onboarding3.png", text: "Tap on the red button for the next card"),
 ];
 
 final List<String> sliderList = [

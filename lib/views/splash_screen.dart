@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
       image1 = Image.asset("assets/banner1.png");
       image2 = Image.asset("assets/banner2.png");
       image3 = Image.asset("assets/banner3.png");
-      Get.off(() => const OnboardingFourScreen(),
+      Get.off(() => const OnboardingScreen(),
           transition: Transition.noTransition);
     });
   }
