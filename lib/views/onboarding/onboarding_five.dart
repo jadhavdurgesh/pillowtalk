@@ -1,8 +1,14 @@
+import 'dart:math';
+
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/components/buttons/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
+import 'package:pillowtalk/services/firebase_dynamic_links.dart';
+import 'package:pillowtalk/views/authentication/onbaording_four.dart';
 import 'package:pillowtalk/views/home/home.dart';
+import 'package:pillowtalk/views/splash_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../components/dialog_box/enter_code_dialog.dart';
 import '../../main.dart';
@@ -16,6 +22,21 @@ class OnboardingFiveScreen extends StatefulWidget {
 
 class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
     with SingleTickerProviderStateMixin {
+  int _counter = 0;
+  DynamicLinkHelper dHelper = DynamicLinkHelper();
+  @override
+  void initState() {
+    super.initState();
+    dHelper.initDynamicLinks((openLink) {
+      print(openLink.link.path);
+      if (openLink.link.path == '/start') {
+        Get.to(() => SplashScreen());
+      } else if (openLink.link.path == '/start1') {
+        Get.to(() => OnboardingFourScreen());
+      }
+    });
+  }
+
   Future<dynamic> showEnterCodeDialog() {
     return showGeneralDialog(
         barrierLabel: "Label",
@@ -99,22 +120,35 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
                   child: Container(
                       // margin: const EdgeInsets.all(10.0),
                       child: Image.asset(
-                        "assets/indicator.png",
-                        width: 20,
-                        height: 20,
-                        fit: BoxFit.fitWidth,
-                      )),
+                    "assets/indicator.png",
+                    width: 20,
+                    height: 20,
+                    fit: BoxFit.fitWidth,
+                  )),
                 ),
                 isClick: isLoading,
                 onPress: () {
+                  String generateCode() {
+                    var random = Random();
+                    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                    String code = '';
+                    for (int i = 0; i < 6; i++) {
+                      code += characters[random.nextInt(characters.length)];
+                    }
+                    print(code);
+                    return code;
+                  }
+                  dHelper.createDynamicLink('start');
                   setState(() {
                     isLoading = true;
                   });
-                  Future.delayed(const Duration(seconds: 1), () {
-                    Get.offAll(() => const Home(),
-                        transition: Transition.rightToLeftWithFade,
-                        duration: const Duration(milliseconds: 250));
-                  });
+
+
+                  // Future.delayed(const Duration(seconds: 1), () {
+                  //   Get.offAll(() => const Home(),
+                  //       transition: Transition.rightToLeftWithFade,
+                  //       duration: const Duration(milliseconds: 250));
+                  // });
                 },
               ),
               8.heightBox,
