@@ -1,11 +1,13 @@
-import 'dart:math';
+
 
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pillowtalk/api/apis.dart';
 import 'package:pillowtalk/components/buttons/outline_button.dart';
 import 'package:pillowtalk/constants/colors.dart';
 import 'package:pillowtalk/services/firebase_dynamic_links.dart';
+import 'package:pillowtalk/services/pairing_service.dart';
 import 'package:pillowtalk/views/authentication/onbaording_four.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
@@ -23,19 +25,52 @@ class OnboardingFiveScreen extends StatefulWidget {
 class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
     with SingleTickerProviderStateMixin {
   int _counter = 0;
-  DynamicLinkHelper dHelper = DynamicLinkHelper();
+  // DynamicLinkHelper dHelper = DynamicLinkHelper();
+  PairingManager pairingService = PairingManager();
+
   @override
   void initState() {
     super.initState();
-    dHelper.initDynamicLinks((openLink) {
+    pairingService.initDynamicLinks((openLink) {
       print(openLink.link.path);
-      if (openLink.link.path == '/start') {
+      if (openLink.link.path == '/') {
         Get.to(() => SplashScreen());
       } else if (openLink.link.path == '/start1') {
         Get.to(() => OnboardingFourScreen());
       }
     });
+    handleDynamicLinks(); // Call the function to handle dynamic links
   }
+
+  void handleDynamicLinks() {
+    FirebaseDynamicLinks.instance.onLink.listen(
+        (PendingDynamicLinkData? dynamicLink) {
+      _handleLinkData(dynamicLink!);
+    }, onError: (e) {
+      // Handle errors here
+      print('Error: ${e.message}');
+    });
+  }
+
+void _handleLinkData(PendingDynamicLinkData? data) {
+  if (data != null) {
+    final Uri? deepLink = data.link;
+    if (deepLink != null) {
+      final String? uid = deepLink.queryParameters['uid'];
+      if (uid != null) {
+        print('Received UID from dynamic link: $uid');
+        // Now you can use the UID in your app
+      } else {
+        print('UID parameter is null in the dynamic link.');
+      }
+    } else {
+      print('Deep link is null in the dynamic link.');
+    }
+  } else {
+    print('PendingDynamicLinkData is null.');
+  }
+}
+
 
   Future<dynamic> showEnterCodeDialog() {
     return showGeneralDialog(
@@ -128,21 +163,37 @@ class _OnboardingFiveScreenState extends State<OnboardingFiveScreen>
                 ),
                 isClick: isLoading,
                 onPress: () {
-                  String generateCode() {
-                    var random = Random();
-                    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-                    String code = '';
-                    for (int i = 0; i < 6; i++) {
-                      code += characters[random.nextInt(characters.length)];
-                    }
-                    print(code);
-                    return code;
+                  // String generateCode() {
+                  //   var random = Random();
+                  //   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+                  //   String code = '';
+                  //   for (int i = 0; i < 6; i++) {
+                  //     code += characters[random.nextInt(characters.length)];
+                  //   }
+                  //   print(code);
+                  //   return code;
+                  // }
+                  // dHelper.createDynamicLink('start');
+                  // PairingManager().generateDynamicLink(APIs.auth.currentUser!.uid);
+                  var currentUser = APIs.auth.currentUser;
+                  if (currentUser != null) {
+                    pairingService.createDynamicLink(currentUser.uid);
+                    // print(currentUser.uid);
+                    print('handle dynamic chala raha tha yr ');
+                    // handleDynamicLink();
+                    print('i hope bc chal gaya hoga yr please');
+                    setState(() {
+                      isLoading = true;
+                    });
+                  } else {
+                    // Handle the case where the user is not authenticated.
+                    print('User not authenticated.');
                   }
-                  dHelper.createDynamicLink('start');
+
+                  // print(APIs.auth.currentUser!.uid);
                   setState(() {
                     isLoading = true;
                   });
-
 
                   // Future.delayed(const Duration(seconds: 1), () {
                   //   Get.offAll(() => const Home(),

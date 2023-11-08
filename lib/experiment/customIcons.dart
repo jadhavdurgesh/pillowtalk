@@ -12,10 +12,7 @@ class _DryRunState extends State<DryRun> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: 50,
-        width: 100,
-        child: Lottie.asset('assets/json/Animation.json')),
+      child: Container(child: Lottie.asset('assets/json/animationTable.json')),
     );
   }
 }

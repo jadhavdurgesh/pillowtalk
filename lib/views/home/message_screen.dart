@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pillowtalk/components/chat_cards/message_card.dart';
 import 'package:pillowtalk/main.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -61,7 +62,7 @@ class MessageScreen extends StatelessWidget {
                             fontFamily: 'Univers',
                             fontWeight: FontWeight.w300,
                             fontSize: mq.width * 0.035),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -79,10 +80,12 @@ class MessageScreen extends StatelessWidget {
             backgroundColor: primaryColor,
             onPressed: () {},
             child: Center(
-                child: SvgPicture.asset(
-              'assets/icons/tapcards.svg',
-              fit: BoxFit.fitHeight,
-            )),
+            //     child: SvgPicture.asset(
+            //   'assets/icons/tapcards.svg',
+            //   fit: BoxFit.fitHeight,
+            // )
+            child: Lottie.asset('assets/json/spritemap1.json'),
+            ),
           ),
         ),
 

@@ -70,139 +70,147 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           // SizedBox(
           //   height: mq.height * 0.02,
           // ),
-          Container(
-            // color: primaryColor,
-            width: double.infinity,
-            height: mq.height * 0.45,
-            child: Stack(
-              children: <Widget>[
-                CardScrollWidget(currentPage),
-                Positioned.fill(
-                  child: PageView.builder(
-                    itemCount: cardImagesList.length,
-                    physics: ScrollPhysics(),
-                    controller: controller,
-                    reverse: true,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Get.to(() => const MessageScreen(),
-                              transition: Transition.rightToLeftWithFade,
-                              duration: const Duration(milliseconds: 200));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(right: mq.width*0.375),
-                          color: Colors.transparent,
-                        ),
-                      );
-                    },
-                  ),
-                )
-              ],
+          12.heightBox,
+          Expanded(
+            flex: 16,
+            child: Container(
+              // color: primaryColor,
+              // padding: EdgeInsets.symmetric(horizontal: 12),
+              width: double.infinity,
+              height: mq.height * 0.45,
+              child: Stack(
+                children: <Widget>[
+                  CardScrollWidget(currentPage),
+                  Positioned.fill(
+                    child: PageView.builder(
+                      itemCount: cardImagesList.length,
+                      physics: ScrollPhysics(),
+                      controller: controller,
+                      reverse: true,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Get.to(() => const MessageScreen(),
+                                transition: Transition.rightToLeftWithFade,
+                                duration: const Duration(milliseconds: 200));
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: mq.width * 0.375),
+                            color: Colors.transparent,
+                          ),
+                        );
+                      },
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
+          8.heightBox,
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(children: [
-              Text(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Center(
+              child: Text(
                 cardStringsList[currentPage.round().toInt()],
                 style: TextStyle(
                     fontSize: mq.width * 0.054,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500),
               ),
-              SizedBox(
-                height: mq.height * 0.01,
-              ),
+            ),
+          ),
+          8.heightBox,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Container(
+              // color: primaryColor,
+              height: mq.width * 0.22,
+              child: Text(descCardLlist[currentPage.round().toInt()],
+                  style: TextStyle(
+                      fontSize: mq.width * 0.038,
+                      fontFamily: 'Univers',
+                      fontWeight: FontWeight.w300)),
+            ),
+          ),
+          Column(
+            children: [
               Container(
-                height: mq.height * 0.08,
-                // color: secondaryColor,
-                child: Text(descCardLlist[currentPage.round().toInt()],
-                    style: TextStyle(
-                        fontSize: mq.width * 0.038,
-                        fontFamily: 'Univers',
-                        fontWeight: FontWeight.w300)),
-              ),
-              Column(
-                children: [
-                  Container(
-                    height: mq.height * 0.11,
-                    // color: primaryColor,
-                    child: Row(
-                      // mainAxisSize: MainAxisSize.min,
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                // color: primaryColor,
+                // height: mq.width * 0.22,
+                // color: primaryColor,
+                child: Row(
+                  // mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                        margin: const EdgeInsets.only(top: 20),
+                        child: const Text(
+                          'Intimacy level',
+                          style: TextStyle(
+                              color: greyColor, fontFamily: 'Montserrat'),
+                        )),
+                    20.widthBox,
+                    Expanded(
+                        child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                            margin: const EdgeInsets.only(top: 20),
-                            child: const Text(
-                              'Intimacy level',
-                              style: TextStyle(
-                                  color: greyColor, fontFamily: 'Montserrat'),
-                            )),
-                        20.widthBox,
-                        Expanded(
-                            child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                        CustomIndicator(
+                          context: context,
+                          progressIndex: currentPage.round().toInt(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CustomIndicator(
-                              context: context,
-                              progressIndex: currentPage.round().toInt(),
+                            Flexible(
+                              flex: 1,
+                              child: Container(),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Flexible(
-                                  flex: 1,
-                                  child: Container(),
-                                ),
-                                const Text(
-                                  '😉',
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Flexible(
-                                  flex: 2,
-                                  child: Container(),
-                                ),
-                                const Text(
-                                  '👄',
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Flexible(
-                                  flex: 2,
-                                  child: Container(),
-                                ),
-                                const Text(
-                                  '👀',
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Flexible(
-                                  flex: 2,
-                                  child: Container(),
-                                ),
-                                const Text(
-                                  '😈',
-                                  style: TextStyle(fontSize: 20),
-                                ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Container(),
-                                ),
-                              ],
+                            const Text(
+                              '😉',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Flexible(
+                              flex: 2,
+                              child: Container(),
+                            ),
+                            const Text(
+                              '👄',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Flexible(
+                              flex: 2,
+                              child: Container(),
+                            ),
+                            const Text(
+                              '👀',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Flexible(
+                              flex: 2,
+                              child: Container(),
+                            ),
+                            const Text(
+                              '😈',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: Container(),
                             ),
                           ],
-                        )),
+                        ),
                       ],
-                    ),
-                  ),
-                ],
+                    )),
+                  ],
+                ),
               ),
-              // Container(
-              //   color: primaryColor,
-              //   height: mq.height * 0.03,
-              // ),
-            ]),
+            ],
           ),
+          Spacer(
+            flex: 1,
+          )
         ],
       ),
     );
@@ -241,7 +249,7 @@ class CardScrollWidget extends StatelessWidget {
           var start = padding +
               max(
                   primaryCardLeft -
-                      horizontalInset * -delta * (isOnRight ? 4 : 1),
+                      horizontalInset * -delta * (isOnRight ? 5 : 1),
                   0.0);
 
           var cardItem = Positioned.directional(
@@ -251,7 +259,10 @@ class CardScrollWidget extends StatelessWidget {
             textDirection: TextDirection.rtl,
             child: AspectRatio(
               aspectRatio: cardAspectRatio,
-              child: Image.asset(cardImagesList[i], fit: BoxFit.fill),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(cardImagesList[i], fit: BoxFit.fill),
+              ),
             ),
           );
           cardList.add(cardItem);

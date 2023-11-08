@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pillowtalk/views/home/home.dart';
 import '../utils/showSnackBar.dart';
 import '../views/onboarding/onboarding_five.dart';
 
@@ -20,6 +22,10 @@ class FirebaseAuthMethods {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      // Inside signUpWithEmail method
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+
       Get.back();
       Get.to(() => const OnboardingFiveScreen(),
           transition: Transition.rightToLeftWithFade,
@@ -29,6 +35,46 @@ class FirebaseAuthMethods {
       showSnackBar(context, e.message!);
     }
   }
+
+  // Register user in Firestore after successful email registration
+  // Future<void> registerUserInFirestore({
+  //   required String uid,
+  //   required String email,
+  //   required String displayName,
+  // }) async {
+  //   try {
+  //     await FirebaseFirestore.instance.collection('users').doc(uid).set({
+  //       'uid': uid,
+  //       'email': email,
+  //       'displayName': displayName,
+  //       // Add more fields as needed
+  //     });
+  //   } catch (e) {
+  //     print('Error registering user in Firestore: $e');
+  //   }
+  // }
+
+  // Get user information from Firestore using UID
+  // Future<User?> getUserFromFirestore(String uid) async {
+  //   try {
+  //     DocumentSnapshot userSnapshot =
+  //         await FirebaseFirestore.instance.collection('users').doc(uid).get();
+  //     if (userSnapshot.exists) {
+  //       Map<String, dynamic> userData =
+  //           userSnapshot.data() as Map<String, dynamic>;
+  //       return User(
+  //         uid: userData['uid'],
+  //         email: userData['email'],
+  //         displayName: userData['displayName'],
+  //         // Retrieve more fields as needed
+  //       );
+  //     }
+  //     return null;
+  //   } catch (e) {
+  //     print('Error getting user from Firestore: $e');
+  //     return null;
+  //   }
+  // }
 
   // Email Login
   Future<void> loginWithEmail({
@@ -54,6 +100,7 @@ class FirebaseAuthMethods {
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
       if (googleAuth?.accessToken != null && googleAuth?.idToken != null) {
+        print('${FirebaseAuth.instance.currentUser}');
         final credential = GoogleAuthProvider.credential(
             accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
         UserCredential userCredential =
@@ -64,13 +111,20 @@ class FirebaseAuthMethods {
         },
             duration: const Duration(milliseconds: 200),
             transition: Transition.rightToLeftWithFade);
-      }
-      else if(googleAuth?.accessToken == null && googleAuth?.idToken == null){
+      } else if (googleAuth?.accessToken == null &&
+          googleAuth?.idToken == null) {
         Navigator.pop(context);
       }
-    } on FirebaseAuthException catch (e) {
+      // else{
+      //   Get.offAll(() {
+      //     return const OnboardingFiveScreen();
+      //   },
+      //       duration: const Duration(milliseconds: 200),
+      //       transition: Transition.rightToLeftWithFade);
+      // }
+    } catch (e) {
       Navigator.pop(context);
-      showSnackBar(context, e.message!);
+      showSnackBar(context, 'Something went wrong(Check Internet!)');
     }
   }
   // Email verification
@@ -81,4 +135,16 @@ class FirebaseAuthMethods {
   //     showSnackBar(context, e.message!);
   //   }
   // }
+}
+
+class User {
+  final String uid;
+  final String email;
+  final String displayName; // Add more fields as needed
+
+  User({
+    required this.uid,
+    required this.email,
+    required this.displayName,
+  });
 }

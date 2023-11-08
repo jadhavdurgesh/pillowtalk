@@ -124,30 +124,30 @@ class _HomeState extends State<Home> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'My bunny 🐇',
-                style: TextStyle(
-                  fontFamily: 'Univers',
-                  fontWeight: FontWeight.w500,
-                  fontSize: mq.width * 0.045,
-                ),
-              ),
-              8.widthBox,
-              SvgPicture.asset('assets/icons/online_indicator.svg'),
-              8.widthBox,
-              Text(
-                'Online',
-                style: TextStyle(
-                  fontFamily: 'Univers',
-                  fontWeight: FontWeight.w300,
-                  fontSize: mq.width * 0.035,
-                ),
-              ),
-            ],
-          ),
+          // title: Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     // Text(
+          //     //   'My bunny 🐇',
+          //     //   style: TextStyle(
+          //     //     fontFamily: 'Univers',
+          //     //     fontWeight: FontWeight.w500,
+          //     //     fontSize: mq.width * 0.045,
+          //     //   ),
+          //     // ),
+          //     8.widthBox,
+          //     SvgPicture.asset('assets/icons/online_indicator.svg'),
+          //     8.widthBox,
+          //     Text(
+          //       'Online',
+          //       style: TextStyle(
+          //         fontFamily: 'Univers',
+          //         fontWeight: FontWeight.w300,
+          //         fontSize: mq.width * 0.035,
+          //       ),
+          //     ),
+            // ],
+          // ),
           backgroundColor: backgroundColor,
           elevation: 0,
           iconTheme: const IconThemeData(color: darkColor),

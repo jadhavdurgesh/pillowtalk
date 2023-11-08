@@ -1,16 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/constants/colors.dart';
-<<<<<<< Updated upstream
-=======
-import 'package:pillowtalk/services/firebase_dynamic_links.dart';
-import 'package:pillowtalk/views/authentication/onbaording_four.dart';
+import 'package:pillowtalk/experiment/customIcons.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:pillowtalk/views/home/home_screen.dart';
->>>>>>> Stashed changes
+import 'package:pillowtalk/views/home/message_screen.dart';
 import 'package:pillowtalk/views/splash_screen.dart';
 import 'firebase_options.dart';
 
@@ -39,20 +35,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late Size mq;
-  // int _counter = 0;
-  // DynamicLinkHelper dHelper = DynamicLinkHelper();
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   dHelper.initDynamicLinks((openLink) {
-  //     print(openLink.link.path);
-  //     if (openLink.link.path == '/start') {
-  //       Get.to(() => SplashScreen());
-  //     } else if (openLink.link.path == '/start1') {
-  //       Get.to(() => OnboardingFourScreen());
-  //     }
-  //   });
-  // }
 
   @override
   void didChangeDependencies() {

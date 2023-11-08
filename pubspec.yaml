@@ -32,22 +32,19 @@ dependencies:
   cloud_firestore: ^4.8.4
   cupertino_icons: ^1.0.2
   emoji_picker_flutter: ^1.6.1
-  firebase_analytics: ^10.6.2
   firebase_auth: ^4.7.2
-<<<<<<< Updated upstream
-  firebase_core: ^2.15.0
-=======
-  firebase_dynamic_links: ^5.4.2
->>>>>>> Stashed changes
+  # firebase_core: ^2.15.0
   flutter:
     sdk: flutter
   flutter_svg: ^1.0.0
+  share_plus: ^7.2.1
   get: ^4.6.5
   google_fonts: ^4.0.4
+  firebase_analytics: ^10.6.2
+  firebase_dynamic_links: ^5.4.2
   google_sign_in: ^6.1.4
   http: ^0.13.4
   lottie: ^2.6.0
-  share_plus: ^7.2.1
   sliding_clipped_nav_bar: ^3.1.0+4
   velocity_x: ^4.1.0
 
