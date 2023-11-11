@@ -14,7 +14,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "508803014569-u7192fjsqfc4kp2i3nmqcsf60cqfa394.apps.googleusercontent.com",
+          "client_id": "508803014569-0vtnj6cr48su0p692elqt7c2ks3eb481.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pillowtalk.gamesforcouples",
+            "certificate_hash": "27ac0c02d89afe7044b3282ce882913c19f9d400"
+          }
+        },
+        {
+          "client_id": "508803014569-g82iodk3iq1l69puq04gtvfuid8d7buc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pillowtalk.gamesforcouples",
+            "certificate_hash": "c7ecdacffbf307b6023b5ffb78ab3c80d267203e"
+          }
+        },
+        {
+          "client_id": "508803014569-jgetk6bes3g9c7sq53lt4e23dm1spchd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +43,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "508803014569-u7192fjsqfc4kp2i3nmqcsf60cqfa394.apps.googleusercontent.com",
+              "client_id": "508803014569-jgetk6bes3g9c7sq53lt4e23dm1spchd.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "508803014569-5dru4hlg7akitsj7092ggkhrqli60quv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pillowtalk"
+              }
             }
           ]
         }
