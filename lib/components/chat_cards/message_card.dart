@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pillowtalk/controllers/controllers.dart';
+import 'package:pillowtalk/utils/util.dart';
 import 'package:pillowtalk/views/home/home.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../../main.dart';
@@ -32,6 +33,14 @@ class MessageCard extends StatefulWidget {
 //       },
 class _MessageCardState extends State<MessageCard> {
   var controller = Get.put(ChatController());
+  File? image;
+
+  void selectedImage() async{
+    image = await pickImageFromGallery(BuildContext, context);
+    setState(() {
+      
+    });
+  }
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
@@ -314,7 +323,9 @@ class _MessageCardState extends State<MessageCard> {
         children: [
           8.widthBox,
           InkWell(
-            onTap: () {},
+            onTap: () {
+              selectedImage();
+            },
             child: Container(
               // color: secondaryColor,
               height: 40,

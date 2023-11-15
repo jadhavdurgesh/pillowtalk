@@ -80,11 +80,8 @@ class MessageScreen extends StatelessWidget {
             backgroundColor: primaryColor,
             onPressed: () {},
             child: Center(
-            //     child: SvgPicture.asset(
-            //   'assets/icons/tapcards.svg',
-            //   fit: BoxFit.fitHeight,
-            // )
-            child: Lottie.asset('assets/json/spritemap1.json'),
+              child: Lottie.asset('assets/json/tarot.json',
+                  fit: BoxFit.cover, repeat: false),
             ),
           ),
         ),
